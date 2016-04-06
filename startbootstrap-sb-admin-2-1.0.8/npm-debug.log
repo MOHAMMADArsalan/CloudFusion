@@ -1,0 +1,547 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'E:\\node\\\\node.exe',
+1 verbose cli   'E:\\node\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install' ]
+2 info using npm@2.11.3
+3 info using node@v0.12.7
+4 verbose readDependencies loading dependencies from D:\usufBhai\startbootstrap-sb-admin-2-1.0.8\package.json
+5 warn package.json holidayapp@1.0.0 No description
+6 warn package.json holidayapp@1.0.0 No repository field.
+7 warn package.json holidayapp@1.0.0 No README data
+8 verbose install where, deps [ 'D:\\usufBhai\\startbootstrap-sb-admin-2-1.0.8',
+8 verbose install   [ 'angular',
+8 verbose install     'angular-ui-router',
+8 verbose install     'bootstrap',
+8 verbose install     'datatables',
+8 verbose install     'datatables-plugins',
+8 verbose install     'flot',
+8 verbose install     'font-awesome',
+8 verbose install     'holderjs',
+8 verbose install     'metisMenu',
+8 verbose install     'morrisjs',
+8 verbose install     'datatables-responsive',
+8 verbose install     'bootstrap-social' ] ]
+9 verbose install where, peers [ 'D:\\usufBhai\\startbootstrap-sb-admin-2-1.0.8', [] ]
+10 verbose installManyTop reading for lifecycle D:\usufBhai\startbootstrap-sb-admin-2-1.0.8\package.json
+11 info preinstall holidayapp@1.0.0
+12 verbose installManyTop reading scoped package data from D:\usufBhai\startbootstrap-sb-admin-2-1.0.8\node_modules\angular\package.json
+13 verbose installManyTop reading scoped package data from D:\usufBhai\startbootstrap-sb-admin-2-1.0.8\node_modules\angular-ui-router\package.json
+14 verbose readDependencies loading dependencies from D:\usufBhai\startbootstrap-sb-admin-2-1.0.8\package.json
+15 verbose targetResolver reading package data from D:\usufBhai\startbootstrap-sb-admin-2-1.0.8\node_modules\angular\package.json
+16 verbose targetResolver reading package data from D:\usufBhai\startbootstrap-sb-admin-2-1.0.8\node_modules\angular-ui-router\package.json
+17 silly cache add args [ 'bootstrap-social@~4.8.0', null ]
+18 verbose cache add spec bootstrap-social@~4.8.0
+19 silly cache add parsed spec { raw: 'bootstrap-social@~4.8.0',
+19 silly cache add   scope: null,
+19 silly cache add   name: 'bootstrap-social',
+19 silly cache add   rawSpec: '~4.8.0',
+19 silly cache add   spec: '>=4.8.0 <4.9.0',
+19 silly cache add   type: 'range' }
+20 silly addNamed bootstrap-social@>=4.8.0 <4.9.0
+21 verbose addNamed ">=4.8.0 <4.9.0" is a valid semver range for bootstrap-social
+22 silly addNameRange { name: 'bootstrap-social',
+22 silly addNameRange   range: '>=4.8.0 <4.9.0',
+22 silly addNameRange   hasData: false }
+23 silly mapToRegistry name bootstrap-social
+24 silly mapToRegistry using default registry
+25 silly mapToRegistry registry https://registry.npmjs.org/
+26 silly mapToRegistry uri https://registry.npmjs.org/bootstrap-social
+27 verbose addNameRange registry:https://registry.npmjs.org/bootstrap-social not in flight; fetching
+28 verbose already installed skipping angular@^1.5.3 D:\usufBhai\startbootstrap-sb-admin-2-1.0.8
+29 silly cache add args [ 'bootstrap@~3.3.6', null ]
+30 verbose cache add spec bootstrap@~3.3.6
+31 silly cache add parsed spec { raw: 'bootstrap@~3.3.6',
+31 silly cache add   scope: null,
+31 silly cache add   name: 'bootstrap',
+31 silly cache add   rawSpec: '~3.3.6',
+31 silly cache add   spec: '>=3.3.6 <3.4.0',
+31 silly cache add   type: 'range' }
+32 silly addNamed bootstrap@>=3.3.6 <3.4.0
+33 verbose addNamed ">=3.3.6 <3.4.0" is a valid semver range for bootstrap
+34 silly addNameRange { name: 'bootstrap', range: '>=3.3.6 <3.4.0', hasData: false }
+35 silly mapToRegistry name bootstrap
+36 silly mapToRegistry using default registry
+37 silly mapToRegistry registry https://registry.npmjs.org/
+38 silly mapToRegistry uri https://registry.npmjs.org/bootstrap
+39 verbose addNameRange registry:https://registry.npmjs.org/bootstrap not in flight; fetching
+40 verbose already installed skipping angular-ui-router@^0.2.18 D:\usufBhai\startbootstrap-sb-admin-2-1.0.8
+41 silly cache add args [ 'datatables@~1.10.4', null ]
+42 verbose cache add spec datatables@~1.10.4
+43 silly cache add parsed spec { raw: 'datatables@~1.10.4',
+43 silly cache add   scope: null,
+43 silly cache add   name: 'datatables',
+43 silly cache add   rawSpec: '~1.10.4',
+43 silly cache add   spec: '>=1.10.4 <1.11.0',
+43 silly cache add   type: 'range' }
+44 silly addNamed datatables@>=1.10.4 <1.11.0
+45 verbose addNamed ">=1.10.4 <1.11.0" is a valid semver range for datatables
+46 silly addNameRange { name: 'datatables', range: '>=1.10.4 <1.11.0', hasData: false }
+47 silly mapToRegistry name datatables
+48 silly mapToRegistry using default registry
+49 silly mapToRegistry registry https://registry.npmjs.org/
+50 silly mapToRegistry uri https://registry.npmjs.org/datatables
+51 verbose addNameRange registry:https://registry.npmjs.org/datatables not in flight; fetching
+52 silly cache add args [ 'datatables-plugins@~1.0.1', null ]
+53 verbose cache add spec datatables-plugins@~1.0.1
+54 silly cache add parsed spec { raw: 'datatables-plugins@~1.0.1',
+54 silly cache add   scope: null,
+54 silly cache add   name: 'datatables-plugins',
+54 silly cache add   rawSpec: '~1.0.1',
+54 silly cache add   spec: '>=1.0.1 <1.1.0',
+54 silly cache add   type: 'range' }
+55 silly addNamed datatables-plugins@>=1.0.1 <1.1.0
+56 verbose addNamed ">=1.0.1 <1.1.0" is a valid semver range for datatables-plugins
+57 silly addNameRange { name: 'datatables-plugins',
+57 silly addNameRange   range: '>=1.0.1 <1.1.0',
+57 silly addNameRange   hasData: false }
+58 silly mapToRegistry name datatables-plugins
+59 silly mapToRegistry using default registry
+60 silly mapToRegistry registry https://registry.npmjs.org/
+61 silly mapToRegistry uri https://registry.npmjs.org/datatables-plugins
+62 verbose addNameRange registry:https://registry.npmjs.org/datatables-plugins not in flight; fetching
+63 silly cache add args [ 'flot@~0.8.3', null ]
+64 verbose cache add spec flot@~0.8.3
+65 silly cache add parsed spec { raw: 'flot@~0.8.3',
+65 silly cache add   scope: null,
+65 silly cache add   name: 'flot',
+65 silly cache add   rawSpec: '~0.8.3',
+65 silly cache add   spec: '>=0.8.3 <0.9.0',
+65 silly cache add   type: 'range' }
+66 silly addNamed flot@>=0.8.3 <0.9.0
+67 verbose addNamed ">=0.8.3 <0.9.0" is a valid semver range for flot
+68 silly addNameRange { name: 'flot', range: '>=0.8.3 <0.9.0', hasData: false }
+69 silly mapToRegistry name flot
+70 silly mapToRegistry using default registry
+71 silly mapToRegistry registry https://registry.npmjs.org/
+72 silly mapToRegistry uri https://registry.npmjs.org/flot
+73 verbose addNameRange registry:https://registry.npmjs.org/flot not in flight; fetching
+74 silly cache add args [ 'font-awesome@~4.2.0', null ]
+75 verbose cache add spec font-awesome@~4.2.0
+76 silly cache add parsed spec { raw: 'font-awesome@~4.2.0',
+76 silly cache add   scope: null,
+76 silly cache add   name: 'font-awesome',
+76 silly cache add   rawSpec: '~4.2.0',
+76 silly cache add   spec: '>=4.2.0 <4.3.0',
+76 silly cache add   type: 'range' }
+77 silly addNamed font-awesome@>=4.2.0 <4.3.0
+78 verbose addNamed ">=4.2.0 <4.3.0" is a valid semver range for font-awesome
+79 silly addNameRange { name: 'font-awesome', range: '>=4.2.0 <4.3.0', hasData: false }
+80 silly mapToRegistry name font-awesome
+81 silly mapToRegistry using default registry
+82 silly mapToRegistry registry https://registry.npmjs.org/
+83 silly mapToRegistry uri https://registry.npmjs.org/font-awesome
+84 verbose addNameRange registry:https://registry.npmjs.org/font-awesome not in flight; fetching
+85 silly cache add args [ 'holderjs@~2.4.1', null ]
+86 verbose cache add spec holderjs@~2.4.1
+87 silly cache add parsed spec { raw: 'holderjs@~2.4.1',
+87 silly cache add   scope: null,
+87 silly cache add   name: 'holderjs',
+87 silly cache add   rawSpec: '~2.4.1',
+87 silly cache add   spec: '>=2.4.1 <2.5.0',
+87 silly cache add   type: 'range' }
+88 silly addNamed holderjs@>=2.4.1 <2.5.0
+89 verbose addNamed ">=2.4.1 <2.5.0" is a valid semver range for holderjs
+90 silly addNameRange { name: 'holderjs', range: '>=2.4.1 <2.5.0', hasData: false }
+91 silly mapToRegistry name holderjs
+92 silly mapToRegistry using default registry
+93 silly mapToRegistry registry https://registry.npmjs.org/
+94 silly mapToRegistry uri https://registry.npmjs.org/holderjs
+95 verbose addNameRange registry:https://registry.npmjs.org/holderjs not in flight; fetching
+96 silly cache add args [ 'metisMenu@~1.1.3', null ]
+97 verbose cache add spec metisMenu@~1.1.3
+98 silly cache add parsed spec { raw: 'metisMenu@~1.1.3',
+98 silly cache add   scope: null,
+98 silly cache add   name: 'metisMenu',
+98 silly cache add   rawSpec: '~1.1.3',
+98 silly cache add   spec: '>=1.1.3 <1.2.0',
+98 silly cache add   type: 'range' }
+99 silly addNamed metisMenu@>=1.1.3 <1.2.0
+100 verbose addNamed ">=1.1.3 <1.2.0" is a valid semver range for metisMenu
+101 silly addNameRange { name: 'metisMenu', range: '>=1.1.3 <1.2.0', hasData: false }
+102 silly mapToRegistry name metisMenu
+103 silly mapToRegistry using default registry
+104 silly mapToRegistry registry https://registry.npmjs.org/
+105 silly mapToRegistry uri https://registry.npmjs.org/metisMenu
+106 verbose addNameRange registry:https://registry.npmjs.org/metisMenu not in flight; fetching
+107 silly cache add args [ 'morrisjs@~0.5.1', null ]
+108 verbose cache add spec morrisjs@~0.5.1
+109 silly cache add parsed spec { raw: 'morrisjs@~0.5.1',
+109 silly cache add   scope: null,
+109 silly cache add   name: 'morrisjs',
+109 silly cache add   rawSpec: '~0.5.1',
+109 silly cache add   spec: '>=0.5.1 <0.6.0',
+109 silly cache add   type: 'range' }
+110 silly addNamed morrisjs@>=0.5.1 <0.6.0
+111 verbose addNamed ">=0.5.1 <0.6.0" is a valid semver range for morrisjs
+112 silly addNameRange { name: 'morrisjs', range: '>=0.5.1 <0.6.0', hasData: false }
+113 silly mapToRegistry name morrisjs
+114 silly mapToRegistry using default registry
+115 silly mapToRegistry registry https://registry.npmjs.org/
+116 silly mapToRegistry uri https://registry.npmjs.org/morrisjs
+117 verbose addNameRange registry:https://registry.npmjs.org/morrisjs not in flight; fetching
+118 silly cache add args [ 'datatables-responsive@~1.0.3', null ]
+119 verbose cache add spec datatables-responsive@~1.0.3
+120 silly cache add parsed spec { raw: 'datatables-responsive@~1.0.3',
+120 silly cache add   scope: null,
+120 silly cache add   name: 'datatables-responsive',
+120 silly cache add   rawSpec: '~1.0.3',
+120 silly cache add   spec: '>=1.0.3 <1.1.0',
+120 silly cache add   type: 'range' }
+121 silly addNamed datatables-responsive@>=1.0.3 <1.1.0
+122 verbose addNamed ">=1.0.3 <1.1.0" is a valid semver range for datatables-responsive
+123 silly addNameRange { name: 'datatables-responsive',
+123 silly addNameRange   range: '>=1.0.3 <1.1.0',
+123 silly addNameRange   hasData: false }
+124 silly mapToRegistry name datatables-responsive
+125 silly mapToRegistry using default registry
+126 silly mapToRegistry registry https://registry.npmjs.org/
+127 silly mapToRegistry uri https://registry.npmjs.org/datatables-responsive
+128 verbose addNameRange registry:https://registry.npmjs.org/datatables-responsive not in flight; fetching
+129 verbose request uri https://registry.npmjs.org/datatables-plugins
+130 verbose request no auth needed
+131 info attempt registry request try #1 at 10:25:29 PM
+132 verbose request id 15423c949285f7aa
+133 http request GET https://registry.npmjs.org/datatables-plugins
+134 verbose request uri https://registry.npmjs.org/metisMenu
+135 verbose request no auth needed
+136 info attempt registry request try #1 at 10:25:29 PM
+137 http request GET https://registry.npmjs.org/metisMenu
+138 verbose request uri https://registry.npmjs.org/morrisjs
+139 verbose request no auth needed
+140 info attempt registry request try #1 at 10:25:29 PM
+141 http request GET https://registry.npmjs.org/morrisjs
+142 verbose request uri https://registry.npmjs.org/bootstrap-social
+143 verbose request no auth needed
+144 info attempt registry request try #1 at 10:25:29 PM
+145 verbose etag "4Q9NSLFJ1XJ4O2A1GUOTH9GZJ"
+146 http request GET https://registry.npmjs.org/bootstrap-social
+147 verbose request uri https://registry.npmjs.org/bootstrap
+148 verbose request no auth needed
+149 info attempt registry request try #1 at 10:25:29 PM
+150 verbose etag "8DGKGOQRO9HMN8G8450YOF809"
+151 http request GET https://registry.npmjs.org/bootstrap
+152 verbose request uri https://registry.npmjs.org/datatables
+153 verbose request no auth needed
+154 info attempt registry request try #1 at 10:25:29 PM
+155 verbose etag "EL5AEQBCH47HA0YWDKRCYAWXN"
+156 http request GET https://registry.npmjs.org/datatables
+157 verbose request uri https://registry.npmjs.org/flot
+158 verbose request no auth needed
+159 info attempt registry request try #1 at 10:25:29 PM
+160 verbose etag "6FOVUTUWIDCS2D1CUS4WPK6JM"
+161 http request GET https://registry.npmjs.org/flot
+162 verbose request uri https://registry.npmjs.org/font-awesome
+163 verbose request no auth needed
+164 info attempt registry request try #1 at 10:25:29 PM
+165 verbose etag "967CVE34YASZA5N1I0JHML2L"
+166 http request GET https://registry.npmjs.org/font-awesome
+167 verbose request uri https://registry.npmjs.org/holderjs
+168 verbose request no auth needed
+169 info attempt registry request try #1 at 10:25:29 PM
+170 verbose etag "B3JUNODD3GIUHC854S79XZAAI"
+171 http request GET https://registry.npmjs.org/holderjs
+172 verbose request uri https://registry.npmjs.org/datatables-responsive
+173 verbose request no auth needed
+174 info attempt registry request try #1 at 10:25:29 PM
+175 verbose etag "6TZ1ZJMTSTWZ2NC9CRPAOR9B"
+176 http request GET https://registry.npmjs.org/datatables-responsive
+177 http 304 https://registry.npmjs.org/holderjs
+178 silly get cb [ 304,
+178 silly get   { date: 'Wed, 06 Apr 2016 17:25:29 GMT',
+178 silly get     via: '1.1 varnish',
+178 silly get     'cache-control': 'max-age=300',
+178 silly get     etag: '"B3JUNODD3GIUHC854S79XZAAI"',
+178 silly get     age: '199',
+178 silly get     connection: 'keep-alive',
+178 silly get     'x-served-by': 'cache-fra1237-FRA',
+178 silly get     'x-cache': 'HIT',
+178 silly get     'x-cache-hits': '1',
+178 silly get     'x-timer': 'S1459963529.704359,VS0,VE0',
+178 silly get     vary: 'Accept-Encoding' } ]
+179 verbose etag https://registry.npmjs.org/holderjs from cache
+180 verbose get saving holderjs to C:\Users\pc\AppData\Roaming\npm-cache\registry.npmjs.org\holderjs\.cache.json
+181 silly addNameRange number 2 { name: 'holderjs', range: '>=2.4.1 <2.5.0', hasData: true }
+182 silly addNameRange versions [ 'holderjs',
+182 silly addNameRange   [ '2.6.0-pre',
+182 silly addNameRange     '2.6.0',
+182 silly addNameRange     '2.7.0',
+182 silly addNameRange     '2.7.1',
+182 silly addNameRange     '2.8.0',
+182 silly addNameRange     '2.8.1',
+182 silly addNameRange     '2.8.2',
+182 silly addNameRange     '2.0.0',
+182 silly addNameRange     '2.1.0',
+182 silly addNameRange     '2.2.0',
+182 silly addNameRange     '2.3.0',
+182 silly addNameRange     '2.4.0',
+182 silly addNameRange     '2.5.0',
+182 silly addNameRange     '1.9.0',
+182 silly addNameRange     '1.8.0',
+182 silly addNameRange     '1.7.0',
+182 silly addNameRange     '2.9.0',
+182 silly addNameRange     '2.9.1',
+182 silly addNameRange     '2.9.3' ] ]
+183 http 404 https://registry.npmjs.org/morrisjs
+184 verbose headers { 'content-type': 'application/json',
+184 verbose headers   'cache-control': 'max-age=0',
+184 verbose headers   'content-length': '2',
+184 verbose headers   'accept-ranges': 'bytes',
+184 verbose headers   date: 'Wed, 06 Apr 2016 17:25:29 GMT',
+184 verbose headers   via: '1.1 varnish',
+184 verbose headers   age: '0',
+184 verbose headers   connection: 'keep-alive',
+184 verbose headers   'x-served-by': 'cache-fra1243-FRA',
+184 verbose headers   'x-cache': 'MISS',
+184 verbose headers   'x-cache-hits': '0',
+184 verbose headers   'x-timer': 'S1459963529.704193,VS0,VE116',
+184 verbose headers   vary: 'Accept-Encoding' }
+185 silly get cb [ 404,
+185 silly get   { 'content-type': 'application/json',
+185 silly get     'cache-control': 'max-age=0',
+185 silly get     'content-length': '2',
+185 silly get     'accept-ranges': 'bytes',
+185 silly get     date: 'Wed, 06 Apr 2016 17:25:29 GMT',
+185 silly get     via: '1.1 varnish',
+185 silly get     age: '0',
+185 silly get     connection: 'keep-alive',
+185 silly get     'x-served-by': 'cache-fra1243-FRA',
+185 silly get     'x-cache': 'MISS',
+185 silly get     'x-cache-hits': '0',
+185 silly get     'x-timer': 'S1459963529.704193,VS0,VE116',
+185 silly get     vary: 'Accept-Encoding' } ]
+186 http 304 https://registry.npmjs.org/font-awesome
+187 silly get cb [ 304,
+187 silly get   { date: 'Wed, 06 Apr 2016 17:25:29 GMT',
+187 silly get     via: '1.1 varnish',
+187 silly get     'cache-control': 'max-age=300',
+187 silly get     etag: '"967CVE34YASZA5N1I0JHML2L"',
+187 silly get     age: '0',
+187 silly get     connection: 'keep-alive',
+187 silly get     'x-served-by': 'cache-fra1222-FRA',
+187 silly get     'x-cache': 'MISS',
+187 silly get     'x-cache-hits': '0',
+187 silly get     'x-timer': 'S1459963529.704876,VS0,VE199',
+187 silly get     vary: 'Accept-Encoding' } ]
+188 verbose etag https://registry.npmjs.org/font-awesome from cache
+189 verbose get saving font-awesome to C:\Users\pc\AppData\Roaming\npm-cache\registry.npmjs.org\font-awesome\.cache.json
+190 http 304 https://registry.npmjs.org/datatables-responsive
+191 silly get cb [ 304,
+191 silly get   { date: 'Wed, 06 Apr 2016 17:25:29 GMT',
+191 silly get     via: '1.1 varnish',
+191 silly get     'cache-control': 'max-age=300',
+191 silly get     etag: '"6TZ1ZJMTSTWZ2NC9CRPAOR9B"',
+191 silly get     age: '0',
+191 silly get     connection: 'keep-alive',
+191 silly get     'x-served-by': 'cache-fra1240-FRA',
+191 silly get     'x-cache': 'MISS',
+191 silly get     'x-cache-hits': '0',
+191 silly get     'x-timer': 'S1459963529.728483,VS0,VE185',
+191 silly get     vary: 'Accept-Encoding' } ]
+192 verbose etag https://registry.npmjs.org/datatables-responsive from cache
+193 verbose get saving datatables-responsive to C:\Users\pc\AppData\Roaming\npm-cache\registry.npmjs.org\datatables-responsive\.cache.json
+194 silly addNameRange number 2 { name: 'font-awesome', range: '>=4.2.0 <4.3.0', hasData: true }
+195 silly addNameRange versions [ 'font-awesome',
+195 silly addNameRange   [ '3.2.1', '4.0.3', '4.1.0', '4.2.0', '4.3.0', '4.4.0', '4.5.0' ] ]
+196 silly addNamed font-awesome@4.2.0
+197 verbose addNamed "4.2.0" is a plain semver version for font-awesome
+198 silly cache afterAdd font-awesome@4.2.0
+199 verbose afterAdd C:\Users\pc\AppData\Roaming\npm-cache\font-awesome\4.2.0\package\package.json not in flight; writing
+200 verbose afterAdd C:\Users\pc\AppData\Roaming\npm-cache\font-awesome\4.2.0\package\package.json written
+201 http 404 https://registry.npmjs.org/datatables-plugins
+202 verbose headers { 'content-type': 'application/json',
+202 verbose headers   'cache-control': 'max-age=0',
+202 verbose headers   'content-length': '2',
+202 verbose headers   'accept-ranges': 'bytes',
+202 verbose headers   date: 'Wed, 06 Apr 2016 17:25:29 GMT',
+202 verbose headers   via: '1.1 varnish',
+202 verbose headers   age: '0',
+202 verbose headers   connection: 'keep-alive',
+202 verbose headers   'x-served-by': 'cache-fra1235-FRA',
+202 verbose headers   'x-cache': 'MISS',
+202 verbose headers   'x-cache-hits': '0',
+202 verbose headers   'x-timer': 'S1459963529.734475,VS0,VE188',
+202 verbose headers   vary: 'Accept-Encoding' }
+203 silly get cb [ 404,
+203 silly get   { 'content-type': 'application/json',
+203 silly get     'cache-control': 'max-age=0',
+203 silly get     'content-length': '2',
+203 silly get     'accept-ranges': 'bytes',
+203 silly get     date: 'Wed, 06 Apr 2016 17:25:29 GMT',
+203 silly get     via: '1.1 varnish',
+203 silly get     age: '0',
+203 silly get     connection: 'keep-alive',
+203 silly get     'x-served-by': 'cache-fra1235-FRA',
+203 silly get     'x-cache': 'MISS',
+203 silly get     'x-cache-hits': '0',
+203 silly get     'x-timer': 'S1459963529.734475,VS0,VE188',
+203 silly get     vary: 'Accept-Encoding' } ]
+204 silly addNameRange number 2 { name: 'datatables-responsive',
+204 silly addNameRange   range: '>=1.0.3 <1.1.0',
+204 silly addNameRange   hasData: true }
+205 silly addNameRange versions [ 'datatables-responsive', [ '1.0.7' ] ]
+206 silly addNamed datatables-responsive@1.0.7
+207 verbose addNamed "1.0.7" is a plain semver version for datatables-responsive
+208 silly cache afterAdd datatables-responsive@1.0.7
+209 verbose afterAdd C:\Users\pc\AppData\Roaming\npm-cache\datatables-responsive\1.0.7\package\package.json not in flight; writing
+210 verbose afterAdd C:\Users\pc\AppData\Roaming\npm-cache\datatables-responsive\1.0.7\package\package.json written
+211 http 304 https://registry.npmjs.org/flot
+212 silly get cb [ 304,
+212 silly get   { date: 'Wed, 06 Apr 2016 17:25:29 GMT',
+212 silly get     via: '1.1 varnish',
+212 silly get     'cache-control': 'max-age=300',
+212 silly get     etag: '"6FOVUTUWIDCS2D1CUS4WPK6JM"',
+212 silly get     age: '0',
+212 silly get     connection: 'keep-alive',
+212 silly get     'x-served-by': 'cache-fra1236-FRA',
+212 silly get     'x-cache': 'MISS',
+212 silly get     'x-cache-hits': '0',
+212 silly get     'x-timer': 'S1459963529.703659,VS0,VE391',
+212 silly get     vary: 'Accept-Encoding' } ]
+213 verbose etag https://registry.npmjs.org/flot from cache
+214 verbose get saving flot to C:\Users\pc\AppData\Roaming\npm-cache\registry.npmjs.org\flot\.cache.json
+215 http 404 https://registry.npmjs.org/metisMenu
+216 verbose headers { 'content-type': 'application/json',
+216 verbose headers   'cache-control': 'max-age=0',
+216 verbose headers   'content-length': '2',
+216 verbose headers   'accept-ranges': 'bytes',
+216 verbose headers   date: 'Wed, 06 Apr 2016 17:25:30 GMT',
+216 verbose headers   via: '1.1 varnish',
+216 verbose headers   age: '0',
+216 verbose headers   connection: 'keep-alive',
+216 verbose headers   'x-served-by': 'cache-fra1238-FRA',
+216 verbose headers   'x-cache': 'MISS',
+216 verbose headers   'x-cache-hits': '0',
+216 verbose headers   'x-timer': 'S1459963529.698758,VS0,VE399',
+216 verbose headers   vary: 'Accept-Encoding' }
+217 silly get cb [ 404,
+217 silly get   { 'content-type': 'application/json',
+217 silly get     'cache-control': 'max-age=0',
+217 silly get     'content-length': '2',
+217 silly get     'accept-ranges': 'bytes',
+217 silly get     date: 'Wed, 06 Apr 2016 17:25:30 GMT',
+217 silly get     via: '1.1 varnish',
+217 silly get     age: '0',
+217 silly get     connection: 'keep-alive',
+217 silly get     'x-served-by': 'cache-fra1238-FRA',
+217 silly get     'x-cache': 'MISS',
+217 silly get     'x-cache-hits': '0',
+217 silly get     'x-timer': 'S1459963529.698758,VS0,VE399',
+217 silly get     vary: 'Accept-Encoding' } ]
+218 silly addNameRange number 2 { name: 'flot', range: '>=0.8.3 <0.9.0', hasData: true }
+219 silly addNameRange versions [ 'flot', [ '0.8.0-alpha' ] ]
+220 http 304 https://registry.npmjs.org/bootstrap
+221 silly get cb [ 304,
+221 silly get   { date: 'Wed, 06 Apr 2016 17:25:29 GMT',
+221 silly get     via: '1.1 varnish',
+221 silly get     'cache-control': 'max-age=300',
+221 silly get     etag: '"8DGKGOQRO9HMN8G8450YOF809"',
+221 silly get     age: '0',
+221 silly get     connection: 'keep-alive',
+221 silly get     'x-served-by': 'cache-fra1223-FRA',
+221 silly get     'x-cache': 'HIT',
+221 silly get     'x-cache-hits': '1',
+221 silly get     'x-timer': 'S1459963529.720116,VS0,VE422',
+221 silly get     vary: 'Accept-Encoding' } ]
+222 verbose etag https://registry.npmjs.org/bootstrap from cache
+223 verbose get saving bootstrap to C:\Users\pc\AppData\Roaming\npm-cache\registry.npmjs.org\bootstrap\.cache.json
+224 silly addNameRange number 2 { name: 'bootstrap', range: '>=3.3.6 <3.4.0', hasData: true }
+225 silly addNameRange versions [ 'bootstrap',
+225 silly addNameRange   [ '0.0.1',
+225 silly addNameRange     '0.0.2',
+225 silly addNameRange     '3.1.1',
+225 silly addNameRange     '3.2.0',
+225 silly addNameRange     '3.3.0',
+225 silly addNameRange     '3.3.1',
+225 silly addNameRange     '3.3.2',
+225 silly addNameRange     '3.3.4',
+225 silly addNameRange     '3.3.5',
+225 silly addNameRange     '3.3.6',
+225 silly addNameRange     '4.0.0-alpha.2' ] ]
+226 silly addNamed bootstrap@3.3.6
+227 verbose addNamed "3.3.6" is a plain semver version for bootstrap
+228 silly cache afterAdd bootstrap@3.3.6
+229 verbose afterAdd C:\Users\pc\AppData\Roaming\npm-cache\bootstrap\3.3.6\package\package.json not in flight; writing
+230 verbose afterAdd C:\Users\pc\AppData\Roaming\npm-cache\bootstrap\3.3.6\package\package.json written
+231 http 304 https://registry.npmjs.org/bootstrap-social
+232 silly get cb [ 304,
+232 silly get   { date: 'Wed, 06 Apr 2016 17:25:29 GMT',
+232 silly get     via: '1.1 varnish',
+232 silly get     'cache-control': 'max-age=300',
+232 silly get     etag: '"4Q9NSLFJ1XJ4O2A1GUOTH9GZJ"',
+232 silly get     age: '0',
+232 silly get     connection: 'keep-alive',
+232 silly get     'x-served-by': 'cache-fra1229-FRA',
+232 silly get     'x-cache': 'MISS',
+232 silly get     'x-cache-hits': '0',
+232 silly get     'x-timer': 'S1459963529.721968,VS0,VE436',
+232 silly get     vary: 'Accept-Encoding' } ]
+233 verbose etag https://registry.npmjs.org/bootstrap-social from cache
+234 verbose get saving bootstrap-social to C:\Users\pc\AppData\Roaming\npm-cache\registry.npmjs.org\bootstrap-social\.cache.json
+235 silly addNameRange number 2 { name: 'bootstrap-social',
+235 silly addNameRange   range: '>=4.8.0 <4.9.0',
+235 silly addNameRange   hasData: true }
+236 silly addNameRange versions [ 'bootstrap-social', [ '4.8.0', '4.9.1', '4.11.0' ] ]
+237 silly addNamed bootstrap-social@4.8.0
+238 verbose addNamed "4.8.0" is a plain semver version for bootstrap-social
+239 silly cache afterAdd bootstrap-social@4.8.0
+240 verbose afterAdd C:\Users\pc\AppData\Roaming\npm-cache\bootstrap-social\4.8.0\package\package.json not in flight; writing
+241 verbose afterAdd C:\Users\pc\AppData\Roaming\npm-cache\bootstrap-social\4.8.0\package\package.json written
+242 http 304 https://registry.npmjs.org/datatables
+243 silly get cb [ 304,
+243 silly get   { date: 'Wed, 06 Apr 2016 17:25:29 GMT',
+243 silly get     via: '1.1 varnish',
+243 silly get     'cache-control': 'max-age=300',
+243 silly get     etag: '"EL5AEQBCH47HA0YWDKRCYAWXN"',
+243 silly get     age: '0',
+243 silly get     connection: 'keep-alive',
+243 silly get     'x-served-by': 'cache-fra1226-FRA',
+243 silly get     'x-cache': 'HIT',
+243 silly get     'x-cache-hits': '1',
+243 silly get     'x-timer': 'S1459963529.711131,VS0,VE715',
+243 silly get     vary: 'Accept-Encoding' } ]
+244 verbose etag https://registry.npmjs.org/datatables from cache
+245 verbose get saving datatables to C:\Users\pc\AppData\Roaming\npm-cache\registry.npmjs.org\datatables\.cache.json
+246 silly addNameRange number 2 { name: 'datatables', range: '>=1.10.4 <1.11.0', hasData: true }
+247 silly addNameRange versions [ 'datatables',
+247 silly addNameRange   [ '1.10.5-dev',
+247 silly addNameRange     '1.10.5',
+247 silly addNameRange     '1.10.6',
+247 silly addNameRange     '1.10.7',
+247 silly addNameRange     '1.10.8',
+247 silly addNameRange     '1.10.9',
+247 silly addNameRange     '1.10.12-dev',
+247 silly addNameRange     '1.10.11' ] ]
+248 silly addNamed datatables@1.10.11
+249 verbose addNamed "1.10.11" is a plain semver version for datatables
+250 warn deprecated datatables@1.10.11: This NPM package for DataTables has now been deprecated and the 'datatables.net' set of packages should be used in preference to this one. Please see the NPM installation guide for DataTables for more details: https://datatables.net/download/npm.
+251 silly cache afterAdd datatables@1.10.11
+252 verbose afterAdd C:\Users\pc\AppData\Roaming\npm-cache\datatables\1.10.11\package\package.json not in flight; writing
+253 verbose afterAdd C:\Users\pc\AppData\Roaming\npm-cache\datatables\1.10.11\package\package.json written
+254 verbose stack Error: No compatible version found: holderjs@'>=2.4.1 <2.5.0'
+254 verbose stack Valid install targets:
+254 verbose stack ["2.6.0-pre","2.6.0","2.7.0","2.7.1","2.8.0","2.8.1","2.8.2","2.0.0","2.1.0","2.2.0","2.3.0","2.4.0","2.5.0","1.9.0","1.8.0","1.7.0","2.9.0","2.9.1","2.9.3"]
+254 verbose stack
+254 verbose stack     at installTargetsError (E:\node\node_modules\npm\lib\cache\add-named.js:274:12)
+254 verbose stack     at next (E:\node\node_modules\npm\lib\cache\add-named.js:253:17)
+254 verbose stack     at setData (E:\node\node_modules\npm\lib\cache\add-named.js:230:5)
+254 verbose stack     at RES (E:\node\node_modules\npm\node_modules\inflight\inflight.js:23:14)
+254 verbose stack     at f (E:\node\node_modules\npm\node_modules\once\once.js:17:25)
+254 verbose stack     at fixName (E:\node\node_modules\npm\lib\cache\add-named.js:29:5)
+254 verbose stack     at saved (E:\node\node_modules\npm\lib\cache\caching-client.js:173:7)
+254 verbose stack     at FSReqWrap.oncomplete (fs.js:95:15)
+255 verbose cwd D:\usufBhai\startbootstrap-sb-admin-2-1.0.8
+256 error Windows_NT 6.1.7601
+257 error argv "E:\\node\\\\node.exe" "E:\\node\\node_modules\\npm\\bin\\npm-cli.js" "install"
+258 error node v0.12.7
+259 error npm  v2.11.3
+260 error code ETARGET
+261 error notarget No compatible version found: holderjs@'>=2.4.1 <2.5.0'
+261 error notarget Valid install targets:
+261 error notarget ["2.6.0-pre","2.6.0","2.7.0","2.7.1","2.8.0","2.8.1","2.8.2","2.0.0","2.1.0","2.2.0","2.3.0","2.4.0","2.5.0","1.9.0","1.8.0","1.7.0","2.9.0","2.9.1","2.9.3"]
+261 error notarget
+261 error notarget This is most likely not a problem with npm itself.
+261 error notarget In most cases you or one of your dependencies are requesting
+261 error notarget a package version that doesn't exist.
+261 error notarget
+261 error notarget It was specified as a dependency of 'holidayapp'
+262 verbose exit [ 1, true ]

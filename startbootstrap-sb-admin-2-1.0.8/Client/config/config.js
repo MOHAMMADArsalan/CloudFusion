@@ -51,7 +51,27 @@ angular
                            controllerAs: "user"
                      }
                   }
+            })
+            .state("dashboard.accessrole", {
+                  url: "/accessrole",
+                  views : {
+                     "main": {
+                           templateUrl: "./components/accessRole/accessRole.html",
+                           controller: "AccessRoleController",
+                           controllerAs: "accessRole"
+                     }
+                  }
+            })
+            .state("dashboard.franchises", {
+                  url: "/franchises",
+                  views : {
+                     "main": {
+                           templateUrl: "./components/franchises/franchises.html",
+                           controller: "FranchisesController",
+                           controllerAs: "franchises"
+                     }
+                  }
             });
 
-      $urlRouterProvider.otherwise("signup");
+      $urlRouterProvider.otherwise("/dashboard/franchises");
       });

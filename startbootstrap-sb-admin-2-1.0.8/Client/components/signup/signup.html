@@ -9,16 +9,16 @@
                        <form role="form">
                            <fieldset>
                               <div class="form-group">
-                                   <input class="form-control" placeholder="User Name" name="username" type="text" autofocus>
+                                   <input class="form-control" ng-model="signup.user.username" placeholder="User Name"  type="text" autofocus>
                               </div>
                               <div class="form-group">
-                                   <input class="form-control" placeholder="E-mail" name="email" type="email" />
+                                   <input class="form-control" ng-model="signup.user.email" placeholder="E-mail" type="email" />
                               </div>
                               <div class="form-group">
-                                   <input class="form-control" placeholder="Password" name="password" type="password" value="">
+                                   <input class="form-control" ng-model="signup.user.password" placeholder="Password" type="password" value="">
                               </div>
                               <!-- Change this to a button or input when using this as a form -->
-                              <a ui-sref="login" class="btn btn-lg btn-success btn-block">Sign up</a>
+                              <a ng-click="signup.signup(signup.user)" class="btn btn-lg btn-success btn-block">Sign up</a>
                            </fieldset>
                        </form>
                    </div>

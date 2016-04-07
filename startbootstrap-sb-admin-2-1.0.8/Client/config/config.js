@@ -71,6 +71,16 @@ angular
                            controllerAs: "franchises"
                      }
                   }
+            })
+            .state("dashboard.addFranchises", {
+                  url: "/addFranchises",
+                  views : {
+                     "main": {
+                           templateUrl: "./components/addFranchises/addFranchises.html",
+                           controller: "AddFranchisesController",
+                           controllerAs: "addFranchises"
+                     }
+                  }
             });
 
       $urlRouterProvider.otherwise("/dashboard/franchises");

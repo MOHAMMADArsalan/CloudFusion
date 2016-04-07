@@ -3,7 +3,9 @@
     padding: 20px 0 20px;
     list-style: none;
 }
-
+.active{
+    background:gray;
+}
 .timeline:before {
     content: " ";
     position: absolute;

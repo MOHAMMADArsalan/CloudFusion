@@ -1,5 +1,5 @@
 angular
-      .module("HolidayCorporationApp", ["ui.router", "app.home", "app.dashboard", "app.flight", "app.user"])
+      .module("HolidayCorporationApp", ["ui.router", "app.signup" ,"app.login", "app.home", "app.dashboard", "app.flight", "app.user"])
 
       .controller("HolidayCorporationController", [HolidayCorporationController]);
 

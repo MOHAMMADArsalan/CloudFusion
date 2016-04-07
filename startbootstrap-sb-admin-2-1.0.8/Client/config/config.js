@@ -3,6 +3,17 @@ angular
 
       .config(function($stateProvider, $urlRouterProvider) {
       $stateProvider
+            .state("login", {
+                  url: "/login",templateUrl: "./components/login/login.html",
+                  controller: "LoginController",
+                  controllerAs: "login"
+            })
+            .state("signup", {
+                  url: "/signup",
+                  templateUrl: "./components/signup/signup.html",
+                  controller: "SignupController",
+                  controllerAs: "signup"
+            })
             .state("dashboard", {
                   url: "/dashboard",
                   abstract: true,
@@ -42,5 +53,5 @@ angular
                   }
             });
 
-      $urlRouterProvider.otherwise("/dashboard");
+      $urlRouterProvider.otherwise("signup");
       });

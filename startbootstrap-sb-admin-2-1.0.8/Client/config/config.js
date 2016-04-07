@@ -31,6 +31,16 @@ angular
                      }
                   }
             })
+            .state("dashboard.user", {
+                  url: "/user",
+                  views : {
+                     "main": {
+                           templateUrl: "./components/user/user.html",
+                           controller: "UserController",
+                           controllerAs: "user"
+                     }
+                  }
+            });
 
       $urlRouterProvider.otherwise("/dashboard");
       });

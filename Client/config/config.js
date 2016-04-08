@@ -103,5 +103,5 @@ angular
                   }
             });
 
-      $urlRouterProvider.otherwise("/dashboard/franchises");
+      $urlRouterProvider.otherwise("login");
       });

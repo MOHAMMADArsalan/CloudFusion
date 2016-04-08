@@ -1,14 +1,20 @@
 angular
       .module("app.signup", [])
 
-      .controller("SignupController", ["$state", SignupController]);
+      .controller("SignupController", ["HttpService", "$state", SignupController]);
 
-      function SignupController($state) {
+      function SignupController(HttpService, $state) {
         var _self = this;
         _self.user = {};
         _self.signup = function(user) {
-             console.log(user);
-               _self.user = {};
-               $state.go("login");
+             HttpService.PostApi("/router/signup",user).then(function(res){
+                   console.log(res);
+                   console.log(user);
+                    _self.user = {};
+                    $state.go("login");
+             },function(err){
+                   console.log(err);
+             });
+
        };
       }

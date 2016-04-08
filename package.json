@@ -4,12 +4,14 @@
   "description": "",
   "main": "gulp.js",
   "dependencies": {
-    "angular": "^1.5.3",
-    "angular-ui-router": "^0.2.18",
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.15.0",
+    "express": "^4.13.4",
+    "mongoose": "^4.4.11"
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon server.js"
   },
   "author": "",
   "license": "ISC"

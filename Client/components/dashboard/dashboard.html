@@ -48,9 +48,9 @@
                         </div>
                         <!-- /input-group -->
                     </li>
-                    <li>
-                        <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
-                        <ul class="nav nav-second-level">
+                    <li data-toggle="collapse" data-target="#dashboard">
+                        <a href=""><i class="fa fa-dashboard fa-fw"></i> <span class="fa arrow"></span>Dashboard</a>
+                        <ul class="nav nav-second-level" id="dashboard">
                             <li>
                                 <a ui-sref="dashboard.home">Home</a>
                             </li>
@@ -65,10 +65,9 @@
                             </li>
                         </ul>
                     </li>
-
-                    <li>
-                        <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Administration<span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
+                    <li data-toggle="collapse" data-target="#administration">
+                        <a href=""><i class="fa fa-cog"></i> Administration<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level " id="administration">
                             <li>
                                 <a ui-sref="dashboard.user">Users</a>
                             </li>
@@ -78,9 +77,9 @@
                         </ul>
                         <!-- /.nav-second-level -->
                     </li>
-                    <li>
-                        <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Franchises<span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
+                    <li data-toggle="collapse" data-target="#franchises">
+                        <a href=""><i class="fa fa-home"></i> Franchises<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level" id="franchises">
                             <li>
                                 <a ui-sref="dashboard.franchises">All Franchises</a>
                             </li>
@@ -90,9 +89,9 @@
                         </ul>
                         <!-- /.nav-second-level -->
                     </li>
-                    <li>
-                        <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Memberships<span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
+                    <li data-toggle="collapse" data-target="#memberships">
+                        <a href=""><i class="fa fa-tag"></i>  Memberships<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level" id="memberships">
                             <li>
                                 <a ui-sref="dashboard.memberships">All Memberships</a>
                             </li>

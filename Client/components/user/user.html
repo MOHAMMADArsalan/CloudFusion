@@ -33,10 +33,10 @@
                                          </tr>
                                      </thead>
                                      <tbody>
-                                         <tr class="odd gradeX">
-                                             <td>Arsalan</td>
-                                             <td>Rajput</td>
-                                             <td>Email</td>
+                                         <tr class="odd gradeX" ng-repeat="user in user.AllUser">
+                                             <td>{{user.firstname}}</td>
+                                             <td>{{user.lastname}}</td>
+                                             <td>{{user.email}}</td>
                                              <td class="center">Arsalan</td>
                                              <td class="center">
                                                <a href="" ><i class="fa fa-trash fa-lg"></i></a>
@@ -84,25 +84,25 @@
                                                   <div class="form-group ">
                                                     <label class="col-sm-3 control-label" for="FirstName">First Name</label>
                                                     <div class="col-sm-9">
-                                                      <input class="form-control" type="text" id="FirstName" placeholder="First Name">
+                                                      <input class="form-control" type="text" ng-model="user.user.firstname" id="FirstName" placeholder="First Name">
                                                     </div>
                                                   </div>
                                                   <div class="form-group ">
                                                     <label class="col-sm-3 control-label" for="LastName">Last Name</label>
                                                     <div class="col-sm-9">
-                                                      <input class="form-control" type="text" id="LastName" placeholder="Last Name">
+                                                      <input class="form-control" type="text" ng-model="user.user.lastname" id="LastName" placeholder="Last Name">
                                                     </div>
                                                   </div>
                                                   <div class="form-group ">
                                                    <label class="col-sm-3 control-label" for="Email">Email</label>
                                                    <div class="col-sm-9">
-                                                     <input class="form-control" type="text" id="Email" placeholder="Email">
+                                                     <input class="form-control" type="text" ng-model="user.user.email" id="Email" placeholder="Email">
                                                    </div>
                                                   </div>
                                               </form>
                                           </div>
                                                <div class="modal-footer">
-                                                 <button type="button" class="btn btn-primary" ng-show="true"><i class="glyphicon glyphicon-plus"></i> Add User</button>
+                                                 <button type="button" class="btn btn-primary" ng-click="user.addUser(user.user)" ng-show="true"><i class="glyphicon glyphicon-plus"></i> Add User</button>
                                                  <button type="button" class="btn btn-primary" ng-hide="true"><i class="glyphicon glyphicon-pencil"></i> Edit </button>
                                                </div>
                                         </div>

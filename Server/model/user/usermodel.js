@@ -4,17 +4,25 @@ var mongoose = require("mongoose");
 var SALT_FACTOR = 10;
 
 //Users Schema
-var UserSchema = new mongoose.Schema({
+var SignupSchema = new mongoose.Schema({
     username: { type: String, required: true },
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
     role_admin: { type: Boolean, default: true },
     createdOn: { type: Date, default: Date.now() }
 });
+//Users Schema
+var UserSchema = new mongoose.Schema({
+    firstname: { type: String, required: true },
+    lastname: { type: String, required: true },
+    email: { type: String, required: true, unique: true },
+    role_admin: { type: Boolean, default: false },
+    createdOn: { type: Date, default: Date.now() }
+});
 
 //Bcrypt password
 var noop = function () { };
-UserSchema.pre("save", function (done) {
+SignupSchema.pre("save", function (done) {
     var user = this;
     if (!user.isModified("password")) {
         return done();
@@ -32,5 +40,7 @@ UserSchema.pre("save", function (done) {
         });
     });
 });
-var UserModel = mongoose.model("users", UserSchema);
+var UserModel = mongoose.model("users", SignupSchema);
 exports.UserModel = UserModel;
+var AddUserModel = mongoose.model("AddUsers", UserSchema);
+exports.AddUserModel = AddUserModel;

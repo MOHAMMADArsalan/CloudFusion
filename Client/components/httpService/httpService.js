@@ -13,9 +13,21 @@ angular
              $http.post(url,body).then(function(response){
                    deffered.resolve(response);
              },function(err){
-                   deffered.reject(err)
+                   deffered.reject(err);
              });
 
              return deffered.promise;
       };
-      }
+       _self.GetApi = function(url) {
+             var token = localStorage.getItem("token");
+             var deffered = $q.defer();
+             _self.url = url + "?token=" + token;
+             $http.get(_self.url).then(function(response){
+                   deffered.resolve(response);
+             },function(err){
+                   deffered.reject(err);
+             });
+
+             return deffered.promise;
+      };
+}

@@ -4,8 +4,9 @@ var express = require("express"),
 
 var router = express.Router();
 
-router.post("/signup", usercontroller.userSignup);
-router.post("/signin", usercontroller.userSignin);
+router.post("/signup", usercontroller.Signup);
+router.post("/signin", usercontroller.Signin);
+router.post("/usersign", usercontroller.userSignin);
 router.post("/adduser", usercontroller.addUser);
 router.get("/getuser", usercontroller.getuser);
 

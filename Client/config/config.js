@@ -52,6 +52,16 @@ angular
                      }
                   }
             })
+            .state("dashboard.adduser", {
+                  url: "/adduser",
+                  views : {
+                     "main": {
+                           templateUrl: "./components/adduser/addUser.html",
+                           controller: "AddUserController",
+                           controllerAs: "adduser"
+                     }
+                  }
+            })
             .state("dashboard.accessrole", {
                   url: "/accessrole",
                   views : {

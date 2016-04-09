@@ -17,12 +17,4 @@ angular
        },function(err){
            console.log(err);
        });
-      _self.addUser = function(user) {
-          HttpService.PostApi("/router/adduser",user)
-                      .then(function(res){
-                          _self.user = {};
-                      },function(err){
-                          console.log(err);
-                      });
-      };
     }

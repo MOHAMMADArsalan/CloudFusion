@@ -13,16 +13,39 @@ var SignupSchema = new mongoose.Schema({
 });
 //Users Schema
 var UserSchema = new mongoose.Schema({
+    franchise: { type: String, required: true },
+    active: {type: Boolean},
     firstname: { type: String, required: true },
     lastname: { type: String, required: true },
     email: { type: String, required: true, unique: true },
-    role_admin: { type: Boolean, default: false },
+    password: { type: String, required: true },
+    access_role: { type: String, required: true },
     createdOn: { type: Date, default: Date.now() }
 });
 
-//Bcrypt password
+// Signup Bcrypt password
 var noop = function () { };
 SignupSchema.pre("save", function (done) {
+    var user = this;
+    if (!user.isModified("password")) {
+        return done();
+    }
+    bcrypt.genSalt(SALT_FACTOR, function (err, salt) {
+        if (err) {
+            return done(err);
+        }
+        bcrypt.hash(user.password, salt, noop, function (err, hashedPassword) {
+            if (err) {
+                return done(err);
+            }
+            user.password = hashedPassword;
+            done();
+        });
+    });
+});
+// UserSchema Bcrypt password
+var noop = function () { };
+UserSchema.pre("save", function (done) {
     var user = this;
     if (!user.isModified("password")) {
         return done();

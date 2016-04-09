@@ -1,8 +1,8 @@
 var express = require("express"),
   usermodel_1 = require("./usermodel"),
   bcrypt = require("bcrypt-nodejs");
-
-function userSignin(req, res) {
+// Main Sign in Function
+function Signin(req, res) {
     usermodel_1.UserModel.findOne({ email: req.body.email }, function (err, success) {
         if (success) {
             bcrypt.compare(req.body.password, success.password, function (err, isMatch) {
@@ -17,7 +17,25 @@ function userSignin(req, res) {
         }
     });
 }
+exports.Signin = Signin;
+// User Sign in Function
+function userSignin(req, res) {
+    usermodel_1.AddUserModel.findOne({ email: req.body.email }, function (err, success) {
+        if (success) {
+            bcrypt.compare(req.body.password, success.password, function (err, isMatch) {
+                done(err, isMatch);
+            });
+            function done(err2, isMatch) {
+                isMatch ? res.send({token: success._id}) : res.send(err);
+            };
+        }
+        else {
+            res.send(err);
+        }
+    });
+}
 exports.userSignin = userSignin;
+// Get All User Function
 function getuser(req, res) {
     usermodel_1.AddUserModel.find({}, function (err, success) {
         if (err) {
@@ -29,8 +47,8 @@ function getuser(req, res) {
     });
 }
 exports.getuser = getuser;
-
-function userSignup(req, res) {
+// Main Sign up Function
+function Signup(req, res) {
             var user = new usermodel_1.UserModel(req.body);
             user.save(function (err, success) {
                 if (err) {
@@ -40,11 +58,12 @@ function userSignup(req, res) {
                     res.send({ message: "Inserted Successfully", token: success._id });
                 }
             });
-        }
-exports.userSignup = userSignup;
+    }
+exports.Signup = Signup;
+// Add User Function
 function addUser(req, res) {
-  console.log(req.body);
             var user = new usermodel_1.AddUserModel(req.body);
+            console.log(req.body);
             user.save(function (err, data) {
                 if (err) {
                     res.send(err);

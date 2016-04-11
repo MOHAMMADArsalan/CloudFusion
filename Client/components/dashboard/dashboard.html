@@ -36,7 +36,7 @@
 
         <div class="navbar-default sidebar" role="navigation">
             <div class="sidebar-nav navbar-collapse">
-                <ul class="nav" id="side-menu">
+                <ul class="nav" id="accordion">
                     <li class="sidebar-search">
                         <div class="input-group custom-search-form">
                             <input type="text" class="form-control" placeholder="Search...">
@@ -48,48 +48,76 @@
                         </div>
                         <!-- /input-group -->
                     </li>
-                    <li data-toggle="collapse" data-target="#dashboard">
-                        <a href=""><i class="fa fa-dashboard fa-fw"></i> <span class="fa arrow"></span>Dashboard</a>
-                        <ul class="nav nav-second-level" id="dashboard">
-                            <li>
-                                <a ui-sref="dashboard.home">Home</a>
-                            </li>
-                            <li>
-                                <a ui-sref="dashboard.flight">Flights</a>
-                            </li>
-                            <li>
-                                <a >Accommodation</a>
-                            </li>
-                            <li>
-                                <a >Car Rental</a>
-                            </li>
-                        </ul>
+                    <li >
+                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="/dashboard/home/#dashboard">
+                         <i class="fa fa-dashboard fa-fw"></i> <span class="fa arrow"></span>Dashboard
+                        </a>
+                        <div id="dashboard" class="panel-collapse collapse in">
+                            <ul class="nav nav-second-level" >
+                                <li>
+                                    <a ui-sref="dashboard.home">Home</a>
+                                </li>
+                                <li>
+                                    <a ui-sref="dashboard.flight">Flights</a>
+                                </li>
+                                <li>
+                                    <a >Accommodation</a>
+                                </li>
+                                <li>
+                                    <a >Car Rental</a>
+                                </li>
+                            </ul>
+                        </div>
                     </li>
-                    <li data-toggle="collapse" data-target="#administration">
-                        <a href=""><i class="fa fa-cog"></i> Administration<span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level " id="administration">
-                            <li>
-                                <a ui-sref="dashboard.user">Users</a>
-                            </li>
-                            <li>
-                                <a ui-sref="dashboard.accessrole">Access Role</a>
-                            </li>
-                        </ul>
-                        <!-- /.nav-second-level -->
+                    <li >
+                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="/dashboard/home/#administration">
+                        <i class="fa fa-cog"></i> Administration<span class="fa arrow"></span>
+                        </a>
+                        <div id="administration" class="panel-collapse collapse in">
+                                <ul class="nav nav-second-level " >
+                                    <li>
+                                        <a ui-sref="dashboard.user">Users</a>
+                                    </li>
+                                    <li>
+                                        <a ui-sref="dashboard.accessrole">Access Role</a>
+                                    </li>
+                                </ul>
+                                <!-- /.nav-second-level -->
+                        </div>
                     </li>
-                    <li data-toggle="collapse" data-target="#franchises">
-                        <a href=""><i class="fa fa-home"></i> Franchises<span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level" id="franchises">
-                            <li>
-                                <a ui-sref="dashboard.franchises">All Franchises</a>
-                            </li>
-                            <li>
-                                <a ui-sref="dashboard.addFranchises">Add New</a>
-                            </li>
-                        </ul>
-                        <!-- /.nav-second-level -->
+                    <li >
+                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="/dashboard/home/#franchises">
+                        <i class="fa fa-home"></i> Franchises<span class="fa arrow"></span>
+                        </a>
+                        <div id="franchises" class="panel-collapse collapse in">
+                                <ul class="nav nav-second-level " >
+                                    <li>
+                                        <a ui-sref="dashboard.franchises">All Franchises</a>
+                                    </li>
+                                    <li>
+                                        <a ui-sref="dashboard.addFranchises">Add New</a>
+                                    </li>
+                                </ul>
+                                <!-- /.nav-second-level -->
+                        </div>
                     </li>
-                    <li data-toggle="collapse" data-target="#memberships">
+                    <li >
+                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="/dashboard/home/#memberships">
+                        <i class="fa fa-tag"></i>  Memberships<span class="fa arrow"></span>
+                        </a>
+                        <div id="memberships" class="panel-collapse collapse in">
+                                <ul class="nav nav-second-level " >
+                                    <li>
+                                        <a ui-sref="dashboard.memberships">All Memberships</a>
+                                    </li>
+                                    <li>
+                                        <a ui-sref="dashboard.addMemberships">Add New</a>
+                                    </li>
+                                </ul>
+                                <!-- /.nav-second-level -->
+                        </div>
+                    </li>
+                    <!-- <li data-toggle="collapse" data-target="#memberships">
                         <a href=""><i class="fa fa-tag"></i>  Memberships<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level" id="memberships">
                             <li>
@@ -99,8 +127,8 @@
                                 <a ui-sref="dashboard.addMemberships">Add New</a>
                             </li>
                         </ul>
-                        <!-- /.nav-second-level -->
-                    </li>
+                        /.nav-second-level
+                    </li> -->
                 </ul>
             </div>
             <!-- /.sidebar-collapse -->

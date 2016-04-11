@@ -48,12 +48,15 @@ var FranchiseSchema = new mongoose.Schema({
     directorLastName: { type: String },
     alternateEmail: { type: String},
     telephoneNumber: { type: String},
-    Fax: { type: String},
+    fax: { type: String},
     mobileNumber: { type: String},
     ID : { type: String},
     firstName: { type: String},
     lastName: { type: String},
     workNumber: { type: String},
+    proofAddress: {type: Object},
+    identityDocument: {type: Object},
+    companyRegistration: {type: Object},
     createdOn: { type: Date, default: Date.now() }
 });
 //Add MembershipsSchema
@@ -91,6 +94,7 @@ var MembershipsSchema = new mongoose.Schema({
     repaymentDay: { type: String},
     repaymentMonth: { type: String},
     repaymentYear: { type: String},
+    originalDocument: {type: Object},
     createdOn: { type: Date, default: Date.now() }
 });
 
@@ -140,3 +144,5 @@ var AddUserModel = mongoose.model("AddUsers", UserSchema);
 exports.AddUserModel = AddUserModel;
 var MembershipsModel = mongoose.model("Memberships", MembershipsSchema);
 exports.MembershipsModel = MembershipsModel;
+var FranchiseModel = mongoose.model("Franchise", FranchiseSchema);
+exports.FranchiseModel = FranchiseModel;

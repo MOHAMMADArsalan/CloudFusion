@@ -72,6 +72,16 @@ angular
                      }
                   }
             })
+            .state("dashboard.addrole", {
+                  url: "/addrole",
+                  views : {
+                     "main": {
+                           templateUrl: "./components/addRole/addRole.html",
+                           controller: "AddRoleController",
+                           controllerAs: "addrole"
+                     }
+                  }
+            })
             .state("dashboard.franchises", {
                   url: "/franchises",
                   views : {
@@ -89,6 +99,16 @@ angular
                            templateUrl: "./components/addFranchises/addFranchises.html",
                            controller: "AddFranchisesController",
                            controllerAs: "addFranchises"
+                     }
+                  }
+            })
+            .state("dashboard.editFranchises", {
+                  url: "/editFranchises",
+                  views : {
+                     "main": {
+                           templateUrl: "./components/editFranchises/editFranchises.html",
+                           controller: "EditFranchisesController",
+                           controllerAs: "editFranchises"
                      }
                   }
             })

@@ -11,7 +11,6 @@ angular
              console.log(franchise);
              HttpService.PostApi("/router/addFranchises",franchise)
                         .then(function(res){
-                              console.log(res);
                               _self.franchise = {};
                         },function(err){
                               console.log(err);

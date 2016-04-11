@@ -2,8 +2,19 @@ angular
 
       .module("app.addFranchises",[])
 
-      .controller("AddFranchisesController",[AddFranchisesController]);
+      .controller("AddFranchisesController",["HttpService",AddFranchisesController]);
 
-      function AddFranchisesController() {
+      function AddFranchisesController(HttpService) {
         var _self = this;
+        _self.franchise = {};
+        _self.addFranchises = function(franchise) {
+             console.log(franchise);
+             HttpService.PostApi("/router/addFranchises",franchise)
+                        .then(function(res){
+                              console.log(res);
+                              _self.franchise = {};
+                        },function(err){
+                              console.log(err);
+                        });
+       };
       }

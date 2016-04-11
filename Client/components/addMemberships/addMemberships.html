@@ -17,10 +17,9 @@
                            <div class="form-group row ">
                              <label class="col-sm-3 control-label" >Franchises</label>
                              <div class="col-sm-6">
-                                <select class="form-control input-sm" place-holder="chooose...">
-                                   <option>choose...</option>
-                                   <!-- <option>Amirica</option>
-                                   <option>Pakistan</option> -->
+                                <select class="form-control input-sm" ng-model="addMemberships.memberships.franchise" place-holder="chooose...">
+                                   <option selected disabled>choose...</option>
+                                   <option>Pakistan</option>
                                 </select>
                                  <div class="col-sm-3"></div>
                            </div>
@@ -28,7 +27,7 @@
                            <div class="form-group row ">
                               <label class="col-sm-3 control-label" >Contact Number</label>
                               <div class="col-sm-6">
-                                 <input class="form-control" type="text" placeholder="Contact Number">
+                                 <input class="form-control" type="text" ng-model="addMemberships.memberships.contactNumber" placeholder="Contact Number">
                               </div>
                               <div class="col-sm-3"></div>
                           </div>
@@ -37,7 +36,7 @@
                           <div class="col-sm-6">
                                 <div class="checkbox">
                                        <label>
-                                        <input type="checkbox"> Term Based
+                                        <input type="checkbox" ng-model="addMemberships.memberships.memberships"> Term Based
                                        </label>
                                 </div>
                           </div>
@@ -51,8 +50,8 @@
                                  <div class="form-group row ">
                                    <label class="col-sm-4 control-label" >Country</label>
                                    <div class="col-sm-8">
-                                    <select class="form-control input-sm" >
-                                       <option>Choose..</option>
+                                    <select class="form-control input-sm" ng-model="addMemberships.memberships.country">
+                                       <option disabled>Choose..</option>
                                        <option>Amirica</option>
                                        <option>Pakistan</option>
                                     </select>
@@ -61,25 +60,25 @@
                                      <div class="form-group row ">
                                         <label class="col-sm-4 control-label" >First Name</label>
                                         <div class="col-sm-8">
-                                           <input class="form-control" type="text" placeholder="First Name">
+                                           <input class="form-control" type="text" ng-model="addMemberships.memberships.firstName" placeholder="First Name">
                                         </div>
                                      </div>
                                      <div class="form-group row ">
                                         <label class="col-sm-4 control-label" >Last Name</label>
                                         <div class="col-sm-8">
-                                           <input class="form-control" type="text" placeholder="Last Name">
+                                           <input class="form-control" type="text" ng-model="addMemberships.memberships.lastName" placeholder="Last Name">
                                         </div>
                                      </div>
                                      <div class="form-group row ">
                                        <label class="col-sm-4 control-label">ID Number</label>
                                        <div class="col-sm-8">
-                                          <input class="form-control" type="text" placeholder="ID Number">
+                                          <input class="form-control" type="text" ng-model="addMemberships.memberships.ID" placeholder="ID Number">
                                        </div>
                                     </div>
                                     <div class="form-group row ">
                                       <label class="col-sm-4 control-label" >Language</label>
                                       <div class="col-sm-8">
-                                       <select class="form-control input-sm" >
+                                       <select class="form-control input-sm" ng-model="addMemberships.memberships.language" >
                                           <option>English</option>
                                        </select>
                                      </div>
@@ -87,28 +86,28 @@
                                     <div class="form-group row ">
                                       <label class="col-sm-4 control-label" >Physical Address</label>
                                       <div class="col-sm-8">
-                                         <input class="form-control" type="text" placeholder="Physical Address">
+                                         <input class="form-control" type="text" ng-model="addMemberships.memberships.physicalAddress" placeholder="Physical Address">
                                       </div>
                                    </div>
                                     <div class="form-group row ">
                                       <label class="col-sm-4 control-label" >Suburb</label>
                                       <div class="col-sm-8">
-                                         <input class="form-control" type="text" placeholder="Suburb">
+                                         <input class="form-control" type="text" ng-model="addMemberships.memberships.subrub" placeholder="Suburb">
                                       </div>
                                    </div>
                                     <div class="form-group row ">
                                       <label class="col-sm-4 control-label" >City</label>
                                       <div class="col-sm-8">
-                                         <input class="form-control" type="text" placeholder="City">
+                                         <input class="form-control" type="text" ng-model="addMemberships.memberships.city" placeholder="City">
                                       </div>
                                    </div>
                                     <div class="form-group row ">
                                       <label class="col-sm-4 control-label" >Province</label>
                                       <div class="col-sm-8">
-                                         <input class="form-control" type="text" placeholder="Province">
+                                         <input class="form-control" type="text" ng-model="addMemberships.memberships.province" placeholder="Province">
                                       </div>
                                    </div>
-                                   <div class="form-group row ">
+                                   <!-- <div class="form-group row ">
                                      <label class="col-sm-4 control-label" >Country</label>
                                      <div class="col-sm-8">
                                         <select class="form-control input-sm" >
@@ -117,9 +116,9 @@
                                            <option>Pakistan</option>
                                         </select>
                                     </div>
-                                  </div>
+                                  </div> -->
                                   <div class="form-group row ">
-                                    <label class="col-sm-4 control-label" >Area Code</label>
+                                    <label class="col-sm-4 control-label" ng-model="addMemberships.memberships.areaCode">Area Code</label>
                                     <div class="col-sm-8">
                                        <input class="form-control" type="text" placeholder="Area Code">
                                     </div>
@@ -129,7 +128,7 @@
                                    <div class="col-sm-8">
                                         <div class="checkbox">
                                                <label>
-                                                 <input type="checkbox"> Same as physical
+                                                 <input type="checkbox" ng-model="addMemberships.memberships.postalAddressSameAs"> Same as physical
                                                </label>
                                         </div>
                                   </div>
@@ -137,32 +136,32 @@
                                 <div class="form-group row ">
                                    <label class="col-sm-4 control-label" >Address</label>
                                    <div class="col-sm-8">
-                                      <input class="form-control" type="text" placeholder="Address">
+                                      <input class="form-control" type="text" ng-model="addMemberships.memberships.address" placeholder="Address">
                                    </div>
                                 </div>
                                 <div class="form-group row ">
                                    <label class="col-sm-4 control-label" >Subrub</label>
                                    <div class="col-sm-8">
-                                      <input class="form-control" type="text" placeholder="Subrub">
+                                      <input class="form-control" type="text" ng-model="addMemberships.memberships.postalsubrub" placeholder="Subrub">
                                    </div>
                                 </div>
 
                                 <div class="form-group row ">
                                   <label class="col-sm-4 control-label">City</label>
                                   <div class="col-sm-8">
-                                     <input class="form-control" type="text" placeholder="City">
+                                     <input class="form-control" type="text" ng-model="addMemberships.memberships.postalCity" placeholder="City">
                                   </div>
                               </div>
                               <div class="form-group row ">
                                  <label class="col-sm-4 control-label" >Province</label>
                                  <div class="col-sm-8">
-                                    <input class="form-control" type="text" placeholder="Province">
+                                    <input class="form-control" type="text" ng-model="addMemberships.memberships.postalProvince" placeholder="Province">
                                  </div>
                              </div>
                              <div class="form-group row ">
                                 <label class="col-sm-4 control-label" >Country</label>
                                 <div class="col-sm-8">
-                                   <select class="form-control input-sm" >
+                                   <select class="form-control input-sm" ng-model="addMemberships.memberships.postalCountry" >
                                       <option>South Africe</option>
                                       <option>Amirica</option>
                                       <option>Pakistan</option>
@@ -172,7 +171,7 @@
                              <div class="form-group row ">
                               <label class="col-sm-4 control-label" >Postal Code</label>
                               <div class="col-sm-8">
-                                  <input class="form-control" type="text" placeholder="Postal Code">
+                                  <input class="form-control" type="text" ng-model="addMemberships.memberships.postalCode" placeholder="Postal Code">
                               </div>
                           </div>
 
@@ -181,25 +180,25 @@
             <div class="form-group row ">
             <label class="col-sm-4 control-label" >Telephone Number</label>
             <div class="col-sm-8">
-               <input class="form-control" type="text" placeholder="Telephone Number">
+               <input class="form-control" type="text" ng-model="addMemberships.memberships.telephoneNumber" placeholder="Telephone Number">
             </div>
        </div>
        <div class="form-group row ">
          <label class="col-sm-4 control-label" >Fax</label>
          <div class="col-sm-8">
-            <input class="form-control" type="text" placeholder="Fax">
+            <input class="form-control" type="text" ng-model="addMemberships.memberships.fax" placeholder="Fax">
          </div>
    </div>
    <div class="form-group row ">
      <label class="col-sm-4 control-label" >Mobile Number</label>
      <div class="col-sm-8">
-       <input class="form-control" type="text" placeholder="Mobile Number">
+       <input class="form-control" type="text" ng-model="addMemberships.memberships.mobileNumber" placeholder="Mobile Number">
      </div>
 </div>
 <div class="form-group row ">
 <label class="col-sm-4 control-label" >Email address</label>
 <div class="col-sm-8">
-   <input class="form-control" type="email" placeholder="Email address">
+   <input class="form-control" type="email" ng-model="addMemberships.memberships.email" placeholder="Email address">
 </div>
 </div>
 <br />
@@ -208,64 +207,69 @@
 <div class="form-group row ">
   <label class="col-sm-4 control-label" >Bank name</label>
   <div class="col-sm-8">
-     <input class="form-control" type="text" placeholder="Bank name">
+     <input class="form-control" type="text" ng-model="addMemberships.memberships.bankName" placeholder="Bank name">
   </div>
 </div>
 
 <div class="form-group row ">
   <label class="col-sm-4 control-label">Branch name</label>
   <div class="col-sm-8">
-     <input class="form-control" type="text" placeholder="Branch name">
+     <input class="form-control" type="text" ng-model="addMemberships.memberships.branchName" placeholder="Branch name">
   </div>
 </div>
 <div class="form-group row ">
 <label class="col-sm-4 control-label" >Branch code</label>
 <div class="col-sm-8">
-   <input class="form-control" type="text" placeholder="Branch code">
+   <input class="form-control" type="text" ng-model="addMemberships.memberships.branchCode" placeholder="Branch code">
 </div>
 </div>
 <div class="form-group row ">
 <label class="col-sm-4 control-label" >Account type</label>
 <div class="col-sm-8">
-  <select class="form-control input-sm" >
-     <option>choose..</option>
+  <select class="form-control input-sm" ng-model="addMemberships.memberships.accountType">
+     <option disabled>choose..</option>
+     <option>Account01</option>
   </select>
 </div>
 </div>
 <div class="form-group row ">
   <label class="col-sm-4 control-label">Account  Number</label>
   <div class="col-sm-8">
-     <input class="form-control" type="text" placeholder="Account  Number">
+     <input class="form-control" type="text" ng-model="addMemberships.memberships.accountNumber" placeholder="Account  Number">
   </div>
 </div>
 <div class="form-group row ">
 <label class="col-sm-4 control-label" >Repayment amount(R)</label>
 <div class="col-sm-8">
-   <input class="form-control" type="text" placeholder="Repayment amount">
+   <input class="form-control" type="text" ng-model="addMemberships.memberships.repaymentAmount" placeholder="Repayment amount">
 </div>
 </div>
 <div class="form-group row ">
 <label class="col-sm-4 control-label" >Repayment day</label>
 <div class="col-sm-8">
-  <select class="form-control input-sm" >
-     <option>choose..</option>
+  <select class="form-control input-sm" ng-model="addMemberships.memberships.repaymentDay">
+     <option disabled>choose..</option>
+     <option>1</option>
+     <option >2</option>
   </select>
 </div>
 </div><div class="form-group row ">
 <label class="col-sm-4 control-label" >Repayment month</label>
 <div class="col-sm-8">
-  <select class="form-control input-sm" >
-     <option>choose..</option>
+  <select class="form-control input-sm" ng-model="addMemberships.memberships.repaymentMonth">
+     <option disabled>choose..</option>
+     <option >January</option>
   </select>
 </div>
 </div>
 <div class="form-group row ">
 <label class="col-sm-4 control-label" >Repayment year</label>
 <div class="col-sm-8">
-   <input class="form-control" type="text" placeholder="Repayment year">
+   <input class="form-control" type="text" ng-model="addMemberships.memberships.repaymentYear" placeholder="Repayment year">
 </div>
 </div>
 </div>
+            <input type="submit" value="Submit" ng-click="addMemberships.addMember(addMemberships.memberships)">
            <br />
 
 </form>

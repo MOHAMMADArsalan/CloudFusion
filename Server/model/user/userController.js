@@ -74,3 +74,31 @@ function addUser(req, res) {
             });
         }
 exports.addUser = addUser;
+// Add Memberships Function
+function addFranchises(req, res) {
+            var user = new usermodel_1.FranchiseModel(req.body);
+            console.log(req.body);
+            user.save(function (err, data) {
+                if (err) {
+                    res.send(err);
+                }
+                else {
+                    res.send({ message: "Inserted Successfully", data: data });
+                }
+            });
+        }
+exports.addFranchises = addFranchises;
+// Add Memberships Function
+function addmember(req, res) {
+            var user = new usermodel_1.MembershipsModel(req.body);
+            console.log(req.body);
+            user.save(function (err, data) {
+                if (err) {
+                    res.send(err);
+                }
+                else {
+                    res.send({ message: "Inserted Successfully", data: data });
+                }
+            });
+        }
+exports.addmember = addmember;

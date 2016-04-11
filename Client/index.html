@@ -70,13 +70,16 @@
 <script src="./js/morris-data.js"></script>
 <script src="./bower_components/datatables/media/js/jquery.dataTables.min.js"></script>
   <script src="./bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js"></script>
+  <script src="./bower_components/datatables-responsive/js/dataTables.responsive.js"></script>
 <!-- Custom Theme JavaScript -->
 <script src="./dist/js/sb-admin-2.js"></script>
 
 </head>
 <body ng-controller="HolidayCorporationController as app">
-<!-- Go to <a href="pages/index.html">/pages/index.html</a> -->
 
 <ui-view ></ui-view>
+<script type="text/javascript">
+  $('#accordion').collapse();
+</script>
 </body>
 </html>

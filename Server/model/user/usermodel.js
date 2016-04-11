@@ -9,6 +9,7 @@ var SignupSchema = new mongoose.Schema({
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
     role_admin: { type: Boolean, default: true },
+    timestamp: { type: Date, default: Date.now()},
     createdOn: { type: Date, default: Date.now() }
 });
 //Users Schema
@@ -20,11 +21,12 @@ var UserSchema = new mongoose.Schema({
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
     access_role: { type: String, required: true },
+    timestamp: { type: Date, default: Date.now()},
     createdOn: { type: Date, default: Date.now() }
 });
 //Add franchise Schema
 var FranchiseSchema = new mongoose.Schema({
-    name:  { type: String, required: true },
+    franchiseName:  { type: String, required: true },
     entries:  { type: String, required: true },
     email: { type: String, required: true, unique: true },
     physicalAddress:  { type: String },

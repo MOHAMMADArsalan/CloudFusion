@@ -28,10 +28,8 @@
                                          </tr>
                                      </thead>
                                      <tbody>
-                                         <tr class="odd gradeX row">
-                                             <td class="col-lg-12 col-md-12 col-sm-12 col-xs-12">HolidayCorp Techinal</td>
-
-                                         </tr>
+                                         <tr class="odd gradeX row" ng-repeat="franchise in franchises.AllFranchice">
+                                             <td class="col-lg-12 col-md-12 col-sm-12 col-xs-12" >{{franchise.franchiseName}}</td></tr>
 
                                      </tbody>
                                  </table>

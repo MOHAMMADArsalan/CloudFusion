@@ -10,8 +10,13 @@ angular
         _self.login = function(user) {
              HttpService.PostApi("/router/signin",user)
                                   .then(function(res){
-                                       localStorage.setItem("token",res.data.token);
-                                       $state.go("dashboard.home");
+                                       if(user.rememberMe) {
+                                            localStorage.setItem("token",res.data._id);
+                                            $state.go("dashboard.home");
+                                       }
+                                       else {
+                                             $state.go("dashboard.home");
+                                       }
                                   },function(error){
                                        console.log(error);
                                   });

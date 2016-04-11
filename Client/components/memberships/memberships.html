@@ -31,8 +31,10 @@
                                          </tr>
                                      </thead>
                                      <tbody>
-                                         <tr class="odd gradeX row">
-
+                                         <tr class="odd gradeX row" ng-repeat="member in memberships.AllMembers">
+                                            <td>{{member.contactNumber}}</td>
+                                            <td>{{member.firstName}}</td>
+                                            <td>{{member.lastName}}</td>
                                          </tr>
 
                                      </tbody>

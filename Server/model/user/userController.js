@@ -7,9 +7,17 @@ function Signin(req, res) {
         if (success) {
             bcrypt.compare(req.body.password, success.password, function (err, isMatch) {
                 done(err, isMatch);
+
             });
             function done(err2, isMatch) {
-                isMatch ? res.send({token: success._id}) : res.send(err);
+            if(isMatch) {
+                usermodel_1.UserModel.update({ email: req.body.email },{$set: {timestamp: Date.now()}},function(err,suc){
+                  res.send(success);
+
+                })
+            }else{
+              res.send("Password does not match");
+            }
             };
         }
         else {
@@ -47,6 +55,30 @@ function getuser(req, res) {
     });
 }
 exports.getuser = getuser;
+// Get All Franchises Function
+function getFranchises(req, res) {
+    usermodel_1.FranchiseModel.find({},{franchiseName: 1, "_id" : 0}, function (err, success) {
+        if (err) {
+          res.send("Error to Find Data");
+        }
+        else {
+            res.send(success);
+        }
+    });
+}
+exports.getFranchises = getFranchises;
+// Get All Memberships Function
+function getmember(req, res) {
+    usermodel_1.MembershipsModel.find({},{contactNumber: 1, firstName: 1 , lastName: 1 ,"_id" : 0}, function (err, success) {
+        if (err) {
+          res.send("Error to Find Data");
+        }
+        else {
+            res.send(success);
+        }
+    });
+}
+exports.getmember = getmember;
 // Main Sign up Function
 function Signup(req, res) {
             var user = new usermodel_1.UserModel(req.body);

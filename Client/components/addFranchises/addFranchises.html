@@ -18,7 +18,7 @@
                            <div class="form-group row ">
                               <label class="col-sm-3 control-label" >Name</label>
                               <div class="col-sm-6">
-                                 <input class="form-control" type="text" ng-model="addFranchises.franchise.name" placeholder="Name">
+                                 <input class="form-control" type="text" ng-model="addFranchises.franchise.franchiseName" placeholder="Name">
                               </div>
                               <div class="col-sm-3"></div>
                           </div>
@@ -338,7 +338,7 @@
                                    <div class="col-sm-8">
                                         <div class="checkbox">
                                                <label>
-                                                 <input type="checkbox" ng-model="addFranchises.franchise.postalAddressSameAs"> Same as physical
+                                                 <input type="checkbox"  ng-change="addFranchises.checkSameAsPhysical()" ng-model="addFranchises.franchise.postalAddressSameAs"> Same as physical
                                                </label>
                                         </div>
                                   </div>
@@ -346,32 +346,32 @@
                                 <div class="form-group row ">
                                    <label class="col-sm-4 control-label" >Address</label>
                                    <div class="col-sm-8">
-                                      <input class="form-control" type="text" ng-model="addFranchises.franchise.address" placeholder="Address">
+                                      <input class="form-control" type="text" ng-disabled="addFranchises.SameAsPhysical" ng-model="addFranchises.franchise.address" placeholder="Address">
                                    </div>
                                 </div>
                                 <div class="form-group row ">
                                    <label class="col-sm-4 control-label" >Subrub</label>
                                    <div class="col-sm-8">
-                                      <input class="form-control" type="text" ng-model="addFranchises.franchise.postalsubrub" placeholder="Subrub">
+                                      <input class="form-control" type="text" ng-disabled="addFranchises.SameAsPhysical" ng-model="addFranchises.franchise.postalsubrub" placeholder="Subrub">
                                    </div>
                                 </div>
 
                                 <div class="form-group row ">
                                   <label class="col-sm-4 control-label">City</label>
                                   <div class="col-sm-8">
-                                     <input class="form-control" type="text" ng-model="addFranchises.franchise.postalCity" placeholder="City">
+                                     <input class="form-control" type="text" ng-disabled="addFranchises.SameAsPhysical" ng-model="addFranchises.franchise.postalCity" placeholder="City">
                                   </div>
                               </div>
                               <div class="form-group row ">
                                  <label class="col-sm-4 control-label" >Province</label>
                                  <div class="col-sm-8">
-                                    <input class="form-control" type="text" ng-model="addFranchises.franchise.postalProvince" placeholder="Province">
+                                    <input class="form-control" type="text"  ng-disabled="addFranchises.SameAsPhysical" ng-model="addFranchises.franchise.postalProvince" placeholder="Province">
                                  </div>
                              </div>
                              <div class="form-group row ">
                                 <label class="col-sm-4 control-label" >Country</label>
                                 <div class="col-sm-8">
-                                   <select class="form-control input-sm" ng-model="addFranchises.franchise.postalCountry">
+                                   <select class="form-control input-sm" ng-disabled="addFranchises.SameAsPhysical" ng-model="addFranchises.franchise.postalCountry">
                                                <option disabled>Choose..</option>
                                               <option >Afghanistan</option>
                                               <option >Åland Islands</option>
@@ -721,14 +721,16 @@
                                 <input class="form-control" type="text" ng-model="addFranchises.franchise.workNumber" placeholder="Work Number">
                              </div>
                         </div>
+             <div class="hidden-sm hidden-xs hidden-md">
+                        <br /><br />
+                       <br /><br />
+                       <br /><br />
+                       <br /><br />
+                       <br /><br />
+                       <br /><br />
+                       <br /><br />
+             </div>
 
-                    <br /><br />
-                    <br /><br />
-                    <br /><br />
-                    <br /><br />
-                    <br /><br />
-                    <br /><br />
-                    <br /><br />
             <div class="form-group row ">
             <label class="col-sm-4 control-label" >Telephone Number</label>
             <div class="col-sm-8">
@@ -772,8 +774,8 @@
                               <span class="input-group-btn">
                                 <button class="btn btn-primary" type="button">Browse...</button>
                               </span>
-
-                               <input type="file" name="image" class="form-control" ng-model="addFranchises.franchise.proofAddress" base-sixty-four-input accept="image/*" maxsize="500"  ng-required="true">
+                               <input type="text" onclick="this.nextElementSibling.click()" class="form-control" ng-model="addFranchises.franchise.proofAddress.filename"/>
+                               <input type="file" style="display:none" name="image"  ng-model="addFranchises.franchise.proofAddress" base-sixty-four-input accept="image/*" maxsize="500"  ng-required="true">
                             </div>
                           </div>
                           <div class="col-lg-12">
@@ -784,7 +786,8 @@
                               <span class="input-group-btn">
                                 <button class="btn btn-primary" type="button">Browse...</button>
                               </span>
-                               <input type="file" name="image" class="form-control" ng-model="addFranchises.franchise.companyRegistration" base-sixty-four-input accept="image/*" maxsize="500"  ng-required="true">
+                                <input type="text" onclick="this.nextElementSibling.click()" class="form-control" ng-model="addFranchises.franchise.companyRegistration.filename"/>
+                               <input type="file" style="display:none" name="image" ng-model="addFranchises.franchise.companyRegistration" base-sixty-four-input accept="image/*" maxsize="500"  ng-required="true">
                             </div>
                           </div>
                           <div class="col-lg-12">
@@ -795,7 +798,8 @@
                               <span class="input-group-btn">
                                 <button class="btn btn-primary" type="button">Browse...</button>
                               </span>
-                              <input type="file" name="image" class="form-control" ng-model="addFranchises.franchise.identityDocument" base-sixty-four-input accept="image/*" maxsize="500"  ng-required="true">
+                              <input type="text" onclick="this.nextElementSibling.click()" ng-model="addFranchises.franchise.identityDocument.filename" class="form-control"/>
+                              <input type="file" style="display:none;" name="image" class="form-control" ng-model="addFranchises.franchise.identityDocument" base-sixty-four-input accept="image/*" maxsize="500"  ng-required="true">
 
                             </div>
                           </div>

@@ -4,7 +4,8 @@ angular
       .config(function($stateProvider, $urlRouterProvider) {
       $stateProvider
             .state("login", {
-                  url: "/login",templateUrl: "./components/login/login.html",
+                  url: "/login",
+                  templateUrl: "./components/login/login.html",
                   controller: "LoginController",
                   controllerAs: "login"
             })
@@ -17,13 +18,14 @@ angular
             .state("dashboard", {
                   url: "/dashboard",
                   abstract: true,
-
+                  loginCompulsory : true,
                   templateUrl: "./components/dashboard/dashboard.html",
                   controller: "DashboardController",
                   controllerAs: "dashboard"
             })
             .state("dashboard.home", {
                   url: "/home",
+                  loginCompulsory : true,
                   views : {
                      "main": {
                            templateUrl: "./components/home/home.html",
@@ -34,6 +36,7 @@ angular
             })
             .state("dashboard.flight", {
                   url: "/flight",
+                  loginCompulsory : true,
                   views : {
                      "main": {
                            templateUrl: "./components/flight/flight.html",
@@ -44,6 +47,7 @@ angular
             })
             .state("dashboard.user", {
                   url: "/user",
+                  loginCompulsory : true,
                   views : {
                      "main": {
                            templateUrl: "./components/user/user.html",
@@ -54,6 +58,7 @@ angular
             })
             .state("dashboard.adduser", {
                   url: "/adduser",
+                  loginCompulsory : true,
                   views : {
                      "main": {
                            templateUrl: "./components/adduser/addUser.html",
@@ -64,6 +69,7 @@ angular
             })
             .state("dashboard.accessrole", {
                   url: "/accessrole",
+                  loginCompulsory : true,
                   views : {
                      "main": {
                            templateUrl: "./components/accessRole/accessRole.html",
@@ -74,6 +80,7 @@ angular
             })
             .state("dashboard.addrole", {
                   url: "/addrole",
+                  loginCompulsory : true,
                   views : {
                      "main": {
                            templateUrl: "./components/addRole/addRole.html",
@@ -84,6 +91,7 @@ angular
             })
             .state("dashboard.franchises", {
                   url: "/franchises",
+                  loginCompulsory : true,
                   views : {
                      "main": {
                            templateUrl: "./components/franchises/franchises.html",
@@ -94,6 +102,7 @@ angular
             })
             .state("dashboard.addFranchises", {
                   url: "/addFranchises",
+                  loginCompulsory : true,
                   views : {
                      "main": {
                            templateUrl: "./components/addFranchises/addFranchises.html",
@@ -104,6 +113,7 @@ angular
             })
             .state("dashboard.editFranchises", {
                   url: "/editFranchises",
+                  loginCompulsory : true,
                   views : {
                      "main": {
                            templateUrl: "./components/editFranchises/editFranchises.html",
@@ -114,6 +124,7 @@ angular
             })
             .state("dashboard.memberships", {
                   url: "/memberships",
+                  loginCompulsory : true,
                   views : {
                      "main": {
                            templateUrl: "./components/memberships/memberships.html",
@@ -124,6 +135,7 @@ angular
             })
             .state("dashboard.addMemberships", {
                   url: "/addMemberships",
+                  loginCompulsory : true,
                   views : {
                      "main": {
                            templateUrl: "./components/addMemberships/addMemberships.html",
@@ -133,5 +145,17 @@ angular
                   }
             });
 
-      $urlRouterProvider.otherwise("login");
+      $urlRouterProvider.otherwise("/dashboard/home");
+      })
+
+
+      .run(function($rootScope, $state){
+
+      $rootScope.$on("$stateChangeStart", function(event, toState){
+      var LocalToken = localStorage.getItem("token");
+      if (toState.loginCompulsory && LocalToken === null) {
+          event.preventDefault();
+          $state.go("login");
+      }
       });
+});

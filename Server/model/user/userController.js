@@ -2,6 +2,8 @@ var express = require("express"),
   usermodel_1 = require("./usermodel"),
   postmark = require("postmark"),
   bcrypt = require("bcrypt-nodejs");
+  var SALT_FACTOR = 10;
+
 // Main Sign in Function
 function Signin(req, res) {
     usermodel_1.UserModel.findOne({ email: req.body.email }, function (err, success) {
@@ -95,31 +97,56 @@ exports.forget = forget;
 // Password reset Function
 function passwordReset(req, res) {
   console.log(req);
-    usermodel_1.UserModel.findOne({email: req.body.email}, function (err, success) {
-        if (err) {
-          res.send("Error to Find Data");
-        }
-        else if(success === null){
-          usermodel_1.AddUserModel.findOne({email: req.body.email}, function (err, success) {
-              if (err) {
-                res.send("Error to Find Data");
-              }
-              else {
-                res.send(success);
-                // sendPasswordRecoveryEmail(user);
-                //   res.send({
-                //       statusDesc: "you would receive an email with a password recovery link, shortly."
-                //   });
-              }
-          });
-          // sendPasswordRecoveryEmail(user);
-          //   res.send({
-          //       statusDesc: "you would receive an email with a password recovery link, shortly."
-          //   });
-        }
-        else {
-            res.send(success);
-        }
+    usermodel_1.UserModel.findOne({_id: req.query.token}, function (err, success) {
+     if(success) {
+       bcrypt.compare(req.body.password, success.password, function (err, isMatch) {
+           done(err, isMatch);
+
+       });
+     }
+
+      function done(err2, isMatch) {
+      if(isMatch) {
+        bcrypt.genSalt(SALT_FACTOR, function (err, salt) {
+            if (err) {
+                return done(err);
+            }
+            bcrypt.hash(req.body.newPassword, salt, null, function (err, hashedPassword) {
+                if (err) {
+                    return done(err);
+                }
+                usermodel_1.UserModel.update({ _id: req.query.token },{$set: {password: hashedPassword}},function(err,data){
+                  res.send(success);
+
+                })
+
+            });
+        });
+
+    } else if (!isMatch) {
+      usermodel_1.AddUserModel.findOne({ _id: req.query.token },function(err,success) {
+        bcrypt.genSalt(SALT_FACTOR, function (err, salt) {
+            if (err) {
+                return done(err);
+            }
+            bcrypt.hash(req.body.newPassword, salt, null, function (err, hashedPassword) {
+                if (err) {
+                    return done(err);
+                }
+                usermodel_1.AddUserModel.update({ _id: req.query.token },{$set: {password: hashedPassword}},function(err,data){
+                  res.send(success);
+
+                })
+                })
+
+            });
+        });
+
+   }
+   else{
+     res.send("Password does not match");
+   }
+  };
     });
 }
 exports.passwordReset = passwordReset;

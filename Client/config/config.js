@@ -1,5 +1,5 @@
 angular
-      .module("HolidayCorporationApp")
+      .module("CloudFusionControllerApp")
 
       .config(function($stateProvider, $urlRouterProvider) {
       $stateProvider
@@ -25,12 +25,20 @@ angular
                   url: "/dashboard",
                   abstract: true,
                   resolve: {
-                  user: function(AuthService,$location) {
-                        console.log(AuthService.LoggedIn)
-                        if(AuthService.LoggedIn){
-                              return true;
-                        }else{
-                              $location.path("/login")
+                  user: function(AuthService,$location,$cookies,$cookieStore,$window) {
+
+                              var token = localStorage.getItem("token");
+                              if(token){
+                                    return true;
+                              }
+                              else if(!token){
+                                    var cookies = $cookieStore.get("cloudToken");
+                                    if(cookies){
+                                          return true;
+                                    }
+                              }
+                        else{
+                              $location.path("/login");
                         };
                   }},
                   templateUrl: "./components/dashboard/dashboard.html",
@@ -155,6 +163,17 @@ angular
                            templateUrl: "./components/addMemberships/addMemberships.html",
                            controller: "AddMembershipsController",
                            controllerAs: "addMemberships"
+                     }
+                  }
+            })
+            .state("dashboard.resetPassword", {
+                  url: "/resetPassword",
+                  loginCompulsory : true,
+                  views : {
+                     "main": {
+                           templateUrl: "./components/resetPassword/resetPassword.html",
+                           controller: "ResetPasswordController",
+                           controllerAs: "resetPassword"
                      }
                   }
             });

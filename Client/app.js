@@ -1,8 +1,26 @@
 angular
-      .module("HolidayCorporationApp", ["ui.router", "app.signup", "app.franchises","app.forGetPassword","app.addFranchises", "app.role" ,"app.addRole","app.login", "app.home", "app.dashboard", "app.flight", "app.user", "app.adduser", "app.editFranchises", "app.memberships", "app.addMemberships", 'naif.base64',])
+      .module("CloudFusionControllerApp", [ "ui.router",
+                                            "app.signup",
+                                            "app.resetPassword",
+                                            "app.franchises",
+                                            "app.forGetPassword",
+                                            "app.addFranchises",
+                                            "app.role" ,
+                                            "app.addRole",
+                                            "app.login",
+                                            "app.home",
+                                            "app.dashboard",
+                                            "app.flight",
+                                            "app.user",
+                                            "app.adduser",
+                                            "app.editFranchises",
+                                            "app.memberships",
+                                            "app.addMemberships",
+                                            'naif.base64',
+                                            "ngCookies"])
 
-      .controller("HolidayCorporationController", [HolidayCorporationController]);
+      .controller("CloudFusionController", [CloudFusionController]);
 
-  function HolidayCorporationController() {
+  function CloudFusionController() {
         var _self = this;
  }

@@ -1,12 +1,7 @@
 <div class="row">
       <div class="col-lg-12">
-<<<<<<< HEAD:startbootstrap-sb-admin-2-1.0.8/Client/components/user/user.html
-          <h1 class="page-header">Users</h1>
-<button type="button" class="btn btn-primary" ui-sref="dashboard.adduser"> <i class="fa fa-plus fa-lg"></i> Add User</button>
-=======
           <h1 class="page-header">Memberships</h1>
 <button type="button" class="btn btn-primary" ui-sref="dashboard.addMemberships"> <i class="fa fa-plus fa-lg"></i> Add Memberships</button>
->>>>>>> ce8a266eebd5303a7a70f7ca9055efa4806c560f:Client/components/memberships/memberships.html
       </div>
 <br />
       <div class="row">
@@ -36,24 +31,10 @@
                                          </tr>
                                      </thead>
                                      <tbody>
-<<<<<<< HEAD:startbootstrap-sb-admin-2-1.0.8/Client/components/user/user.html
-                                         <tr class="odd gradeX" ng-repeat="user in user.AllUser">
-                                             <td>{{user.firstname}}</td>
-                                             <td>{{user.lastname}}</td>
-                                             <td>{{user.email}}</td>
-                                             <td class="center">{{user.timestamp}}</td>
-                                             <td class="center">
-                                               <a href="" ><i class="fa fa-trash fa-lg"></i></a>
-                                             </td>
-                                             <td class="center">
-                                              <a href="" data-toggle="modal" data-target="#myModal"><i class="fa fa-pencil fa-lg"></i></a>
-                                             </td>
-=======
                                          <tr class="odd gradeX row" ng-repeat="member in memberships.AllMembers">
                                             <td>{{member.contactNumber}}</td>
                                             <td>{{member.firstName}}</td>
                                             <td>{{member.lastName}}</td>
->>>>>>> ce8a266eebd5303a7a70f7ca9055efa4806c560f:Client/components/memberships/memberships.html
                                          </tr>
 
                                      </tbody>
@@ -82,6 +63,43 @@
                                                  </ul>
                                       </div> -->
                                  </div>
+                                 <div class="modal fade" id="myModal" role="dialog">
+                                     <div class="modal-dialog">
+                                       <!-- Modal content-->
+                                       <div class="modal-content">
+                                         <div class="modal-header">
+                                           <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                           <h4 class="modal-title">Add User</h4>
+                                         </div>
+                                         <div class="modal-body">
+                                               <form class="form-horizontal">
+                                                  <div class="form-group ">
+                                                    <label class="col-sm-3 control-label" for="FirstName">First Name</label>
+                                                    <div class="col-sm-9">
+                                                      <input class="form-control" type="text" id="FirstName" placeholder="First Name">
+                                                    </div>
+                                                  </div>
+                                                  <div class="form-group ">
+                                                    <label class="col-sm-3 control-label" for="LastName">Last Name</label>
+                                                    <div class="col-sm-9">
+                                                      <input class="form-control" type="text" id="LastName" placeholder="Last Name">
+                                                    </div>
+                                                  </div>
+                                                  <div class="form-group ">
+                                                   <label class="col-sm-3 control-label" for="Email">Email</label>
+                                                   <div class="col-sm-9">
+                                                     <input class="form-control" type="text" id="Email" placeholder="Email">
+                                                   </div>
+                                                  </div>
+                                              </form>
+                                          </div>
+                                               <div class="modal-footer">
+                                                 <button type="button" class="btn btn-primary" ng-show="true"><i class="glyphicon glyphicon-plus"></i> Add User</button>
+                                                 <button type="button" class="btn btn-primary" ng-hide="true"><i class="glyphicon glyphicon-pencil"></i> Edit </button>
+                                               </div>
+                                        </div>
+                                     </div>
+                                </div>
                              </div>
                              <!-- /.table-responsive -->
                          </div>

@@ -1,22 +1,31 @@
 angular
       .module("app.login", [])
 
-      .controller("LoginController", [LoginController]);
+      .controller("LoginController", ["HttpService","AuthService","$state",LoginController]);
 
-      function LoginController() {
+      function LoginController(HttpService,AuthService, $state) {
         var _self = this;
        _self.user = {};
         _self.login = function(user) {
-             console.log(user);
-              _self.user = {};
-        };
-        _self.rememberMe = function() {
-             var rememberMe = localStorage.getItem("token");
-             if(rememberMe) {
-               localStorage.removeItem("token");
-             }
-             else {
-            localStorage.setItem("token","abc");
-             }
+             HttpService.PostApi("/router/signin",user)
+                                  .then(function(res){
+                                       if(res.data === "Password does not match"){
+                                            _self.error = "Password does not match";
+                                       }
+                                       else if(user.rememberMe){
+                                            AuthService.isLoggedIn(res.data._id);
+                                            localStorage.setItem("token",res.data._id);
+                                            $state.go("dashboard.home");
+                                       }
+                                       else {
+                                             console.log(res);
+                                            AuthService.isLoggedIn(res.data._id);
+                                            localStorage.setItem("token",res.data._id);
+                                            $state.go("dashboard.home");
+                                    }
+
+                                  },function(error){
+                                       console.log(error);
+                                  });
         };
      }

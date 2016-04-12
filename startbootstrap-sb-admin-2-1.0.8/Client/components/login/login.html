@@ -16,11 +16,16 @@
                               </div>
                               <div class="checkbox">
                                    <label>
-                                       <input name="remember" type="checkbox" ng-click="login.rememberMe()" value="Remember Me">Remember Me
+                                       <input name="remember" type="checkbox" ng-model="login.user.rememberMe" value="RememberMe">Remember Me
                                    </label>
+                                   <a class="pull-right" ui-sref="signup">Create an account?</a>
+                                   <!-- <a class="pull-right" ui-sref="forGetPassword">Forget Password?</a> -->
+
                               </div>
+
                               <!-- Change this to a button or input when using this as a form -->
                               <a ng-click="login.login(login.user)" class="btn btn-lg btn-success btn-block">Login</a>
+                           </bold>{{login.error}}</bold>
                            </fieldset>
                        </form>
                    </div>

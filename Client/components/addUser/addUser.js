@@ -6,6 +6,14 @@ angular
       function AddUserController(HttpService,$state){
        var _self = this;
        _self.error = "";
+       _self.AllFranchice;
+       //Get All Franchises
+       HttpService.GetApi("/router/getFranchises")
+                        .then(function(res){
+                        _self.AllFranchice = res.data;
+                        },function(err){
+                            console.log(err);
+                        });
        _self.addUser = function(user) {
            if(user.confirmpassword != user.password){
                _self.error = "password does not match"

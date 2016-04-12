@@ -15,10 +15,24 @@ angular
                   controller: "SignupController",
                   controllerAs: "signup"
             })
+            .state("forGetPassword", {
+                  url: "/forGetPassword",
+                  templateUrl: "./components/forGetPassword/forGetPassword.html",
+                  controller: "ForgetPasswordController",
+                  controllerAs: "forGetPassword"
+            })
             .state("dashboard", {
                   url: "/dashboard",
                   abstract: true,
-                  loginCompulsory : true,
+                  resolve: {
+                  user: function(AuthService,$location) {
+                        console.log(AuthService.LoggedIn)
+                        if(AuthService.LoggedIn){
+                              return true;
+                        }else{
+                              $location.path("/login")
+                        };
+                  }},
                   templateUrl: "./components/dashboard/dashboard.html",
                   controller: "DashboardController",
                   controllerAs: "dashboard"
@@ -149,13 +163,13 @@ angular
       })
 
 
-      .run(function($rootScope, $state){
-
-      $rootScope.$on("$stateChangeStart", function(event, toState){
-      var LocalToken = localStorage.getItem("token");
-      if (toState.loginCompulsory && LocalToken === null) {
-          event.preventDefault();
-          $state.go("login");
-      }
-      });
-});
+//       .run(function($rootScope, $state){
+//
+//       $rootScope.$on("$stateChangeStart", function(event, toState){
+//       var LocalToken = localStorage.getItem("token");
+//       if (toState.loginCompulsory && LocalToken === null) {
+//           event.preventDefault();
+//           $state.go("login");
+//       }
+//       });
+// });

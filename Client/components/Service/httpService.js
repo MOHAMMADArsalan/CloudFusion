@@ -5,7 +5,9 @@ angular
 
       function HttpService($http, $q){
             var _self = this;
-
+      _self.AuthUser = function() {
+            return isLoggedIn;
+      }
        _self.PostApi = function(url,body) {
 
              var deffered = $q.defer();

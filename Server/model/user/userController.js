@@ -1,5 +1,6 @@
 var express = require("express"),
   usermodel_1 = require("./usermodel"),
+  postmark = require("postmark"),
   bcrypt = require("bcrypt-nodejs");
 // Main Sign in Function
 function Signin(req, res) {
@@ -11,7 +12,12 @@ function Signin(req, res) {
             });
             function done(err2, isMatch) {
             if(isMatch) {
-                usermodel_1.UserModel.update({ email: req.body.email },{$set: {timestamp: Date.now()}},function(err,suc){
+                usermodel_1.UserModel.update({ email: req.body.email },{$set: {timestamp: Date.now()}},function(err,data){
+                  var userDetails = {
+                               uid:data._id,
+                               name:data.firstName+" "+data.lastName,
+                               role:data.role
+                 }
                   res.send(success);
 
                 })
@@ -55,6 +61,68 @@ function getuser(req, res) {
     });
 }
 exports.getuser = getuser;
+// Forget Function
+function forget(req, res) {
+  console.log(req);
+    usermodel_1.UserModel.findOne({email: req.body.email}, function (err, success) {
+        if (err) {
+          res.send("Error to Find Data");
+        }
+        else if(success === null){
+          usermodel_1.AddUserModel.findOne({email: req.body.email}, function (err, success) {
+              if (err) {
+                res.send("Error to Find Data");
+              }
+              else {
+                res.send(success);
+                // sendPasswordRecoveryEmail(user);
+                //   res.send({
+                //       statusDesc: "you would receive an email with a password recovery link, shortly."
+                //   });
+              }
+          });
+          // sendPasswordRecoveryEmail(user);
+          //   res.send({
+          //       statusDesc: "you would receive an email with a password recovery link, shortly."
+          //   });
+        }
+        else {
+            res.send(success);
+        }
+    });
+}
+exports.forget = forget;
+// Password reset Function
+function passwordReset(req, res) {
+  console.log(req);
+    usermodel_1.UserModel.findOne({email: req.body.email}, function (err, success) {
+        if (err) {
+          res.send("Error to Find Data");
+        }
+        else if(success === null){
+          usermodel_1.AddUserModel.findOne({email: req.body.email}, function (err, success) {
+              if (err) {
+                res.send("Error to Find Data");
+              }
+              else {
+                res.send(success);
+                // sendPasswordRecoveryEmail(user);
+                //   res.send({
+                //       statusDesc: "you would receive an email with a password recovery link, shortly."
+                //   });
+              }
+          });
+          // sendPasswordRecoveryEmail(user);
+          //   res.send({
+          //       statusDesc: "you would receive an email with a password recovery link, shortly."
+          //   });
+        }
+        else {
+            res.send(success);
+        }
+    });
+}
+exports.passwordReset = passwordReset;
 // Get All Franchises Function
 function getFranchises(req, res) {
     usermodel_1.FranchiseModel.find({},{franchiseName: 1, "_id" : 0}, function (err, success) {
@@ -123,7 +191,6 @@ exports.addFranchises = addFranchises;
 // Add Memberships Function
 function addmember(req, res) {
             var user = new usermodel_1.MembershipsModel(req.body);
-            console.log(req.body);
             user.save(function (err, data) {
                 if (err) {
                     res.send(err);
@@ -134,3 +201,26 @@ function addmember(req, res) {
             });
         }
 exports.addmember = addmember;
+
+  // function sendPasswordRecoveryEmail(user) {
+  //
+  //
+  //       ////using postmark
+  //       var payload = {
+  //           "To": user.email,
+  //           "From": "Arslaan",
+  //           "Subject": 'Account Recovery Email - "' + "cloudfusion",
+  //           "HtmlBody": "<h1>Hello wolrd</h1>"
+  //
+  //       };
+  //       postmark.sendEmail(payload,function(err, json) {
+  //           if (err) {
+  //               console.log('email sent error: ' + user.email);
+  //               return console.error(err.message);
+  //           }
+  //
+  //           console.log('email sent success: ' + user.email);
+  //           console.log(json);
+  //       });
+  //   }
+  //

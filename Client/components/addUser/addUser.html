@@ -16,8 +16,7 @@
                               <label class="col-sm-3 control-label" >Franchise</label>
                               <div class="col-sm-8">
                                           <select class="form-control" ng-model="adduser.user.franchise">
-                                            <option >choose...</option>
-                                            <option>Franchise01</option>
+                                            <option ng-repeat="franchise in adduser.AllFranchice">{{franchise.franchiseName}}</option>
                                          </select>
                               </div>
                               <div class="col-sm-1"></div>

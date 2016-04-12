@@ -1,9 +1,9 @@
 angular
-      .module("HolidayCorporationApp")
+      .module("CloudFusionControllerApp")
 
-      .service("HttpService",["$http", "$q", HttpService]);
+      .service("HttpService",["$http", "$q","$cookies","$cookieStore","$window", HttpService]);
 
-      function HttpService($http, $q){
+      function HttpService($http, $q, $cookies,$cookieStore,$window){
             var _self = this;
       _self.AuthUser = function() {
             return isLoggedIn;
@@ -11,8 +11,9 @@ angular
        _self.PostApi = function(url,body) {
 
              var deffered = $q.defer();
-
-             $http.post(url,body).then(function(response){
+           var token = $cookieStore.get("cloudToken");
+           _self.url = url + "?token=" + token;
+             $http.post(_self.url,body).then(function(response){
                    deffered.resolve(response);
              },function(err){
                    deffered.reject(err);

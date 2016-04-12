@@ -1,5 +1,5 @@
 angular
-      .module("HolidayCorporationApp")
+      .module("CloudFusionControllerApp")
 
       .service("AuthService",[AuthService]);
 
@@ -13,4 +13,4 @@ angular
                         return _self.LoggedIn = false;
                   }
             };
-      };
+      }

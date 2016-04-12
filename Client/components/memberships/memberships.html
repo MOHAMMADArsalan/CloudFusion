@@ -1,0 +1,94 @@
+<div class="row">
+      <div class="col-lg-12">
+<<<<<<< HEAD:startbootstrap-sb-admin-2-1.0.8/Client/components/user/user.html
+          <h1 class="page-header">Users</h1>
+<button type="button" class="btn btn-primary" ui-sref="dashboard.adduser"> <i class="fa fa-plus fa-lg"></i> Add User</button>
+=======
+          <h1 class="page-header">Memberships</h1>
+<button type="button" class="btn btn-primary" ui-sref="dashboard.addMemberships"> <i class="fa fa-plus fa-lg"></i> Add Memberships</button>
+>>>>>>> ce8a266eebd5303a7a70f7ca9055efa4806c560f:Client/components/memberships/memberships.html
+      </div>
+<br />
+      <div class="row">
+                 <div class="col-lg-12">
+                         <!-- /.panel-heading -->
+                         <div class="panel-body">
+                             <div class="dataTable_wrapper">
+                                   <div class=" pull-right">
+                                    <div class="dataTables_length">
+                                        <label for="sel1">show
+                                          <select class="form-control input-sm" id="sel1">
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                          </select>
+                                    entries</label>
+                                    </div>
+                              </div>
+                                 <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                     <thead>
+                                         <tr class="row">
+
+                                               <th class="col-lg-4">Contact Number<span class="pull-right"><i class="fa fa-sort-amount-asc"></i></span></th>
+                                               <th class="col-lg-4">First Name<span class="pull-right"><i class="fa  fa-arrows-v"></i><i class="fa  fa-arrows-v"></i></span></th>
+                                              <th class="col-lg-4">Last Name<span class="pull-right"><i class="fa fa-arrows-v"></i><i class="fa fa-arrows-v"></i></span></th>
+                                         </tr>
+                                     </thead>
+                                     <tbody>
+<<<<<<< HEAD:startbootstrap-sb-admin-2-1.0.8/Client/components/user/user.html
+                                         <tr class="odd gradeX" ng-repeat="user in user.AllUser">
+                                             <td>{{user.firstname}}</td>
+                                             <td>{{user.lastname}}</td>
+                                             <td>{{user.email}}</td>
+                                             <td class="center">{{user.timestamp}}</td>
+                                             <td class="center">
+                                               <a href="" ><i class="fa fa-trash fa-lg"></i></a>
+                                             </td>
+                                             <td class="center">
+                                              <a href="" data-toggle="modal" data-target="#myModal"><i class="fa fa-pencil fa-lg"></i></a>
+                                             </td>
+=======
+                                         <tr class="odd gradeX row" ng-repeat="member in memberships.AllMembers">
+                                            <td>{{member.contactNumber}}</td>
+                                            <td>{{member.firstName}}</td>
+                                            <td>{{member.lastName}}</td>
+>>>>>>> ce8a266eebd5303a7a70f7ca9055efa4806c560f:Client/components/memberships/memberships.html
+                                         </tr>
+
+                                     </tbody>
+                                 </table>
+                                 <div layout="row">
+                                      <!-- <div class="col-sm-6">
+                                             showing 1 to 2 of 2 entires
+                                      </div> -->
+                                      <!-- <div class="col-sm-6" >
+                                                 <ul class="pagination pull-right nav navbar-nav" style="margin:0px;">
+                                                   <li class="active">
+                                                    <a  aria-label="Previous">
+                                                       <span aria-hidden="true">Privious</span>
+                                                    </a>
+                                                   </li>
+                                                   <li><a >1</a></li>
+                                                   <li><a >2</a></li>
+                                                   <li><a >3</a></li>
+                                                   <li><a >4</a></li>
+                                                   <li><a >5</a></li>
+                                                   <li>
+                                                    <a href="#" aria-label="Next">
+                                                       <span aria-hidden="true">&raquo;</span>
+                                                    </a>
+                                                   </li>
+                                                 </ul>
+                                      </div> -->
+                                 </div>
+                             </div>
+                             <!-- /.table-responsive -->
+                         </div>
+                         <!-- /.panel-body -->
+                     <!-- /.panel -->
+                 </div>
+                 <!-- /.col-lg-12 -->
+             </div>
+      <!-- /.col-lg-12 -->
+      </div>

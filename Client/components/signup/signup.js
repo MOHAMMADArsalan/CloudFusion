@@ -8,10 +8,14 @@ angular
         _self.user = {};
         _self.signup = function(user) {
              HttpService.PostApi("/router/signup",user).then(function(res){
-                   console.log(res);
-                   console.log(user);
-                    _self.user = {};
-                    $state.go("login");
+                  if(res.data === "Email is ALready exist") {
+                        _self.emailExistError = "Email is ALready exist"
+                  }
+                  else {
+                        _self.user = {};
+                        $state.go("login");
+                  }
+
              },function(err){
                    console.log(err);
              });

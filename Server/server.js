@@ -5,6 +5,7 @@ var express = require("express"),
     mongoose = require("mongoose"),
     session = require("express-session"),
     postmark = require("postmark"),
+    usermodel_1 = require("./model/user/usermodel"),
     connection = mongoose.connect("mongodb://cloudUser:KingOfFighterz@ds023560.mlab.com:23560/cloudfusion");
     //connection = mongoose.connect("mongodb://localhost/cloudfusion");
 
@@ -21,12 +22,36 @@ app.use(bodyParser.urlencoded({ extended: false, limit: '500kb' }));
 //     expire:8.64e+7
 // }));
 app.use(express.static(file));
+app.get("/varify/:email/:id",function(req, res) {
+    console.log(req.params)
+    usermodel_1.UserModel.findOne({email: req.params.email}, function(err, success) {
+        if (err) {
+            res.send("Error to Find Data");
+        }
+        else {
+            console.log(success);
+            if(success.varifyToken == req.params.id) {
+                success.status = 1;
+                success.varifyToken = null;
+                success.save(function(err, success){
+                    if(err){
+                        console.log(err);
+                    }
+                    else {
 
+                        res.redirect("/");
+                    }
+                })
+            };
+
+        }
+    });
+})
 app.use("/router", router);
 app.post("/logout",function(req,res) {
     delete req.session.loginUserDetails;
        res.status(200).send("ok");
-})
+});
 app.get("/", function(req, res) {
     res.sendFile(path.resolve(__dirname, "../Client/index.htm"));
 });

@@ -10,7 +10,7 @@
             <div class="row">
 
                 <div class="col-lg-12">
-                           <form role="form">
+                           <form role="form" name="UserForm">
 
                            <div class="form-group row ">
                               <label class="col-sm-3 control-label" >Franchise</label>
@@ -24,9 +24,9 @@
                            <div class="form-group row ">
                              <label class="col-sm-3 control-label" >Active</label>
                               <div class="col-sm-6">
-                              <div class="checkbox checkbox-slider--default checkbox-slider-md">
+                              <div class="checkbox checkbox-slider--default checkbox-slider--a checkbox-slider-md">
                                      <label>
-                                            <input ng-model="adduser.user.active" type="checkbox"/>
+                                            <input ng-model="adduser.user.active"  type="checkbox"/>
                                             <span></span>
                                     </label>
                               </div>
@@ -36,38 +36,53 @@
                                         <div class="form-group row">
                                            <label class="col-sm-3 control-label" >Email Address</label>
                                            <div class="col-sm-8">
-                                                <input class="form-control" ng-model="adduser.user.email" type="email" placeholder="example@example.com">
+                                                <input class="form-control" name="email" ng-model="adduser.user.email" type="email" placeholder="example@example.com" required>
+                                                <span class="error" ng-show="UserForm.email.$dirty && UserForm.email.$invalid">
+                                                            <span ng-show="UserForm.email.$error.required">Email is required.</span>
+                                                            <span ng-show="UserForm.email.$error.email">Invalid email address.</span>
+                                                </span>
+
                                            </div>
                                            <div class="col-sm-1"></div>
                                         </div>
                                         <div class="form-group row ">
                                            <label class="col-sm-3 control-label" >First Name</label>
                                            <div class="col-sm-8">
-                                                <input class="form-control" ng-model="adduser.user.firstname" type="text" placeholder="First Name">
+                                                <input class="form-control" name="firstName" ng-model="adduser.user.firstname" type="text" placeholder="First Name" required>
+                                                <span class="error" ng-show="UserForm.firstName.$dirty && UserForm.firstName.$invalid">
+                                                    <span ng-show="UserForm.firstName.$error.required">First Name is required.</span>
+                                                </span>
                                            </div>
                                            <div class="col-sm-1"></div>
                                         </div>
                                         <div class="form-group row ">
                                            <label class="col-sm-3 control-label" >Last Name</label>
                                            <div class="col-sm-8">
-                                                 <input class="form-control" ng-model="adduser.user.lastname" type="text" placeholder="Last Name">
+                                                 <input class="form-control" name="lastName" ng-model="adduser.user.lastname" type="text" placeholder="Last Name">
+                                                 <span class="error" ng-show="UserForm.lastName.$dirty && UserForm.lastName.$invalid">
+                                                    <span ng-show="UserForm.lastName.$error.required">last Name is required.</span>
+                                                </span>
                                            </div>
                                            <div class="col-sm-1"></div>
                                         </div>
                                         <div class="form-group row ">
                                            <label class="col-sm-3 control-label" >Access role</label>
                                            <div class="col-sm-8">
-                                                       <select class="form-control" ng-model="adduser.user.role">
+                                                       <select class="form-control"  ng-model="adduser.user.role" required="">
                                                          <option  ng-value="administration">Administration</option>
                                                          <option ng-value="member">Member</option>
                                                       </select>
+
                                            </div>
                                            <div class="col-sm-1"></div>
                                        </div>
                                        <div class="form-group row ">
                                           <label class="col-sm-3 control-label" >Password</label>
                                           <div class="col-sm-8">
-                                                    <input class="form-control" ng-model="adduser.user.password" type="password" placeholder="Password">
+                                                    <input class="form-control" name="password" ng-model="adduser.user.password" type="password" placeholder="Password" required>
+                                                    <span class="error" ng-show="UserForm.password.$dirty && UserForm.password.$invalid">
+                                                     <span ng-show="UserForm.password.$error.required">Password is required.</span>
+                                                 </span>
                                           </div>
                                           <div class="col-sm-1"></div>
                                        </div>
@@ -84,7 +99,8 @@
                                                       <button type="button" class="btn btn-default" > Cancel </button>
                                           </div>
                                           <div class="col-sm-3">
-                                                      {{adduser.error}}
+                                                      <bold class="error">{{adduser.error}}</bold>
+                                                       <br  /> <bold class="error">{{adduser.emailExistError}}</bold>
                                           </div>
                                        </div>
 

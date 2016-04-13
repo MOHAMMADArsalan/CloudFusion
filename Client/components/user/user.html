@@ -33,8 +33,9 @@
                                          </tr>
                                      </thead>
                                      <tbody>
-                                         <tr class="odd gradeX" ng-repeat="user in user.AllUser">
-                                             <td>{{user.firstname}}</td>
+                                         <tr class="odd gradeX" ng-repeat="user in user.AllUser" >
+                                             <td ng-if="user.firstname">{{user.firstname}}</td>
+                                             <td ng-if="user.username">{{user.username}}</td>
                                              <td>{{user.lastname}}</td>
                                              <td>{{user.email}}</td>
                                              <td class="center">{{user.timestamp}}</td>

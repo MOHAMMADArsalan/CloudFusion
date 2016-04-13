@@ -1,0 +1,96 @@
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">Add User</h1>
+                </div>
+
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+            <div class="row">
+
+                <div class="col-lg-12">
+                           <form role="form">
+
+                           <div class="form-group row ">
+                              <label class="col-sm-3 control-label" >Franchise</label>
+                              <div class="col-sm-8">
+                                          <select class="form-control" ng-model="adduser.user.franchise">
+                                            <option ng-repeat="franchise in adduser.AllFranchice">{{franchise.franchiseName}}</option>
+                                         </select>
+                              </div>
+                              <div class="col-sm-1"></div>
+                          </div>
+                           <div class="form-group row ">
+                             <label class="col-sm-3 control-label" >Active</label>
+                              <div class="col-sm-6">
+
+                              </div>
+                              <div class="col-sm-3"></div>
+                        </div>
+                                        <div class="form-group row">
+                                           <label class="col-sm-3 control-label" >Email Address</label>
+                                           <div class="col-sm-8">
+                                                <input class="form-control" ng-model="adduser.user.email" type="email" placeholder="example@example.com">
+                                           </div>
+                                           <div class="col-sm-1"></div>
+                                        </div>
+                                        <div class="form-group row ">
+                                           <label class="col-sm-3 control-label" >First Name</label>
+                                           <div class="col-sm-8">
+                                                <input class="form-control" ng-model="adduser.user.firstname" type="text" placeholder="First Name">
+                                           </div>
+                                           <div class="col-sm-1"></div>
+                                        </div>
+                                        <div class="form-group row ">
+                                           <label class="col-sm-3 control-label" >Last Name</label>
+                                           <div class="col-sm-8">
+                                                 <input class="form-control" ng-model="adduser.user.lastname" type="text" placeholder="Last Name">
+                                           </div>
+                                           <div class="col-sm-1"></div>
+                                        </div>
+                                        <div class="form-group row ">
+                                           <label class="col-sm-3 control-label" >Access role</label>
+                                           <div class="col-sm-8">
+                                                       <select class="form-control" ng-model="adduser.user.role">
+                                                         <option  ng-value="administration">Administration</option>
+                                                         <option ng-value="member">Member</option>
+                                                      </select>
+                                           </div>
+                                           <div class="col-sm-1"></div>
+                                       </div>
+                                       <div class="form-group row ">
+                                          <label class="col-sm-3 control-label" >Password</label>
+                                          <div class="col-sm-8">
+                                                    <input class="form-control" ng-model="adduser.user.password" type="password" placeholder="Password">
+                                          </div>
+                                          <div class="col-sm-1"></div>
+                                       </div>
+                                       <div class="form-group row ">
+                                          <label class="col-sm-3 control-label" >Confirm Password</label>
+                                          <div class="col-sm-8">
+                                                    <input class="form-control" type="password" ng-model="adduser.user.confirmpassword" placeholder="Confirm Password">
+                                          </div>
+                                          <div class="col-sm-1"></div>
+                                       </div>
+                                       <div class="form-group row ">
+                                          <div class="col-sm-3">
+                                                      <button type="button" class="btn btn-primary" ng-click="adduser.addUser(adduser.user)" ><i class="glyphicon glyphicon-plus"></i> Add </button>
+                                                      <button type="button" class="btn btn-default" > Cancel </button>
+                                          </div>
+                                          <div class="col-sm-3">
+                                                      {{adduser.error}}
+                                          </div>
+                                       </div>
+
+                                       <br />
+
+</form>
+                                <!-- /.col-lg-6 (nested) -->
+
+                                <!-- /.col-lg-6 (nested) -->
+                            </div>
+                <!-- /.col-lg-12 -->
+            </div>
+</div>
+            <!-- /.row -->

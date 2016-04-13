@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html ng-app="CloudFusionControllerApp">
+<head>
+<!-- <meta http-equiv="refresh" content="0;url=pages/index.html"> -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<title>SB Admin 2</title>
+
+<!-- Bootstrap Core CSS -->
+<link href="./bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="./bootstrap-switch-master/dist/css/bootstrap3/bootstrap-switch.min.css" rel="stylesheet">
+
+<!-- MetisMenu CSS -->
+<link href="./bower_components/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
+<!-- DataTables CSS -->
+<link href="./bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.css" rel="stylesheet">
+
+   <!-- DataTables Responsive CSS -->
+<link href="./bower_components/datatables-responsive/css/dataTables.responsive.css" rel="stylesheet">
+<!-- Timeline CSS -->
+<link href="./dist/css/timeline.css" rel="stylesheet">
+
+<!-- Custom CSS -->
+<link href="./dist/css/sb-admin-2.css" rel="stylesheet">
+
+<!-- Morris Charts CSS -->
+<link href="./bower_components/morrisjs/morris.css" rel="stylesheet">
+
+<!-- Custom Fonts -->
+<link href="./bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<!-- <script language="javascript">
+    window.location.href = "pages/index.html"
+</script> -->
+<!-- Angular JS -->
+<script src="./bower_components/angular/angular.js"></script>
+<script src="./bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+<script src="./bower_components/angular-base64-upload/dist/angular-base64-upload.js"></script>
+<script src="/bower_components/angular-cookies/angular-cookies.js"></script>
+
+<!-- J Query -->
+<script src="./bower_components/jquery/dist/jquery.js"></script>
+<!-- Bootstrap Core JavaScript -->
+<script src="./bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+<script src="./app.js"></script>
+<script src="./config/config.js"></script>
+<script src="./components/home/home.js"></script>
+<script src="./components/dashboard/dashboard.js"></script>
+<script src="./components/flight/flight.js"></script>
+<script src="./components/user/user.js"></script>
+<script src="./components/addUser/addUser.js"></script>
+<script src="./components/Service/httpService.js"></script>
+<script src="./components/Service/authService.js"></script>
+
+<script src="./components/login/login.js"></script>
+<script src="./components/signup/signup.js"></script>
+<script src="./components/forGetPassword/forGetPassword.js"></script>
+<script src="./components/accessRole/accessRole.js"></script>
+<script src="./components/addRole/addRole.js"></script>
+<script src="./components/franchises/franchises.js"></script>
+<script src="./components/addFranchises/addFranchises.js"></script>
+<script src="./components/editFranchises/editFranchises.js"></script>
+<script src="./components/memberships/memberships.js"></script>
+<script src="./components/addMemberships/addMemberships.js"></script>
+<script src="./components/resetPassword/resetPassword.js"></script>
+
+
+<!-- Metis Menu Plugin JavaScript -->
+<script src="./bower_components/metisMenu/dist/metisMenu.min.js"></script>
+
+<!-- Morris Charts JavaScript -->
+<!-- <script src="./bower_components/raphael/raphael-min.js"></script> -->
+<!-- <script src="./bower_components/morrisjs/morris.min.js">.</script> -->
+<!-- <script src="./js/morris-data.js"></script> -->
+
+<script src="./bower_components/datatables/media/js/jquery.dataTables.min.js"></script>
+  <script src="./bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js"></script>
+  <script src="./bower_components/datatables-responsive/js/dataTables.responsive.js"></script>
+<!-- Custom Theme JavaScript -->
+<script src="./dist/js/sb-admin-2.js"></script>
+
+</head>
+<body ng-controller="CloudFusionController as app">
+
+
+<ui-view ></ui-view>
+<script type="text/javascript">
+  $('#accordion').collapse();
+
+  $(document).ready(function() {
+    $('#dataTables-example').DataTable({
+            responsive: true
+    });
+});
+
+</script>
+</body>
+</html>

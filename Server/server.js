@@ -38,8 +38,7 @@ app.get("/verify/:email/:id",function(req, res) {
                         console.log(err);
                     }
                     else {
-
-                        res.redirect("/");
+                        res.redirect("/#/login?verified=true");
                     }
                 })
             };

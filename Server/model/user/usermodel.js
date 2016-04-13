@@ -5,25 +5,32 @@ var SALT_FACTOR = 10;
 
 //Signup Schema
 var SignupSchema = new mongoose.Schema({
-    username: { type: String, required: true },
+    franchise: { type: String },
+    active: {type: Boolean},
+    firstname: { type: String },
+    lastname: { type: String },
+    username: { type: String },
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
+    status: { type: Number },
+    varifyToken: { type: String },
     role_admin: { type: Boolean, default: true },
+    access_role: { type: String },
     timestamp: { type: Date, default: Date.now()},
     createdOn: { type: Date, default: Date.now() }
 });
 //Users Schema
-var UserSchema = new mongoose.Schema({
-    franchise: { type: String, required: true },
-    active: {type: Boolean},
-    firstname: { type: String, required: true },
-    lastname: { type: String, required: true },
-    email: { type: String, required: true, unique: true },
-    password: { type: String, required: true },
-    access_role: { type: String, required: true },
-    timestamp: { type: Date, default: Date.now()},
-    createdOn: { type: Date, default: Date.now() }
-});
+// var UserSchema = new mongoose.Schema({
+//     franchise: { type: String, required: true },
+//     active: {type: Boolean},
+//     firstname: { type: String, required: true },
+//     lastname: { type: String, required: true },
+//     email: { type: String, required: true, unique: true },
+//     password: { type: String, required: true },
+//     access_role: { type: String, required: true },
+//     timestamp: { type: Date, default: Date.now()},
+//     createdOn: { type: Date, default: Date.now() }
+// });
 //Add franchise Schema
 var FranchiseSchema = new mongoose.Schema({
     franchiseName:  { type: String, required: true },
@@ -121,29 +128,29 @@ SignupSchema.pre("save", function (done) {
     });
 });
 // UserSchema Bcrypt password
-var noop = function () { };
-UserSchema.pre("save", function (done) {
-    var user = this;
-    if (!user.isModified("password")) {
-        return done();
-    }
-    bcrypt.genSalt(SALT_FACTOR, function (err, salt) {
-        if (err) {
-            return done(err);
-        }
-        bcrypt.hash(user.password, salt, noop, function (err, hashedPassword) {
-            if (err) {
-                return done(err);
-            }
-            user.password = hashedPassword;
-            done();
-        });
-    });
-});
+// var noop = function () { };
+// UserSchema.pre("save", function (done) {
+//     var user = this;
+//     if (!user.isModified("password")) {
+//         return done();
+//     }
+//     bcrypt.genSalt(SALT_FACTOR, function (err, salt) {
+//         if (err) {
+//             return done(err);
+//         }
+//         bcrypt.hash(user.password, salt, noop, function (err, hashedPassword) {
+//             if (err) {
+//                 return done(err);
+//             }
+//             user.password = hashedPassword;
+//             done();
+//         });
+//     });
+// });
 var UserModel = mongoose.model("users", SignupSchema);
 exports.UserModel = UserModel;
-var AddUserModel = mongoose.model("AddUsers", UserSchema);
-exports.AddUserModel = AddUserModel;
+// var AddUserModel = mongoose.model("AddUsers", UserSchema);
+// exports.AddUserModel = AddUserModel;
 var MembershipsModel = mongoose.model("Memberships", MembershipsSchema);
 exports.MembershipsModel = MembershipsModel;
 var FranchiseModel = mongoose.model("Franchise", FranchiseSchema);

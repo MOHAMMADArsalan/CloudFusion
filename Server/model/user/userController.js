@@ -203,12 +203,9 @@ function addUser(req, res) {
 exports.addUser = addUser;
 // Add Memberships Function
 function addFranchises(req, res) {
-    console.log('okkkk');
     var user = new usermodel_1.FranchiseModel(req.body);
+    console.log(req.body);
     user.save(function(err, data) {
-        console.log(err)
-        console.log(data);
-        
         if (err) {
             res.send(err);
         }

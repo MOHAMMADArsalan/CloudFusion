@@ -5,6 +5,7 @@ angular
 
       function DashboardController($state,AuthService,$cookies,$cookieStore,$window) {
         var _self = this;
+        _self.isCollapsed = false;
         _self.logout = function() {
              $cookieStore.remove("cloudToken");
              AuthService.LoggedIn = false;

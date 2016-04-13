@@ -1,6 +1,4 @@
-angular
-
-    .module("app.addFranchises", [])
+angular.module("app.addFranchises", [])
 
     .controller("AddFranchisesController", ["HttpService", AddFranchisesController]);
 

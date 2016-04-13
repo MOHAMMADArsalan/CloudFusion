@@ -177,7 +177,8 @@ angular
                   }
             });
 
-      $urlRouterProvider.otherwise("/dashboard/home");
+      $urlRouterProvider.otherwise("/login");
+      //$urlRouterProvider.otherwise("/dashboard/home");
       })
 
 

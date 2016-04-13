@@ -177,11 +177,8 @@ angular
                   }
             });
 
-<<<<<<< HEAD
       $urlRouterProvider.otherwise("/login");
-=======
-      $urlRouterProvider.otherwise("/dashboard/home");
->>>>>>> ccfeeddc3a997322904c8137cc033365baf0c777
+
       })
 
 

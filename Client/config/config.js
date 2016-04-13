@@ -27,17 +27,18 @@ angular
                   resolve: {
                   user: function(AuthService,$location,$cookies,$cookieStore,$window) {
 
-                        var token = localStorage.getItem("token");
-                        var cookies = $cookieStore.get("cloudToken");
-                        if(token){
-                            return true;
-                        }
-                        else if(cookies){
-                            return true;
-                        }
-                        else {
-                            $state.go("login");
-                            //$location.path("/login");
+                              var token = localStorage.getItem("token");
+                              if(token){
+                                    return true;
+                              }
+                              else if(!token){
+                                    var cookies = $cookieStore.get("cloudToken");
+                                    if(cookies){
+                                          return true;
+                                    }
+                              }
+                        else{
+                              $location.path("/login");
                         };
                   }},
                   templateUrl: "./components/dashboard/dashboard.html",
@@ -177,11 +178,7 @@ angular
                   }
             });
 
-<<<<<<< HEAD
       $urlRouterProvider.otherwise("/login");
-=======
-      $urlRouterProvider.otherwise("/dashboard/home");
->>>>>>> ccfeeddc3a997322904c8137cc033365baf0c777
       })
 
 

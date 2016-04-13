@@ -8,10 +8,12 @@ body {
     background-color: #f8f8f8;
 }
 .checkbox-slider-md input:checked + span {
-    
+
     width: 10px !important
 }
-
+.error {
+    color: red;
+}
 #wrapper {
     width: 100%;
 }

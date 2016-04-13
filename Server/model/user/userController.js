@@ -1,7 +1,9 @@
 var express = require("express"),
     usermodel_1 = require("./usermodel"),
     postmark = require("postmark"),
-    bcrypt = require("bcrypt-nodejs");
+    bcrypt = require("bcrypt-nodejs"),
+    postmark = require('postmark');
+var postmarkEmail = new postmark.Client("a96e9e41-6f92-484a-a7f6-c601e82a70fb");
 var SALT_FACTOR = 10;
 
 // Main Sign in Function
@@ -26,7 +28,7 @@ function Signin(req, res) {
                 } else {
                     res.send("Password does not match");
                 }
-            };
+            }
         }
         else {
             res.send(err);
@@ -43,7 +45,7 @@ function userSignin(req, res) {
             });
             function done(err2, isMatch) {
                 isMatch ? res.send({ token: success._id }) : res.send(err);
-            };
+            }
         }
         else {
             res.send(err);
@@ -76,19 +78,15 @@ function forget(req, res) {
                     res.send("Error to Find Data");
                 }
                 else {
+                    //sending email...
+                    sendPasswordRecoveryEmail(success);
                     res.send(success);
-                    // sendPasswordRecoveryEmail(user);
-                    //   res.send({
-                    //       statusDesc: "you would receive an email with a password recovery link, shortly."
-                    //   });
                 }
             });
-            // sendPasswordRecoveryEmail(user);
-            //   res.send({
-            //       statusDesc: "you would receive an email with a password recovery link, shortly."
-            //   });
         }
         else {
+            //sending email...
+            sendPasswordRecoveryEmail(success);
             res.send(success);
         }
     });
@@ -118,7 +116,7 @@ function passwordReset(req, res) {
                         usermodel_1.UserModel.update({ _id: req.query.token }, { $set: { password: hashedPassword } }, function(err, data) {
                             res.send(success);
 
-                        })
+                        });
 
                     });
                 });
@@ -136,8 +134,8 @@ function passwordReset(req, res) {
                             usermodel_1.AddUserModel.update({ _id: req.query.token }, { $set: { password: hashedPassword } }, function(err, data) {
                                 res.send(success);
 
-                            })
-                        })
+                            });
+                        });
 
                     });
                 });
@@ -146,7 +144,7 @@ function passwordReset(req, res) {
             else {
                 res.send("Password does not match");
             }
-        };
+        }
     });
 }
 exports.passwordReset = passwordReset;
@@ -176,13 +174,16 @@ function getmember(req, res) {
 exports.getmember = getmember;
 // Main Sign up Function
 function Signup(req, res) {
+    //token generate..
     var user = new usermodel_1.UserModel(req.body);
-    user.save(function(err, success) {
+    user.save(function(err, _user) {
         if (err) {
             res.send(err);
         }
         else {
-            res.send({ message: "Inserted Successfully", token: success._id });
+            //email verification
+            emailVerification(_user.email, _user.token);
+            res.send({ message: "Inserted Successfully", token: _user._id });
         }
     });
 }
@@ -229,25 +230,41 @@ function addmember(req, res) {
 }
 exports.addmember = addmember;
 
-  // function sendPasswordRecoveryEmail(user) {
-  //
-  //
-  //       ////using postmark
-  //       var payload = {
-  //           "To": user.email,
-  //           "From": "Arslaan",
-  //           "Subject": 'Account Recovery Email - "' + "cloudfusion",
-  //           "HtmlBody": "<h1>Hello wolrd</h1>"
-  //
-  //       };
-  //       postmark.sendEmail(payload,function(err, json) {
-  //           if (err) {
-  //               console.log('email sent error: ' + user.email);
-  //               return console.error(err.message);
-  //           }
-  //
-  //           console.log('email sent success: ' + user.email);
-  //           console.log(json);
-  //       });
-  //   }
-  //
+
+function sendPasswordRecoveryEmail(user) {
+    var template = {
+        "To": user.email,
+        "From": "test@holidaycorp.co.za",
+        "Subject": 'Account Recovery Email',
+        "HtmlBody": "<h1>Recovery Email</h1>, your password is: " + user.password
+    };
+    postmarkEmail.sendEmail(template,function(err, json) {
+        if (err) {
+            console.log('email sent error: ' + user.email);
+            return console.error(err.message);
+        }
+
+        console.log('email sent success: ' + user.email);
+        console.log(json);
+    });
+}
+
+function emailVerification(email, token) {
+    var template = {
+        "To": email,
+        "From": "test@holidaycorp.co.za",
+        "Subject": 'Please Verify your Email',
+        "HtmlBody": "<h1>Verify Email</h1>, please link on this link for email verification: " + token
+    };
+    postmarkEmail.sendEmail(template,function(err, json) {
+        if (err) {
+            console.log('email sent error: ' + email);
+            return console.error(err.message);
+        }
+
+        console.log('email sent success: ' + email);
+        console.log(json);
+    });
+}
+  
+  

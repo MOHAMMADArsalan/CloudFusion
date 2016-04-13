@@ -26,7 +26,7 @@ app.use("/router", router);
 app.post("/logout",function(req,res) {
     delete req.session.loginUserDetails;
        res.status(200).send("ok");
-})
+});
 app.get("/", function(req, res) {
     res.sendFile(path.resolve(__dirname, "../Client/index.htm"));
 });

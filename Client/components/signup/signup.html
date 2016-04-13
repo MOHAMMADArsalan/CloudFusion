@@ -6,16 +6,26 @@
                        <h3 class="panel-title">Please Sign up</h3>
                    </div>
                    <div class="panel-body">
-                       <form role="form">
+                       <form role="form" name="signupForm">
                            <fieldset>
                               <div class="form-group">
-                                   <input class="form-control" ng-model="signup.user.username" placeholder="User Name"  type="text" autofocus>
+                                   <input class="form-control" name="username" ng-model="signup.user.username" placeholder="User Name"  type="text" required autofocus>
+                                   <span class="error" ng-show="UserForm.username.$dirty && UserForm.username.$invalid">
+                                          <span ng-show="UserForm.username.$error.required">User Name is required.</span>
+                                    </span>
                               </div>
                               <div class="form-group">
-                                   <input class="form-control" ng-model="signup.user.email" placeholder="E-mail" type="email" />
+                                   <input class="form-control" name="email" ng-model="signup.user.email" placeholder="E-mail" type="email" required/>
+                                   <span class="error" ng-show="UserForm.email.$dirty && UserForm.email.$invalid">
+                                         <span ng-show="UserForm.email.$error.required">Email is required.</span>
+                                         <span ng-show="UserForm.email.$error.email">Invalid email address.</span>
+                                  </span>
                               </div>
                               <div class="form-group">
-                                   <input class="form-control" ng-model="signup.user.password" placeholder="Password" type="password" value="">
+                                   <input class="form-control" name="password" ng-model="signup.user.password" placeholder="Password" type="password" required>
+                                   <span class="error" ng-show="UserForm.password.$dirty && UserForm.password.$invalid">
+                                         <span ng-show="UserForm.password.$error.required">Password is required.</span>
+                                   </span>
                               </div>
                               <!-- Change this to a button or input when using this as a form -->
                               <a ng-click="signup.signup(signup.user)" class="btn btn-lg btn-success btn-block">Sign up</a>

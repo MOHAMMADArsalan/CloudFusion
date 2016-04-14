@@ -10,15 +10,9 @@
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand fontCenturyGothic" ng-click="dashboard.hideSideBar()">HolidayCorp</a>
-            <!--<button type="button">
-                <span>Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>-->
-            <!--<button data-toggle="collapse" data-target=".navbar-collapse">abc</button>-->
 
         </div>
+
         <!-- /.navbar-header -->
 
         <ul class="nav navbar-top-links navbar-right">
@@ -67,16 +61,16 @@
                         <div id="dashboard" class="collapse">
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a ui-sref="dashboard.home" data-toggle="collapse" data-target=".navbar-collapse">Home</a>
+                                    <a ui-sref="dashboard.home" class="foo" data-toggle="collapse" data-target=".navbar-collapse">Home</a>
                                 </li>
                                 <li>
-                                    <a ui-sref="dashboard.flight" data-toggle="collapse" data-target=".navbar-collapse">Flights</a>
+                                    <a ui-sref="dashboard.flight" class="foo" data-toggle="collapse" data-target=".navbar-collapse">Flights</a>
                                 </li>
                                 <li>
-                                    <a data-toggle="collapse" data-target=".navbar-collapse">Accommodation</a>
+                                    <a class="foo" data-toggle="collapse" data-target=".navbar-collapse">Accommodation</a>
                                 </li>
                                 <li>
-                                    <a data-toggle="collapse" data-target=".navbar-collapse">Car Rental</a>
+                                    <a class="foo" data-toggle="collapse" data-target=".navbar-collapse">Car Rental</a>
                                 </li>
                             </ul>
                         </div>
@@ -87,12 +81,12 @@
                             <i class="fa fa-cog"></i> Administration<span class="fa arrow"></span>
                         </a>
                         <div id="administration" class="collapse">
-                            <ul class="nav nav-second-level ">
+                            <ul class="nav nav-second-level">
                                 <li>
-                                    <a ui-sref="dashboard.user" data-toggle="collapse" data-target=".navbar-collapse">Users</a>
+                                    <a ui-sref="dashboard.user" class="foo" data-toggle="collapse" data-target=".navbar-collapse">Users</a>
                                 </li>
                                 <li>
-                                    <a ui-sref="dashboard.accessrole" data-toggle="collapse" data-target=".navbar-collapse">Access Role</a>
+                                    <a ui-sref="dashboard.accessrole" class="foo" data-toggle="collapse" data-target=".navbar-collapse">Access Role</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
@@ -106,10 +100,10 @@
                         <div id="franchises" class="collapse">
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a ui-sref="dashboard.franchises" data-toggle="collapse" data-target=".navbar-collapse">All Franchises</a>
+                                    <a ui-sref="dashboard.franchises" class="foo" data-toggle="collapse" data-target=".navbar-collapse">All Franchises</a>
                                 </li>
                                 <li>
-                                    <a ui-sref="dashboard.addFranchises" data-toggle="collapse" data-target=".navbar-collapse">Add New</a>
+                                    <a ui-sref="dashboard.addFranchises" class="foo" data-toggle="collapse" data-target=".navbar-collapse">Add New</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
@@ -123,10 +117,10 @@
                         <div id="memberships" class="collapse">
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a ui-sref="dashboard.memberships" data-toggle="collapse" data-target=".navbar-collapse">All Memberships</a>
+                                    <a ui-sref="dashboard.memberships" class="foo" data-toggle="collapse" data-target=".navbar-collapse">All Memberships</a>
                                 </li>
                                 <li>
-                                    <a ui-sref="dashboard.addMemberships" data-toggle="collapse" data-target=".navbar-collapse">Add New</a>
+                                    <a ui-sref="dashboard.addMemberships" class="foo" data-toggle="collapse" data-target=".navbar-collapse">Add New</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
@@ -151,9 +145,9 @@
         <!-- /.navbar-static-side -->
     </nav>
 
-    <div id="page-wrapper " ng-class="{wrapperWidth: dashboard.applyClass} ">
+    <div id="page-wrapper" ng-class="{wrapperWidth: dashboard.applyClass}">
 
-        <ui-view name="main "></ui-view>
+        <ui-view name="main"></ui-view>
     </div>
 
     <!-- /#page-wrapper -->

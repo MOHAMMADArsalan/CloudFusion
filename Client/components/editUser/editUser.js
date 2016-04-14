@@ -22,6 +22,7 @@ angular.module("app.editUser",[])
       });
           HttpService.GetApi("/router/getOneUser/"+ _self._id)
                           .then(function(res){
+                                console.log(res);
                         MessageService.progressbar.complete();
                         _self.EditUser = res.data;
                           },function(err){

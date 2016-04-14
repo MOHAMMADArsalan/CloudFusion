@@ -1,8 +1,8 @@
 angular.module("app.addFranchises", [])
 
-    .controller("AddFranchisesController", ["HttpService", AddFranchisesController]);
+    .controller("AddFranchisesController", ["HttpService","$state", AddFranchisesController]);
 
-function AddFranchisesController(HttpService) {
+function AddFranchisesController(HttpService, $state) {
     var _self = this;
     _self.franchise = {};
     _self.SameAsPhysical = false;
@@ -14,6 +14,7 @@ function AddFranchisesController(HttpService) {
         HttpService.PostApi("/router/addFranchises", franchise)
             .then(function(res) {
                 _self.franchise = {};
+                $state.go("dashboard.franchises");
             }, function(err) {
                 console.log(err);
             });

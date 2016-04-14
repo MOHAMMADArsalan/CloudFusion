@@ -1,0 +1,114 @@
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">Edit User</h1>
+                </div>
+
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+            <div class="row">
+
+                <div class="col-lg-12">
+                           <form role="form" name="UserForm">
+
+                           <div class="form-group row ">
+                              <label class="col-sm-3 control-label" >Franchise</label>
+                              <div class="col-sm-8">
+                                          <select class="form-control" ng-model="editUser.user.franchise">
+                                            <option ng-repeat="franchise in editUser.AllFranchice">{{franchise.franchiseName}}</option>
+                                         </select>
+                              </div>
+                              <div class="col-sm-1"></div>
+                          </div>
+                           <div class="form-group row ">
+                             <label class="col-sm-3 control-label" >Active</label>
+                              <div class="col-sm-6">
+                              <div class="checkbox checkbox-slider--default checkbox-slider--a checkbox-slider-md">
+                                     <label>
+                                            <input ng-model="editUser.user.active"  type="checkbox"/>
+                                            <span></span>
+                                    </label>
+                              </div>
+                              </div>
+                              <div class="col-sm-3"></div>
+                        </div>
+                                        <div class="form-group row">
+                                           <label class="col-sm-3 control-label" >Email Address</label>
+                                           <div class="col-sm-8">
+                                                <input disabled class="form-control" ng-model="editUser.EditUser.email" type="email" placeholder="example@example.com">
+
+
+                                           </div>
+                                           <div class="col-sm-1"></div>
+                                        </div>
+                                        <div class="form-group row ">
+                                           <label class="col-sm-3 control-label" >First Name</label>
+                                           <div class="col-sm-8">
+                                                <input class="form-control" name="firstName" ng-if="editUser.EditUser.firstname" ng-model="editUser.EditUser.firstname" type="text" placeholder="First Name" required>
+                                                <input class="form-control" name="firstName"  ng-if="editUser.EditUser.username" ng-model="editUser.EditUser.username" type="text" placeholder="First Name" required>
+                                                <span class="error" ng-show="UserForm.firstName.$dirty && UserForm.firstName.$invalid">
+                                                    <span ng-show="UserForm.firstName.$error.required">First Name is required.</span>
+                                                </span>
+                                           </div>
+                                           <div class="col-sm-1"></div>
+                                        </div>
+                                        <div class="form-group row ">
+                                           <label class="col-sm-3 control-label" >Last Name</label>
+                                           <div class="col-sm-8">
+                                                 <input class="form-control" name="lastName" ng-model="editUser.EditUser.lastname" type="text" placeholder="Last Name">
+                                                 <span class="error" ng-show="UserForm.lastName.$dirty && UserForm.lastName.$invalid">
+                                                    <span ng-show="UserForm.lastName.$error.required">last Name is required.</span>
+                                                </span>
+                                           </div>
+                                           <div class="col-sm-1"></div>
+                                        </div>
+                                        <div class="form-group row ">
+                                           <label class="col-sm-3 control-label" >Access role</label>
+                                           <div class="col-sm-8">
+                                                       <select class="form-control"  ng-model="editUser.EditUser.role" required="">
+                                                         <option  ng-value="administration">Administration</option>
+                                                         <option ng-value="member">Member</option>
+                                                      </select>
+
+                                           </div>
+                                           <div class="col-sm-1"></div>
+                                       </div>
+                                       <div class="form-group row ">
+                                          <label class="col-sm-3 control-label" >Password</label>
+                                          <div class="col-sm-8">
+                                                    <input class="form-control" name="password" ng-model="editUser.password" type="password" placeholder="Password" required>
+                                                    <span class="error" ng-show="UserForm.password.$dirty && UserForm.password.$invalid">
+                                                     <span ng-show="UserForm.password.$error.required">Password is required.</span>
+                                                 </span>
+                                          </div>
+                                          <div class="col-sm-1"></div>
+                                       </div>
+                                       <div class="form-group row ">
+                                          <label class="col-sm-3 control-label" >Confirm Password</label>
+                                          <div class="col-sm-8">
+                                                    <input class="form-control" type="password" ng-model="editUser.EditUser.confirmpassword" placeholder="Confirm Password">
+                                          </div>
+                                          <div class="col-sm-1"></div>
+                                       </div>
+                                       <div class="form-group row ">
+                                          <div class="col-sm-3">
+                                                      <button type="button" class="btn btn-primary" ng-click="editUser.editUser(editUser.EditUser,editUser.password)" ><i class="glyphicon glyphicon-plus"></i> Edit </button>
+                                                      <button type="button" class="btn btn-default" > Cancel </button>
+                                          </div>
+                                          <div class="error">
+                                                      <bold>{{editUser.error}}</bold>
+                                          </div>
+                                       </div>
+
+                                       <br />
+
+</form>
+                                <!-- /.col-lg-6 (nested) -->
+
+                                <!-- /.col-lg-6 (nested) -->
+                            </div>
+                <!-- /.col-lg-12 -->
+            </div>
+</div>
+            <!-- /.row -->

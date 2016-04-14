@@ -89,6 +89,17 @@ angular
                      }
                   }
             })
+            .state("dashboard.editUser", {
+                  url: "/editUser/:id",
+                  loginCompulsory : true,
+                  views : {
+                     "main": {
+                           templateUrl: "./components/editUser/editUser.html",
+                           controller: "EditUserController",
+                           controllerAs: "editUser"
+                     }
+                  }
+            })
             .state("dashboard.accessrole", {
                   url: "/accessrole",
                   loginCompulsory : true,
@@ -134,13 +145,24 @@ angular
                   }
             })
             .state("dashboard.editFranchises", {
-                  url: "/editFranchises",
+                  url: "/editFranchises/:id",
                   loginCompulsory : true,
                   views : {
                      "main": {
                            templateUrl: "./components/editFranchises/editFranchises.html",
                            controller: "EditFranchisesController",
                            controllerAs: "editFranchises"
+                     }
+                  }
+            })
+            .state("dashboard.FranchiseEdit", {
+                  url: "/FranchiseEdit/:id",
+                  loginCompulsory : true,
+                  views : {
+                     "main": {
+                           templateUrl: "./components/FranchiseEdit/FranchiseEdit.html",
+                           controller: "FranchiseEditController",
+                           controllerAs: "FranchiseEdit"
                      }
                   }
             })

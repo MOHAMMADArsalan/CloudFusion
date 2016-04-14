@@ -94,7 +94,7 @@ angular
                   loginCompulsory : true,
                   views : {
                      "main": {
-                           templateUrl: "./components/adduser/addUser.html",
+                           templateUrl: "./components/addUser/addUser.html",
                            controller: "AddUserController",
                            controllerAs: "adduser"
                      }

@@ -6,7 +6,7 @@ var SALT_FACTOR = 10;
 //Signup Schema
 var SignupSchema = new mongoose.Schema({
     franchise: { type: String },
-    active: {type: Boolean},
+    active: {type: Boolean , default: true},
     firstname: { type: String },
     lastname: { type: String },
     username: { type: String },

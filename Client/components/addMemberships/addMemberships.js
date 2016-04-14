@@ -8,6 +8,7 @@ angular
        _self.SameAsPhysical = false;
        _self.AllFranchice;
        _self.memberships;
+       _self.disable = false;
        //Get All Franchises
        HttpService.GetApi("/router/getFranchises")
                         .then(function(res){
@@ -22,15 +23,17 @@ angular
       // Add Members to db
       _self.addMember = function(memberships) {
           MessageService.progressbar.start();
+          _self.disable = true;
           HttpService.PostApi("/router/addmember",memberships)
                     .then(function(res){
                          MessageService.progressbar.complete();
                          $state.go("dashboard.memberships");
                          _self.memberships = [];
+                         _self.disable = false;
                     },function(err){
                         console.log(err);
                         MessageService.progressbar.complete();
-                        
+                        _self.disable = false;
                     });
       };
     }

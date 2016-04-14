@@ -19,8 +19,8 @@ function LoginController(MessageService,HttpService, AuthService, $state, $cooki
         _self.Error = "";
         if (user !== "") {
             HttpService.PostApi("/router/signin", user).then(function(res) {
-                if (res.data === "Please Varify Email") {
-                    _self.varificationError = "Please Varify Your Email Address"
+                if (res.data === "Please Verify Email") {
+                    _self.varificationError = "Please Verify Your Email Address"
                     MessageService.progressbar.complete();
                     _self.disable = false;
 

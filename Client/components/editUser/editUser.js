@@ -10,6 +10,7 @@ angular.module("app.editUser",[])
          _self.AllFranchice;
          _self.emailExistError = "";
          MessageService.progressbar.start();
+         _self.disable = false;
         //Get All Franchises
         HttpService.GetApi("/router/getFranchises")
                         .then(function(res){
@@ -30,14 +31,17 @@ angular.module("app.editUser",[])
 
 
                           _self.editUser =  function(user,pass){
-                                  MessageService.progressbar.start();
+                                _self.disable = true;
+                                 MessageService.progressbar.start();
                                 user.password = pass;
                                 HttpService.PostApi("/router/editUser",user)
                                             .then(function(res){
                                          MessageService.progressbar.complete();
+                                         _self.disable = false;
                                           $state.go("dashboard.user");
                                             },function(err){
                                            MessageService.progressbar.complete();
+                                           _self.disable = false;
                                           _self.error = "Error To Edit User";
                                             })
                           }

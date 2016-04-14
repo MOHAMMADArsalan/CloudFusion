@@ -1,9 +1,9 @@
 angular
       .module("app.addMemberships", [])
 
-     .controller("AddMembershipsController",["HttpService","$state", AddMembershipsController]);
+     .controller("AddMembershipsController",["MessageService","HttpService","$state", AddMembershipsController]);
 
-    function AddMembershipsController(HttpService, $state) {
+    function AddMembershipsController(MessageService,HttpService, $state) {
       var _self = this;
        _self.SameAsPhysical = false;
        _self.AllFranchice;
@@ -21,12 +21,16 @@ angular
       };
       // Add Members to db
       _self.addMember = function(memberships) {
+          MessageService.progressbar.start();
           HttpService.PostApi("/router/addmember",memberships)
                     .then(function(res){
+                         MessageService.progressbar.complete();
                          $state.go("dashboard.memberships");
                          _self.memberships = [];
                     },function(err){
                         console.log(err);
+                        MessageService.progressbar.complete();
+                        
                     });
       };
     }

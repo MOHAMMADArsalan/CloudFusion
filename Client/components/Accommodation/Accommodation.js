@@ -1,7 +1,13 @@
 
 angular.module("app.Accommodation",[])
-      .controller("AccommodationController",[AccommodationController]);
+      .controller("AccommodationController",["MessageService",AccommodationController]);
 
-      function AccommodationController() {
+      function AccommodationController(MessageService) {
             var _self = this;
+            MessageService.progressbar.start();
+
+            document.getElementById("iframe").onload = function() {
+                  MessageService.progressbar.complete();
+
+            }
       }

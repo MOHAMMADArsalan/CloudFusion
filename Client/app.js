@@ -20,7 +20,8 @@ angular
                                             "app.addMemberships",
                                             "app.Accommodation",
                                             'naif.base64',
-                                            "ngCookies"])
+                                            "ngCookies",
+                                            "ngProgress"])
 
       .controller("CloudFusionController", [CloudFusionController]);
 

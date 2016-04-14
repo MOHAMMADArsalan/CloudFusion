@@ -23,11 +23,14 @@
                               </div>
 
                               <!-- Change this to a button or input when using this as a form -->
-                              <a ng-click="login.login(login.user)" class="btn btn-lg btn-success btn-block">Login</a>
+                              <a ng-click="login.login(login.user)" ng-disabled="login.disable" class="btn btn-lg btn-success btn-block">Login</a>
 
                            </fieldset>
                        </form>
                    </div>
+               </div>
+               <div>
+
                </div>
             <bold class="error">{{login.Error}}</bold>
                <bold class="error">{{login.varificationError}}</bold>

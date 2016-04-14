@@ -33,10 +33,13 @@ angular.module("app.editUser",[])
 
                           _self.editUser =  function(user,pass){
                                 _self.disable = true;
+                                console.log(user);
                                  MessageService.progressbar.start();
                                 user.password = pass;
+                                
                                 HttpService.PostApi("/router/editUser",user)
                                             .then(function(res){
+                                       console.log(res);
                                          MessageService.progressbar.complete();
                                          _self.disable = false;
                                           $state.go("dashboard.user");

@@ -24,10 +24,11 @@ angular
             _self.disable = true;
             HttpService.PostApi("/router/editFranchises",franchise)
                         .then(function(res){
+                              toastr.success("Franchise Edited Successfully");
                               $state.go("dashboard.franchises");
                               _self.disable = false;
                         },function(err){
-                              _self.error = "Error To Edit Franchise"
+                              toastr.error("Error To Edit Franchise");
                               _self.disable = false;
                         })
       }

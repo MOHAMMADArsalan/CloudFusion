@@ -22,8 +22,7 @@ angular.module("app.editUser",[])
       });
           HttpService.GetApi("/router/getOneUser/"+ _self._id)
                           .then(function(res){
-                                console.log(res);
-                        MessageService.progressbar.complete();
+                        // MessageService.progressbar.complete();
                         _self.EditUser = res.data;
                           },function(err){
                             MessageService.progressbar.complete();
@@ -33,20 +32,18 @@ angular.module("app.editUser",[])
 
                           _self.editUser =  function(user,pass){
                                 _self.disable = true;
-                                console.log(user);
                                  MessageService.progressbar.start();
                                 user.password = pass;
-                                
                                 HttpService.PostApi("/router/editUser",user)
                                             .then(function(res){
-                                       console.log(res);
+                                           toastr.success("User edited Successfully");
                                          MessageService.progressbar.complete();
                                          _self.disable = false;
                                           $state.go("dashboard.user");
                                             },function(err){
                                            MessageService.progressbar.complete();
                                            _self.disable = false;
-                                          _self.error = "Error To Edit User";
-                                            })
+                                           toastr.success("Error To Edit User");
+                               })
                           }
       }

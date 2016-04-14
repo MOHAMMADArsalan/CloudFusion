@@ -12,11 +12,13 @@ angular
             MessageService.progressbar.start();
              HttpService.PostApi("/router/signup",user).then(function(res){
                   if(res.data === "Email is ALready exist") {
-                        _self.emailExistError = "Email is already exist"
+                        toastr.info('Email is already exist');
                         MessageService.progressbar.complete();
                          _self.disable = false;
                   }
                   else {
+                        toastr.info('Please verify email for Sign in');
+
                         MessageService.progressbar.complete();
                         _self.disable = false;
                         _self.user = {};
@@ -24,7 +26,7 @@ angular
                   }
 
              },function(err){
-                   console.log(err);
+                   toastr.error(err);
                    MessageService.progressbar.complete();
                     _self.disable = false;
               });

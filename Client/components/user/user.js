@@ -14,16 +14,16 @@ angular
                     .then(function(res){
                         MessageService.progressbar.complete();
                         _self.AllUser.splice(index,1);
+                        toastr.success("User Deleted Successfully");
                     },function(err){
                         MessageService.progressbar.complete();
-
-                        _self.error = "Error To Delete User"
+                        toastr.error("Error To Delete User");
                     });
        };
     //    _self.LastLogin = function(timestamp) {}
        HttpService.GetApi("/router/getuser").then(function(res){
            if(res.data.length === 0) {
-               console.log("Data not Found");
+               toastr.info("No Data Found");
                MessageService.progressbar.complete();
 
            }
@@ -35,6 +35,6 @@ angular
        },function(err){
            console.log(err);
            MessageService.progressbar.complete();
-           
+
        });
     }

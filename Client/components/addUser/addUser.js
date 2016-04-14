@@ -1,16 +1,18 @@
 angular
       .module("app.adduser", [])
 
-      .controller("AddUserController",["HttpService","$state", AddUserController]);
+      .controller("AddUserController",["MessageService","HttpService","$state", AddUserController]);
 
-      function AddUserController(HttpService,$state){
+      function AddUserController(MessageService,HttpService,$state){
        var _self = this;
        _self.error = "";
        _self.AllFranchice;
        _self.emailExistError = "";
+       MessageService.progressbar.start();
        //Get All Franchises
        HttpService.GetApi("/router/getFranchises")
                         .then(function(res){
+                        MessageService.progressbar.complete();    
                         _self.AllFranchice = res.data;
                         },function(err){
                             console.log(err);
@@ -20,21 +22,22 @@ angular
             _self.emailExistError = "";
             _self.error = "";
            if(user.confirmpassword != user.password){
-               _self.error = "password does not match"
+               toastr.error("password does not match");
            }
            else {
                HttpService.PostApi("/router/signup",user).then(function(res){
 
                                   if(res.data === "Email is ALready exist") {
-                                        _self.emailExistError = "Email is ALready exist"
+                                        toastr.error("Email is already exist");
                                   }
                                   else {
+                                      toastr.success("User added");
                                       $state.go("dashboard.user");
                                       _self.user = {};
                                   }
 
                              },function(err){
-                                   console.log(err);
+                                   toastr.error(err);
                              });
            }
 

@@ -3,8 +3,6 @@ angular.module("app.login", [])
 
 function LoginController(MessageService,HttpService, AuthService, $state, $cookies, $cookieStore, $window) {
     var _self = this;
-    // _self.progressbar = ngProgressFactory.createInstance();
-
     var queryString = window.location.toString().split('?');
     // var x = abc.toString().split('?');
     _self.fromVerified = (queryString[1] && queryString[1] === 'verified=true') ? true : false;
@@ -20,17 +18,17 @@ function LoginController(MessageService,HttpService, AuthService, $state, $cooki
         if (user !== "") {
             HttpService.PostApi("/router/signin", user).then(function(res) {
                 if (res.data === "Please Verify Email") {
-                    _self.varificationError = "Please Verify Your Email Address"
+                    toastr.info('Please Verify Your Email Address');
                     MessageService.progressbar.complete();
                     _self.disable = false;
 
                 } else if (res.data === "Password does not match") {
-                    _self.Error = "Email Or Password does not match";
+                    toastr.warning('Email Or Password does not match');
                     MessageService.progressbar.complete();
                     _self.disable = false;
                 }
                 else if (res.data === "User Not Found with this Email Address") {
-                    _self.ErrorUserNotExist = "User Not Found with this Email Address";
+                    toastr.error('User Not Found with this Email Address');
                     MessageService.progressbar.complete();
                     _self.disable = false;
                 }
@@ -41,6 +39,8 @@ function LoginController(MessageService,HttpService, AuthService, $state, $cooki
                     _self.fromVerified = false;
                     MessageService.progressbar.complete();
                    _self.disable = false;
+                   toastr.success('Sign in Successfully');
+
                     $state.go("dashboard.home");
                 }
                 else {
@@ -48,11 +48,12 @@ function LoginController(MessageService,HttpService, AuthService, $state, $cooki
                     AuthService.isLoggedIn(res.data._id);
                     _self.fromVerified = false;
                     MessageService.progressbar.complete();
+                    toastr.success('Sign in Successfully');
                     _self.disable = false;
                     $state.go("dashboard.home");
                 }
             }, function(error) {
-                console.log(error);
+                toastr.error(error);
                 MessageService.progressbar.complete();
                 _self.disable = false;
             });

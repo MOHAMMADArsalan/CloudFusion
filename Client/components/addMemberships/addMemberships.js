@@ -27,11 +27,12 @@ angular
           HttpService.PostApi("/router/addmember",memberships)
                     .then(function(res){
                          MessageService.progressbar.complete();
+                         toastr.success('Memberships added');
                          $state.go("dashboard.memberships");
-                         _self.memberships = [];
+                        _self.memberships = [];
                          _self.disable = false;
                     },function(err){
-                        console.log(err);
+                        toastr.error(err);
                         MessageService.progressbar.complete();
                         _self.disable = false;
                     });

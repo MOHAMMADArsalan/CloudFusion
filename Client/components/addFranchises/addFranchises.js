@@ -15,13 +15,14 @@ function AddFranchisesController(MessageService,HttpService, $state) {
         MessageService.progressbar.start();
         HttpService.PostApi("/router/addFranchises", franchise)
             .then(function(res) {
+               toastr.success('Franchise added');
                 _self.franchise = {};
                 MessageService.progressbar.complete();
                 _self.disable = false;
                 $state.go("dashboard.franchises");
             }, function(err) {
                 MessageService.progressbar.complete();
-                console.log(err);
+                toastr.error(err);
                 _self.disable = false;
             });
     };

@@ -10,7 +10,7 @@ var SALT_FACTOR = 10;
 // Main Sign in Function
 function Signin(req, res) {
     usermodel_1.UserModel.findOne({ email: req.body.email }, function(err, success) {
-        console.log(err , success);
+        console.log("1111111111111111111111111111111",success);
             if (success) {
                 if(success.status == 1) {
                     bcrypt.compare(req.body.password, success.password, function(err, isMatch) {
@@ -27,6 +27,8 @@ function Signin(req, res) {
                             res.send("Password does not match");
                         }
                     }
+                }else {
+                    res.send("Please Verify Email");
                 }
 
             }

@@ -3,7 +3,7 @@ angular.module("app.login", [])
 
 function LoginController(HttpService, AuthService, $state, $cookies, $cookieStore, $window) {
     var _self = this;
-    
+
     var queryString = window.location.toString().split('?');
     // var x = abc.toString().split('?');
     _self.fromVerified = (queryString[1] && queryString[1] === 'verified=true') ? true : false;
@@ -12,13 +12,13 @@ function LoginController(HttpService, AuthService, $state, $cookies, $cookieStor
     _self.login = function(user) {
         _self.ErrorUserNotExist = "";
         _self.varificationError = "";
-        _self.error = "";
+        _self.Error = "";
         if (user !== "") {
             HttpService.PostApi("/router/signin", user).then(function(res) {
                 if (res.data === "Please Varify Email") {
                     _self.varificationError = "Please Varify Your Email Address"
                 } else if (res.data === "Password does not match") {
-                    _self.error = "Email Or Password does not match";
+                    _self.Error = "Email Or Password does not match";
                 }
                 else if (res.data === "User Not Found with this Email Address") {
                     _self.ErrorUserNotExist = "User Not Found with this Email Address"

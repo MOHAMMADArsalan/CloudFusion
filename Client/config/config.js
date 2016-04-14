@@ -89,7 +89,7 @@ angular
                      }
                   }
             })
-            .state("dashboard.adduser", {
+            .state("dashboard.addUser", {
                   url: "/adduser",
                   loginCompulsory : true,
                   views : {

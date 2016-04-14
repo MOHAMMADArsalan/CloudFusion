@@ -9,7 +9,7 @@ angular
         _self.signup = function(user) {
              HttpService.PostApi("/router/signup",user).then(function(res){
                   if(res.data === "Email is ALready exist") {
-                        _self.emailExistError = "Email is ALready exist"
+                        _self.emailExistError = "Email is already exist"
                   }
                   else {
                         _self.user = {};

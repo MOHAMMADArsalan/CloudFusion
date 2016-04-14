@@ -21,6 +21,17 @@ angular
 
              return deffered.promise;
       };
+       _self.DeleteApi = function(url) {
+
+             var deffered = $q.defer();
+             $http.delete(url).then(function(response){
+                   deffered.resolve(response);
+             },function(err){
+                   deffered.reject(err);
+             });
+
+             return deffered.promise;
+      };
        _self.GetApi = function(url) {
              var token = localStorage.getItem("token");
              var deffered = $q.defer();

@@ -33,17 +33,17 @@
                                          </tr>
                                      </thead>
                                      <tbody>
-                                         <tr class="odd gradeX" ng-repeat="user in user.AllUser" >
-                                             <td ng-if="user.firstname">{{user.firstname}}</td>
-                                             <td ng-if="user.username">{{user.username}}</td>
-                                             <td>{{user.lastname}}</td>
-                                             <td>{{user.email}}</td>
-                                             <td class="center">{{user.timestamp}}</td>
+                                         <tr class="odd gradeX" ng-repeat="User in user.AllUser" >
+                                             <td ng-if="User.firstname">{{User.firstname}}</td>
+                                             <td ng-if="User.username">{{User.username}}</td>
+                                             <td>{{User.lastname}}</td>
+                                             <td>{{User.email}}</td>
+                                             <td class="center">{{User.timestamp}}</td>
                                              <td class="center">
-                                               <a href="" ><i class="fa fa-trash fa-lg"></i></a>
+                                               <a  ng-click="user.deleteUser(User._id,$index)"><i class="fa fa-trash fa-lg"></i></a>
                                              </td>
                                              <td class="center">
-                                              <a href="" data-toggle="modal" data-target="#myModal"><i class="fa fa-pencil fa-lg"></i></a>
+                                              <a href="" ui-sref="dashboard.editUser({id: User._id})"><i class="fa fa-pencil fa-lg"></i></a>
                                              </td>
                                          </tr>
                                      </tbody>

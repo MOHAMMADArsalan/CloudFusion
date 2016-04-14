@@ -13,8 +13,8 @@ var app = express();
 var port = process.env.PORT || 9000;
 var file = path.resolve(__dirname, "../Client");
 
-app.use(bodyParser.json({limit: '500kb'}));
-app.use(bodyParser.urlencoded({ extended: false, limit: '500kb' }));
+app.use(bodyParser.json({limit: '1500kb'}));
+app.use(bodyParser.urlencoded({ extended: false, limit: '1500kb' }));
 // app.use(session({
 //     secret:"cloudfusion:ksdf5i01siu8sdfj7mkahksmamksmaksjsdi",
 //     resave:false,

@@ -13,9 +13,12 @@ angular
                                             "app.flight",
                                             "app.user",
                                             "app.adduser",
+                                            "app.editUser",
                                             "app.editFranchises",
+                                            "app.FranchiseEdit",
                                             "app.memberships",
                                             "app.addMemberships",
+                                            "app.Accommodation",
                                             'naif.base64',
                                             "ngCookies"])
 

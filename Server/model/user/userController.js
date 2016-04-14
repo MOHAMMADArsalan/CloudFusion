@@ -56,6 +56,10 @@ exports.Signin = Signin;
 // }
 // exports.userSignin = userSignin;
 // Get All User Function
+
+
+
+
 function getuser(req, res) {
     usermodel_1.UserModel.find({}, function(err, success) {
         if (err) {
@@ -67,6 +71,19 @@ function getuser(req, res) {
     });
 }
 exports.getuser = getuser;
+function getOneUser(req, res) {
+    console.log(req.params.id)
+        usermodel_1.UserModel.findOne({_id: req.params.id},function(err,success) {
+            if(err) {
+                res.send(err);
+            }else {
+                res.send(success);
+            }
+        })
+
+
+}
+exports.getOneUser = getOneUser;
 // Forget Function
 function forget(req, res) {
     console.log(req);
@@ -152,7 +169,7 @@ function passwordReset(req, res) {
 exports.passwordReset = passwordReset;
 // Get All Franchises Function
 function getFranchises(req, res) {
-    usermodel_1.FranchiseModel.find({}, { franchiseName: 1, "_id": 0 }, function(err, success) {
+    usermodel_1.FranchiseModel.find({}, function(err, success) {
         if (err) {
             res.send("Error to Find Data");
         }
@@ -162,9 +179,33 @@ function getFranchises(req, res) {
     });
 }
 exports.getFranchises = getFranchises;
+// Get All Franchises Function
+function getOneFranchises(req, res) {
+    usermodel_1.FranchiseModel.findOne({_id: req.params.id}, function(err, success) {
+        if (err) {
+            res.send("Error to Find Data");
+        }
+        else {
+            res.send(success);
+        }
+    });
+}
+exports.getOneFranchises = getOneFranchises;
+// Get All Franchises Function
+function editFranchises(req, res) {
+    usermodel_1.FranchiseModel.update({_id: req.body._id},{$set: req.body} , function(err, success) {
+        if (err) {
+            res.send("Error to Find Data");
+        }
+        else {
+            res.send("Franchise Edit Successfully");
+        }
+    });
+}
+exports.editFranchises = editFranchises;
 // Get All Memberships Function
 function getmember(req, res) {
-    usermodel_1.MembershipsModel.find({}, { contactNumber: 1, firstName: 1, lastName: 1, "_id": 0 }, function(err, success) {
+    usermodel_1.MembershipsModel.find({}, function(err, success) {
         if (err) {
             res.send("Error to Find Data");
         }
@@ -174,9 +215,9 @@ function getmember(req, res) {
     });
 }
 exports.getmember = getmember;
-// Get All Memberships Function
+// Varifivation Function
 function varification(req, res) {
-    usermodel_1.AddUserModel.findOne({email: req.params.email}, function(err, success) {
+    usermodel_1.UserModel.findOne({email: req.params.email}, function(err, success) {
         if (err) {
             res.send("Error to Find Data");
         }
@@ -217,6 +258,37 @@ function Signup(req, res) {
     });
 }
 exports.Signup = Signup;
+// Main Sign up Function
+function editUser(req, res) {
+    console.log(req.body);
+    //token generate..
+    bcrypt.genSalt(10, function (err, salt) {
+        bcrypt.hash(req.body.password, salt, null, function (err, hashed) {
+            req.body.password = hashed;
+            usermodel_1.UserModel.update({_id: req.body._id}, {$set: req.body}, function (err, success) {
+                res.send(err || success);
+            });
+        });
+    });
+}
+exports.editUser = editUser;
+// Main Sign up Function
+function deleteUser(req, res) {
+    console.log(req.params.id)
+    usermodel_1.UserModel.remove({_id: req.params.id} ,function(err,success){
+        if(err){
+            res.send("Error To Delete User");
+        }else{
+            // usermodel_1.UserModel.remove({_id: req.params.id});
+            res.send("Delete user");
+        }
+    });
+}
+exports.deleteUser = deleteUser;
+
+
+
+
 // // Add User Function
 // function addUser(req, res) {
 //     var user = new usermodel_1.AddUserModel(req.body);

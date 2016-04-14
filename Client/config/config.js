@@ -39,7 +39,7 @@ angular
                               }
                         else{
                               $location.path("/login");
-                        };
+                        }
                   }},
                   templateUrl: "./components/dashboard/dashboard.html",
                   controller: "DashboardController",
@@ -67,6 +67,17 @@ angular
                      }
                   }
             })
+            .state("dashboard.Accommodation", {
+                  url: "/Accommodation",
+                  loginCompulsory : true,
+                  views : {
+                     "main": {
+                           templateUrl: "./components/Accommodation/Accommodation.html",
+                           controller: "AccommodationController",
+                           controllerAs: "Accommodation"
+                     }
+                  }
+            })
             .state("dashboard.user", {
                   url: "/user",
                   loginCompulsory : true,
@@ -86,6 +97,17 @@ angular
                            templateUrl: "./components/adduser/addUser.html",
                            controller: "AddUserController",
                            controllerAs: "adduser"
+                     }
+                  }
+            })
+            .state("dashboard.editUser", {
+                  url: "/editUser/:id",
+                  loginCompulsory : true,
+                  views : {
+                     "main": {
+                           templateUrl: "./components/editUser/editUser.html",
+                           controller: "EditUserController",
+                           controllerAs: "editUser"
                      }
                   }
             })
@@ -134,13 +156,24 @@ angular
                   }
             })
             .state("dashboard.editFranchises", {
-                  url: "/editFranchises",
+                  url: "/editFranchises/:id",
                   loginCompulsory : true,
                   views : {
                      "main": {
                            templateUrl: "./components/editFranchises/editFranchises.html",
                            controller: "EditFranchisesController",
                            controllerAs: "editFranchises"
+                     }
+                  }
+            })
+            .state("dashboard.FranchiseEdit", {
+                  url: "/FranchiseEdit/:id",
+                  loginCompulsory : true,
+                  views : {
+                     "main": {
+                           templateUrl: "./components/FranchiseEdit/FranchiseEdit.html",
+                           controller: "FranchiseEditController",
+                           controllerAs: "FranchiseEdit"
                      }
                   }
             })

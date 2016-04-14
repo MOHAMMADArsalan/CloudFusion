@@ -16,6 +16,7 @@ angular
                             console.log(err);
                         });
        _self.addUser = function(user) {
+           user.role_admin = false;
             _self.emailExistError = "";
             _self.error = "";
            if(user.confirmpassword != user.password){
@@ -23,6 +24,7 @@ angular
            }
            else {
                HttpService.PostApi("/router/signup",user).then(function(res){
+
                                   if(res.data === "Email is ALready exist") {
                                         _self.emailExistError = "Email is ALready exist"
                                   }

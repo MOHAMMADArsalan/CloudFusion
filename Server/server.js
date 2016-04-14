@@ -22,7 +22,7 @@ app.use(bodyParser.urlencoded({ extended: false, limit: '500kb' }));
 //     expire:8.64e+7
 // }));
 app.use(express.static(file));
-app.get("/varify/:email/:id",function(req, res) {
+app.get("/verify/:email/:id",function(req, res) {
     console.log(req.params)
     usermodel_1.UserModel.findOne({email: req.params.email}, function(err, success) {
         if (err) {
@@ -38,8 +38,7 @@ app.get("/varify/:email/:id",function(req, res) {
                         console.log(err);
                     }
                     else {
-
-                        res.redirect("/");
+                        res.redirect("/#/login?verified=true");
                     }
                 })
             };

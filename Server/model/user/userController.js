@@ -284,7 +284,7 @@ function emailVerification(email, token) {
         "To": email,
         "From": "test@holidaycorp.co.za",
         "Subject": 'Please Verify your Email',
-        "HtmlBody": "<h1>Verify Email</h1>, please link on this link for email verification: https://cloudfussion.herukoapp.com/varify/"+ email +  "/" +  token
+        "HtmlBody": "<h1>Verify Email</h1>, please link on this link for email verification: https://cloudfussion.herokuapp.com/verify/"+ email +  "/" +  token
     };
     postmarkEmail.sendEmail(template,function(err, json) {
         if (err) {

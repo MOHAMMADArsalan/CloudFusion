@@ -39,7 +39,7 @@ angular
                               }
                         else{
                               $location.path("/login");
-                        };
+                        }
                   }},
                   templateUrl: "./components/dashboard/dashboard.html",
                   controller: "DashboardController",
@@ -64,6 +64,17 @@ angular
                            templateUrl: "./components/flight/flight.html",
                            controller: "FlightController",
                            controllerAs: "flight"
+                     }
+                  }
+            })
+            .state("dashboard.Accommodation", {
+                  url: "/Accommodation",
+                  loginCompulsory : true,
+                  views : {
+                     "main": {
+                           templateUrl: "./components/Accommodation/Accommodation.html",
+                           controller: "AccommodationController",
+                           controllerAs: "Accommodation"
                      }
                   }
             })

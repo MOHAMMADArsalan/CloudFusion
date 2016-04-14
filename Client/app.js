@@ -18,6 +18,7 @@ angular
                                             "app.FranchiseEdit",
                                             "app.memberships",
                                             "app.addMemberships",
+                                            "app.Accommodation",
                                             'naif.base64',
                                             "ngCookies"])
 

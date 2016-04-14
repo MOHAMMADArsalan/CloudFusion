@@ -10,9 +10,8 @@
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand fontCenturyGothic" ng-click="dashboard.hideSideBar()">HolidayCorp</a>
-
-
         </div>
+
         <!-- /.navbar-header -->
 
         <ul class="nav navbar-top-links navbar-right">
@@ -61,16 +60,16 @@
                         <div id="dashboard" class="collapse">
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a ui-sref="dashboard.home">Home</a>
+                                    <a ui-sref="dashboard.home" class="foo" data-toggle="collapse" data-target=".navbar-collapse">Home</a>
                                 </li>
                                 <li>
-                                    <a ui-sref="dashboard.flight">Flights</a>
+                                    <a ui-sref="dashboard.flight" class="foo" data-toggle="collapse" data-target=".navbar-collapse">Flights</a>
                                 </li>
                                 <li>
-                                    <a ui-sref="dashboard.Accommodation">Accommodation</a>
+                                    <a class="foo" data-toggle="collapse" data-target=".navbar-collapse">Accommodation</a>
                                 </li>
                                 <li>
-                                    <a>Car Rental</a>
+                                    <a class="foo" data-toggle="collapse" data-target=".navbar-collapse">Car Rental</a>
                                 </li>
                             </ul>
                         </div>
@@ -81,12 +80,12 @@
                             <i class="fa fa-cog"></i> Administration<span class="fa arrow"></span>
                         </a>
                         <div id="administration" class="collapse">
-                            <ul class="nav nav-second-level ">
+                            <ul class="nav nav-second-level">
                                 <li>
-                                    <a ui-sref="dashboard.user">Users</a>
+                                    <a ui-sref="dashboard.user" class="foo" data-toggle="collapse" data-target=".navbar-collapse">Users</a>
                                 </li>
                                 <li>
-                                    <a ui-sref="dashboard.accessrole">Access Role</a>
+                                    <a ui-sref="dashboard.accessrole" class="foo" data-toggle="collapse" data-target=".navbar-collapse">Access Role</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
@@ -98,12 +97,12 @@
                             <i class="fa fa-home"></i> Franchises<span class="fa arrow"></span>
                         </a>
                         <div id="franchises" class="collapse">
-                            <ul class="nav nav-second-level ">
+                            <ul class="nav nav-second-level">
                                 <li>
-                                    <a ui-sref="dashboard.franchises">All Franchises</a>
+                                    <a ui-sref="dashboard.franchises" class="foo" data-toggle="collapse" data-target=".navbar-collapse">All Franchises</a>
                                 </li>
                                 <li>
-                                    <a ui-sref="dashboard.addFranchises">Add New</a>
+                                    <a ui-sref="dashboard.addFranchises" class="foo" data-toggle="collapse" data-target=".navbar-collapse">Add New</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
@@ -115,25 +114,25 @@
                             <i class="fa fa-tag"></i> Memberships<span class="fa arrow"></span>
                         </a>
                         <div id="memberships" class="collapse">
-                            <ul class="nav nav-second-level ">
+                            <ul class="nav nav-second-level">
                                 <li>
-                                    <a ui-sref="dashboard.memberships">All Memberships</a>
+                                    <a ui-sref="dashboard.memberships" class="foo" data-toggle="collapse" data-target=".navbar-collapse">All Memberships</a>
                                 </li>
                                 <li>
-                                    <a ui-sref="dashboard.addMemberships">Add New</a>
+                                    <a ui-sref="dashboard.addMemberships" class="foo" data-toggle="collapse" data-target=".navbar-collapse">Add New</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
                         </div>
                     </li>
-                    <!-- <li data-toggle="collapse" data-target="#memberships">
-                        <a href=""><i class="fa fa-tag"></i>  Memberships<span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level" id="memberships">
+                    <!-- <li data-toggle="collapse " data-target="#memberships ">
+                        <a href=" "><i class="fa fa-tag "></i>  Memberships<span class="fa arrow "></span></a>
+                        <ul class="nav nav-second-level " id="memberships ">
                             <li>
-                                <a ui-sref="dashboard.memberships">All Memberships</a>
+                                <a ui-sref="dashboard.memberships ">All Memberships</a>
                             </li>
                             <li>
-                                <a ui-sref="dashboard.addMemberships">Add New</a>
+                                <a ui-sref="dashboard.addMemberships ">Add New</a>
                             </li>
                         </ul>
                         /.nav-second-level

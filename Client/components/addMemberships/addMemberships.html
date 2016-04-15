@@ -18,7 +18,7 @@
                              <label class="col-sm-3 control-label" >Franchises</label>
                              <div class="col-sm-6">
                                 <select class="form-control input-sm" ng-model="addMemberships.memberships.franchise" place-holder="chooose...">
-                                   <option selected ng-repeat="franchise in addMemberships.AllFranchice">{{franchise.franchiseName}}</option>
+                                   <option selected ng-repeat="franchise in addMemberships.AllFranchiceName">{{franchise.franchiseName}}</option>
                                 </select>
                                  <div class="col-sm-3"></div>
                            </div>
@@ -47,266 +47,15 @@
 
                                 <div class="col-lg-6">
                                  <div class="form-group row ">
-                                   <label class="col-sm-4 control-label" >Country</label>
+                                   <label class="col-sm-4 control-label" >Title</label>
                                    <div class="col-sm-8">
-                                    <select class="form-control input-sm" ng-model="addMemberships.memberships.country">
-                                                <option disabled selected ng-value="'choose'">Choose..</option>
-                                                <option >Afghanistan</option>
-                                     	<option >Åland Islands</option>
-                                     	<option>Albania</option>
-                                     	<option >Algeria</option>
-                                     	<option >American Samoa</option>
-                                     	<option >Andorra</option>
-                                     	<option >Angola</option>
-                                     	<option >Anguilla</option>
-                                     	<option >Antarctica</option>
-                                     	<option >Antigua and Barbuda</option>
-                                     	<option >Argentina</option>
-                                     	<option >Armenia</option>
-                                     	<option >Aruba</option>
-                                     	<option >Australia</option>
-                                     	<option >Austria</option>
-                                     	<option >Azerbaijan</option>
-                                     	<option >Bahamas</option>
-                                     	<option >Bahrain</option>
-                                     	<option >Bangladesh</option>
-                                     	<option>Barbados</option>
-                                     	<option >Belarus</option>
-                                     	<option >Belgium</option>
-                                     	<option >Belize</option>
-                                     	<option >Benin</option>
-                                     	<option >Bermuda</option>
-                                     	<option >Bhutan</option>
-                                     	<option >Bolivia, Plurinational State of</option>
-                                     	<option >Bonaire, Sint Eustatius and Saba</option>
-                                     	<option >Bosnia and Herzegovina</option>
-                                     	<option >Botswana</option>
-                                     	<option >Bouvet Island</option>
-                                     	<option >Brazil</option>
-                                     	<option >British Indian Ocean Territory</option>
-                                     	<option >Brunei Darussalam</option>
-                                     	<option >Bulgaria</option>
-                                     	<option>Burkina Faso</option>
-                                     	<option>Burundi</option>
-                                     	<option >Cambodia</option>
-                                     	<option >Cameroon</option>
-                                     	<option >Canada</option>
-                                     	<option >Cape Verde</option>
-                                     	<option >Cayman Islands</option>
-                                     	<option >Central African Republic</option>
-                                     	<option >Chad</option>
-                                     	<option >Chile</option>
-                                     	<option >China</option>
-                                     	<option >Christmas Island</option>
-                                     	<option >Cocos (Keeling) Islands</option>
-                                     	<option >Colombia</option>
-                                     	<option >Comoros</option>
-                                     	<option >Congo</option>
-                                     	<option >Congo, the Democratic Republic of the</option>
-                                     	<option>Cook Islands</option>
-                                     	<option >Costa Rica</option>
-                                     	<option >Côte d'Ivoire</option>
-                                     	<option >Croatia</option>
-                                     	<option >Cuba</option>
-                                     	<option >Curaçao</option>
-                                     	<option >Cyprus</option>
-                                     	<option >Czech Republic</option>
-                                     	<option >Denmark</option>
-                                     	<option >Djibouti</option>
-                                     	<option >Dominica</option>
-                                     	<option >Dominican Republic</option>
-                                     	<option >Ecuador</option>
-                                     	<option >Egypt</option>
-                                     	<option >El Salvador</option>
-                                     	<option >Equatorial Guinea</option>
-                                     	<option >Eritrea</option>
-                                     	<option >Estonia</option>
-                                     	<option >Ethiopia</option>
-                                     	<option >Falkland Islands (Malvinas)</option>
-                                     	<option >Faroe Islands</option>
-                                     	<option >Fiji</option>
-                                     	<option >Finland</option>
-                                     	<option >France</option>
-                                     	<option >French Guiana</option>
-                                     	<option>French Polynesia</option>
-                                     	<option >French Southern Territories</option>
-                                     	<option >Gabon</option>
-                                     	<option >Gambia</option>
-                                     	<option>Georgia</option>
-                                     	<option >Germany</option>
-                                     	<option >Ghana</option>
-                                     	<option >Gibraltar</option>
-                                     	<option >Greece</option>
-                                     	<option >Greenland</option>
-                                     	<option >Grenada</option>
-                                     	<option >Guadeloupe</option>
-                                     	<option >Guam</option>
-                                     	<option >Guatemala</option>
-                                     	<option >Guernsey</option>
-                                     	<option>Guinea</option>
-                                     	<option >Guinea-Bissau</option>
-                                     	<option >Guyana</option>
-                                     	<option >Haiti</option>
-                                     	<option >Heard Island and McDonald Islands</option>
-                                     	<option >Holy See (Vatican City State)</option>
-                                     	<option >Honduras</option>
-                                     	<option >Hong Kong</option>
-                                     	<option >Hungary</option>
-                                     	<option >Iceland</option>
-                                     	<option >India</option>
-                                     	<option >Indonesia</option>
-                                     	<option >Iran, Islamic Republic of</option>
-                                     	<option >Iraq</option>
-                                     	<option >Ireland</option>
-                                     	<option >Isle of Man</option>
-                                     	<option >Israel</option>
-                                     	<option >Italy</option>
-                                     	<option >Jamaica</option>
-                                     	<option >Japan</option>
-                                     	<option >Jersey</option>
-                                     	<option>Jordan</option>
-                                     	<option >Kazakhstan</option>
-                                     	<option >Kenya</option>
-                                     	<option >Kiribati</option>
-                                     	<option >Korea, Democratic People's Republic of</option>
-                                     	<option>Korea, Republic of</option>
-                                     	<option >Kuwait</option>
-                                     	<option >Kyrgyzstan</option>
-                                     	<option >Lao People's Democratic Republic</option>
-                                     	<option >Latvia</option>
-                                     	<option >Lebanon</option>
-                                     	<option >Lesotho</option>
-                                     	<option >Liberia</option>
-                                     	<option>Libya</option>
-                                     	<option >Liechtenstein</option>
-                                     	<option >Lithuania</option>
-                                     	<option >Luxembourg</option>
-                                     	<option >Macao</option>
-                                     	<option >Macedonia, the former Yugoslav Republic of</option>
-                                     	<option >Madagascar</option>
-                                     	<option >Malawi</option>
-                                     	<option >Malaysia</option>
-                                     	<option>Maldives</option>
-                                     	<option >Mali</option>
-                                     	<option >Malta</option>
-                                     	<option>Marshall Islands</option>
-                                     	<option >Martinique</option>
-                                     	<option >Mauritania</option>
-                                     	<option >Mauritius</option>
-                                     	<option >Mayotte</option>
-                                     	<option >Mexico</option>
-                                     	<option >Micronesia, Federated States of</option>
-                                     	<option >Moldova, Republic of</option>
-                                     	<option>Monaco</option>
-                                     	<option >Mongolia</option>
-                                     	<option >Montenegro</option>
-                                     	<option >Montserrat</option>
-                                     	<option>Morocco</option>
-                                     	<option >Mozambique</option>
-                                     	<option >Myanmar</option>
-                                     	<option >Namibia</option>
-                                     	<option >Nauru</option>
-                                     	<option >Nepal</option>
-                                     	<option >Netherlands</option>
-                                     	<option >New Caledonia</option>
-                                     	<option >New Zealand</option>
-                                     	<option >Nicaragua</option>
-                                     	<option >Niger</option>
-                                     	<option >Nigeria</option>
-                                     	<option >Niue</option>
-                                     	<option >Norfolk Island</option>
-                                     	<option >Northern Mariana Islands</option>
-                                     	<option >Norway</option>
-                                     	<option >Oman</option>
-                                     	<option >Pakistan</option>
-                                     	<option >Palau</option>
-                                     	<option >Palestinian Territory, Occupied</option>
-                                     	<option >Panama</option>
-                                     	<option >Papua New Guinea</option>
-                                     	<option >Paraguay</option>
-                                     	<option>Peru</option>
-                                     	<option >Philippines</option>
-                                     	<option >Pitcairn</option>
-                                     	<option >Poland</option>
-                                     	<option >Portugal</option>
-                                     	<option >Puerto Rico</option>
-                                     	<option >Qatar</option>
-                                     	<option >Réunion</option>
-                                     	<option >Romania</option>
-                                     	<option >Russian Federation</option>
-                                     	<option >Rwanda</option>
-                                     	<option >Saint Barthélemy</option>
-                                     	<option>Saint Helena, Ascension and Tristan da Cunha</option>
-                                     	<option >Saint Kitts and Nevis</option>
-                                     	<option >Saint Lucia</option>
-                                     	<option >Saint Martin (French part)</option>
-                                     	<option>Saint Pierre and Miquelon</option>
-                                     	<option >Saint Vincent and the Grenadines</option>
-                                     	<option >Samoa</option>
-                                     	<option >San Marino</option>
-                                     	<option>Sao Tome and Principe</option>
-                                     	<option>Saudi Arabia</option>
-                                     	<option >Senegal</option>
-                                     	<option>Serbia</option>
-                                     	<option >Seychelles</option>
-                                     	<option>Sierra Leone</option>
-                                     	<option >Singapore</option>
-                                     	<option >Sint Maarten (Dutch part)</option>
-                                     	<option >Slovakia</option>
-                                     	<option >Slovenia</option>
-                                     	<option >Solomon Islands</option>
-                                     	<option >Somalia</option>
-                                     	<option >South Africa</option>
-                                     	<option >South Georgia and the South Sandwich Islands</option>
-                                     	<option >South Sudan</option>
-                                     	<option >Spain</option>
-                                     	<option >Sri Lanka</option>
-                                     	<option >Sudan</option>
-                                     	<option >Suriname</option>
-                                     	<option >Svalbard and Jan Mayen</option>
-                                     	<option >Swaziland</option>
-                                     	<option >Sweden</option>
-                                     	<option >Switzerland</option>
-                                     	<option >Syrian Arab Republic</option>
-                                     	<option >Taiwan, Province of China</option>
-                                     	<option >Tajikistan</option>
-                                     	<option >Tanzania, United Republic of</option>
-                                     	<option >Thailand</option>
-                                     	<option>Timor-Leste</option>
-                                     	<option >Togo</option>
-                                     	<option>Tokelau</option>
-                                     	<option >Tonga</option>
-                                     	<option >Trinidad and Tobago</option>
-                                     	<option>Tunisia</option>
-                                     	<option >Turkey</option>
-                                     	<option >Turkmenistan</option>
-                                     	<option >Turks and Caicos Islands</option>
-                                     	<option >Tuvalu</option>
-                                     	<option >Uganda</option>
-                                     	<option >Ukraine</option>
-                                     	<option >United Arab Emirates</option>
-                                     	<option >United Kingdom</option>
-                                     	<option >United States</option>
-                                     	<option >United States Minor Outlying Islands</option>
-                                     	<option>Uruguay</option>
-                                     	<option >Uzbekistan</option>
-                                     	<option >Vanuatu</option>
-                                     	<option >Venezuela, Bolivarian Republic of</option>
-                                     	<option >Viet Nam</option>
-                                     	<option >Virgin Islands, British</option>
-                                     	<option >Virgin Islands, U.S.</option>
-                                     	<option >Wallis and Futuna</option>
-                                     	<option >Western Sahara</option>
-                                     	<option >Yemen</option>
-                                     	<option>Zambia</option>
-                                     	<option >Zimbabwe</option>
-            </select>
+                                    <input class="form-control input-sm" placeholder="Title" ng-model="addMemberships.memberships.title" />
                                   </div>
                                 </div>
                                      <div class="form-group row ">
                                         <label class="col-sm-4 control-label" >First Name</label>
                                         <div class="col-sm-8">
-                                           <input class="form-control" type="text" ng-model="addMemberships.memberships.firstName" placeholder="First Name">
+                                           <input class="form-control" type="text"  ng-model="addMemberships.memberships.firstName" placeholder="First Name">
                                         </div>
                                      </div>
                                      <div class="form-group row ">
@@ -424,44 +173,44 @@
                                    <div class="col-sm-8">
                                         <div class="checkbox">
                                                <label>
-                                                 <input type="checkbox" ng-change="addMemberships.checkSameAsPhysical()" ng-model="addMemberships.memberships.postalAddressSameAs"> Same as physical
+                                                 <input type="checkbox" ng-model="addMemberships.memberships.postalAddressSameAs"> Same as physical
                                                </label>
                                         </div>
                                   </div>
                                 </div>
-                                <div >
+                                <div ng-if="!addMemberships.memberships.postalAddressSameAs">
 
 
                                 <div class="form-group row">
                                    <label class="col-sm-4 control-label" >Address</label>
                                    <div class="col-sm-8">
-                                      <input class="form-control" ng-disabled="addMemberships.SameAsPhysical" type="text" ng-model="addMemberships.memberships.address" placeholder="Address">
+                                      <input class="form-control"  type="text" ng-model="addMemberships.memberships.address" placeholder="Address">
                                    </div>
                                 </div>
                                 <div class="form-group row ">
                                    <label class="col-sm-4 control-label" >Subrub</label>
                                    <div class="col-sm-8">
-                                      <input class="form-control" type="text"  ng-disabled="addMemberships.SameAsPhysical"  ng-model="addMemberships.memberships.postalsubrub" placeholder="Subrub">
+                                      <input class="form-control" type="text"    ng-model="addMemberships.memberships.postalsubrub" placeholder="Subrub">
                                    </div>
                                 </div>
 
                                 <div class="form-group row ">
                                   <label class="col-sm-4 control-label">City</label>
                                   <div class="col-sm-8">
-                                     <input class="form-control" type="text"  ng-disabled="addMemberships.SameAsPhysical"  ng-model="addMemberships.memberships.postalCity" placeholder="City">
+                                     <input class="form-control" type="text"    ng-model="addMemberships.memberships.postalCity" placeholder="City">
                                   </div>
                               </div>
                               <div class="form-group row ">
                                  <label class="col-sm-4 control-label" >Province</label>
                                  <div class="col-sm-8">
-                                    <input class="form-control" type="text"  ng-disabled="addMemberships.SameAsPhysical"  ng-model="addMemberships.memberships.postalProvince" placeholder="Province">
+                                    <input class="form-control" type="text"   ng-model="addMemberships.memberships.postalProvince" placeholder="Province">
                                  </div>
                              </div>
                              <div class="form-group row ">
                                 <label class="col-sm-4 control-label" >Country</label>
                                 <div class="col-sm-8">
-                                    <select class="form-control input-sm"  ng-disabled="addMemberships.SameAsPhysical"  ng-model="addMemberships.memberships.postalCountry" >
-                                               <option disabled selected>Choose..</option>
+                                    <select class="form-control input-sm"  ng-model="addMemberships.memberships.postalCountry" >
+                                               <option disabled selected>Choose...</option>
                                                <option >Afghanistan</option>
                                                <option >Åland Islands</option>
                                                <option>Albania</option>
@@ -773,8 +522,10 @@
 <label class="col-sm-4 control-label" >Account type</label>
 <div class="col-sm-8">
   <select class="form-control input-sm" ng-model="addMemberships.memberships.accountType">
-     <option disabled>choose..</option>
-     <option>Account01</option>
+     <option disabled>Choose...</option>
+     <option>Cheque</option>
+     <option>Saving</option>
+     <option>Transmission</option>
   </select>
 </div>
 </div>
@@ -794,46 +545,45 @@
 <label class="col-sm-4 control-label" >Repayment day</label>
 <div class="col-sm-8">
   <select class="form-control input-sm" ng-model="addMemberships.memberships.repaymentDay">
-     <option disabled>choose..</option>
-     <option>1</option>
-     <option>2</option>
-     <option>3</option>
-     <option>4</option>
-     <option>5</option>
-     <option>6</option>
-     <option>7</option>
-     <option>8</option>
-     <option>9</option>
-     <option>10</option>
-     <option>11</option>
-     <option>12</option>
-     <option>13</option>
-     <option>14</option>
-     <option>15</option>
-     <option>16</option>
-     <option>17</option>
-     <option>18</option>
-     <option>19</option>
-     <option>20</option>
-     <option>21</option>
-     <option>2</option>
-     <option>22</option>
-     <option>23</option>
-     <option>24</option>
-     <option>25</option>
-     <option>26</option>
-     <option>27</option>
-     <option>28</option>
-     <option>29</option>
-     <option>30</option>
-     <option>31</option>
+     <option disabled>Choose...</option>
+     <option>1st</option>
+     <option>2nd</option>
+     <option>3th</option>
+     <option>4th</option>
+     <option>5th</option>
+     <option>6th</option>
+     <option>7th</option>
+     <option>8th</option>
+     <option>9th</option>
+     <option>10th</option>
+     <option>11th</option>
+     <option>12th</option>
+     <option>13th</option>
+     <option>14th</option>
+     <option>15th</option>
+     <option>16th</option>
+     <option>17th</option>
+     <option>18th</option>
+     <option>19th</option>
+     <option>20th</option>
+     <option>21th</option>
+     <option>22th</option>
+     <option>23th</option>
+     <option>24th</option>
+     <option>25th</option>
+     <option>26th</option>
+     <option>27th</option>
+     <option>28th</option>
+     <option>29th</option>
+     <option>30th</option>
+     <option>31th</option>
   </select>
 </div>
 </div><div class="form-group row ">
 <label class="col-sm-4 control-label" >Repayment month</label>
 <div class="col-sm-8">
   <select class="form-control input-sm" ng-model="addMemberships.memberships.repaymentMonth">
-     <option disabled>choose..</option>
+     <option disabled>Choose...</option>
      <option >January</option>
      <option >February</option>
      <option >March</option>

@@ -5,13 +5,13 @@ angular
 
       function EditFranchisesController(HttpService,$stateParams) {
         var _self = this;
-      _self.id = $stateParams.id;
+      // _self.id = $stateParams.id;
         //Get All Franchises
-        HttpService.GetApi("/router/getOneFranchises/" + _self.id)
-                        .then(function(res){
-                              // console.log(res.data)
-                        _self.AllFranchice = res.data;
-                        },function(err){
-                             console.log(err);
-      });
+      //   HttpService.GetApi("/router/getOneFranchises/" + _self.id)
+      //                   .then(function(res){
+      //                         // console.log(res.data)
+      //                   _self.AllFranchice = res.data;
+      //                   },function(err){
+      //                        console.log(err);
+      // });
       }

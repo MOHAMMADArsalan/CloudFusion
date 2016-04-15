@@ -20,6 +20,7 @@ router.post("/forget", usercontroller.forget);
 router.post("/passwordReset", usercontroller.passwordReset);
 router.post("/addFranchises", usercontroller.addFranchises);
 router.get("/getOneFranchises/:id", usercontroller.getOneFranchises);
+router.get("/franchiseName", usercontroller.getFranchiseName);
 router.post("/editFranchises", usercontroller.editFranchises);
 router.get("/getFranchises", usercontroller.getFranchises);
 router.get("/varify/:email/:id", usercontroller.varification);

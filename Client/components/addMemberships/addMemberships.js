@@ -1,25 +1,22 @@
 angular
       .module("app.addMemberships", [])
 
-     .controller("AddMembershipsController",["MessageService","HttpService","$state", AddMembershipsController]);
+     .controller("AddMembershipsController",["DataService","MessageService","HttpService","$state", AddMembershipsController]);
 
-    function AddMembershipsController(MessageService,HttpService, $state) {
+    function AddMembershipsController(DataService,MessageService,HttpService, $state) {
       var _self = this;
+      var Year = new Date();
+       _self.memberships = {};
        _self.SameAsPhysical = false;
-       _self.AllFranchice;
-       _self.memberships;
-       _self.disable = false;
-       //Get All Franchises
-       HttpService.GetApi("/router/getFranchises")
-                        .then(function(res){
-                        _self.AllFranchice = res.data;
-                        },function(err){
-                            console.log(err);
-                        });
-     // Check un check Physical Address
-      _self.checkSameAsPhysical = function() {
-          _self.SameAsPhysical = !_self.SameAsPhysical;
-      };
+       _self.memberships.repaymentYear = Year.getFullYear();
+       _self.AllFranchiceName = DataService.getFranchiseName();
+       _self.memberships.repaymentAmount = 99.00;
+       _self.memberships.language = "English";
+       _self.memberships.postalCountry = "Choose...";
+       _self.memberships.accountType = "Choose...";
+       _self.memberships.repaymentDay = "Choose...";
+       _self.memberships.repaymentMonth = "Choose...";
+
       // Add Members to db
       _self.addMember = function(memberships) {
           MessageService.progressbar.start();

@@ -1,8 +1,8 @@
 angular
       .module("app.home",[])
 
-      .controller("HomeController",[HomeController]);
+      .controller("HomeController",["DataService",HomeController]);
 
-      function HomeController() {
+      function HomeController(DataService) {
       var _self = this;
     }

@@ -70,6 +70,7 @@ var FranchiseSchema = new mongoose.Schema({
 });
 //Add MembershipsSchema
 var MembershipsSchema = new mongoose.Schema({
+    title:  { type: String},
     franchise:  { type: String, required: true },
     contactNumber: { type: String},
     memberships: {type: Boolean},

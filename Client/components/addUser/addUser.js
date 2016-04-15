@@ -1,39 +1,36 @@
 angular
       .module("app.adduser", [])
 
-      .controller("AddUserController",["MessageService","HttpService","$state", AddUserController]);
+      .controller("AddUserController",["DataService","MessageService","HttpService","$state", AddUserController]);
 
-      function AddUserController(MessageService,HttpService,$state){
+      function AddUserController(DataService,MessageService,HttpService,$state){
        var _self = this;
        _self.error = "";
-       _self.AllFranchice;
+       _self.AllFranchiceName = DataService.getFranchiseName();
        _self.emailExistError = "";
-       MessageService.progressbar.start();
-       //Get All Franchises
-       HttpService.GetApi("/router/getFranchises")
-                        .then(function(res){
-                        MessageService.progressbar.complete();    
-                        _self.AllFranchice = res.data;
-                        },function(err){
-                            console.log(err);
-                        });
+
        _self.addUser = function(user) {
+           MessageService.progressbar.start();
            user.role_admin = false;
             _self.emailExistError = "";
             _self.error = "";
            if(user.confirmpassword != user.password){
                toastr.error("password does not match");
+               MessageService.progressbar.complete();
            }
            else {
                HttpService.PostApi("/router/signup",user).then(function(res){
 
                                   if(res.data === "Email is ALready exist") {
-                                        toastr.error("Email is already exist");
+                                      MessageService.progressbar.complete();
+                                      toastr.error("Email is already exist");
                                   }
                                   else {
                                       toastr.success("User added");
                                       $state.go("dashboard.user");
                                       _self.user = {};
+                                     MessageService.progressbar.complete();
+
                                   }
 
                              },function(err){

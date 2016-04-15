@@ -11,7 +11,7 @@ var SALT_FACTOR = 10;
 function Signin(req, res) {
     usermodel_1.UserModel.findOne({ email: req.body.email }, function(err, success) {
             if (success) {
-                if(success.status == 1 && success.active === true) {
+                if(success.status == 1) {
                     bcrypt.compare(req.body.password, success.password, function(err, isMatch) {
                         done(err, isMatch);
 
@@ -181,6 +181,18 @@ function getFranchises(req, res) {
 }
 exports.getFranchises = getFranchises;
 // Get All Franchises Function
+function getFranchiseName(req, res) {
+    usermodel_1.FranchiseModel.find({},{franchiseName: 1, _id: 0}, function(err, success) {
+        if (err) {
+            res.send("Error to Find Data");
+        }
+        else {
+            res.send(success);
+        }
+    });
+}
+exports.getFranchiseName = getFranchiseName;
+// Get All Franchises Function
 function getOneFranchises(req, res) {
     usermodel_1.FranchiseModel.findOne({_id: req.params.id}, function(err, success) {
         if (err) {
@@ -206,7 +218,7 @@ function editFranchises(req, res) {
 exports.editFranchises = editFranchises;
 // Get All Memberships Function
 function getmember(req, res) {
-    usermodel_1.MembershipsModel.find({}, function(err, success) {
+    usermodel_1.MembershipsModel.find({},{contactNumber:1, firstName:1, lastName:1, _id: 0}, function(err, success) {
         if (err) {
             res.send("Error to Find Data");
         }

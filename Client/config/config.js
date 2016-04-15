@@ -199,6 +199,17 @@ angular
                      }
                   }
             })
+            .state("dashboard.termMemberships", {
+                  url: "/termMemberships",
+                  loginCompulsory : true,
+                  views : {
+                     "main": {
+                           templateUrl: "./components/termmemberships/termmemberships.html",
+                           controller: "TermMembershipController",
+                           controllerAs: "termMemberships"
+                     }
+                  }
+            })
             .state("dashboard.resetPassword", {
                   url: "/resetPassword",
                   loginCompulsory : true,

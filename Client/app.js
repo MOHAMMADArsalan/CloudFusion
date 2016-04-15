@@ -17,6 +17,7 @@ angular
                                             "app.editFranchises",
                                             "app.FranchiseEdit",
                                             "app.memberships",
+                                            "app.term",
                                             "app.addMemberships",
                                             "app.Accommodation",
                                             'naif.base64',

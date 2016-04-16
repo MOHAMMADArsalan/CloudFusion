@@ -335,9 +335,9 @@
                     <div class="form-group row ">
                         <label class="col-sm-4 control-label">Postal Address</label>
                         <div class="col-sm-8">
-                            <div class="checkbox">
+                            <div class="checkbox checkbox-primary">
                                 <label>
-                                    <input type="checkbox" ng-change="addFranchises.checkSameAsPhysical()" ng-model="addFranchises.franchise.postalAddressSameAs"> Same as physical
+                                    <input type="checkbox" id="checkbox" ng-change="addFranchises.checkSameAsPhysical()" ng-model="addFranchises.franchise.postalAddressSameAs"> Same as physical
                                 </label>
                             </div>
                         </div>
@@ -788,7 +788,9 @@
                 <div class="input-group col-lg-9">
                     <span class="input-group-btn">
                                 <button class="btn btn-primary" onclick="this.nextElementSibling.click()" type="button">Browse...</button>
-                              </span>
+                                <input type="file" style="display:none" name="image" ng-model="addFranchises.franchise.proofAddress" base-sixty-four-input
+                                accept="image/*" maxsize="500" ng-required="true">
+                    </span>
                     <input type="text" onclick="this.nextElementSibling.click()" class="form-control" ng-model="addFranchises.franchise.proofAddress.filename"
                     />
                     <input type="file" style="display:none" name="image" ng-model="addFranchises.franchise.proofAddress" base-sixty-four-input
@@ -801,7 +803,9 @@
                 </div>
                 <div class="input-group col-lg-9">
                     <span class="input-group-btn">
-                                <button class="btn btn-primary" type="button">Browse...</button>
+                                <button class="btn btn-primary" onclick="this.nextElementSibling.click()" type="button">Browse...</button>
+                                <input type="file" style="display:none" name="image" ng-model="addFranchises.franchise.companyRegistration" base-sixty-four-input
+                                accept="image/*" maxsize="500" ng-required="true">
                               </span>
                     <input type="text" onclick="this.nextElementSibling.click()" class="form-control" ng-model="addFranchises.franchise.companyRegistration.filename"
                     />
@@ -815,7 +819,9 @@
                 </div>
                 <div class="input-group col-lg-9">
                     <span class="input-group-btn">
-                                <button class="btn btn-primary" type="button">Browse...</button>
+                                <button class="btn btn-primary" onclick="this.nextElementSibling.click()" type="button">Browse...</button>
+                                <input type="file" style="display:none;" name="image" class="form-control" ng-model="addFranchises.franchise.identityDocument"
+                                base-sixty-four-input accept="image/*" maxsize="500" ng-required="true">
                               </span>
                     <input type="text" onclick="this.nextElementSibling.click()" ng-model="addFranchises.franchise.identityDocument.filename"
                     class="form-control" />

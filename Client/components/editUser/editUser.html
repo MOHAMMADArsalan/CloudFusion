@@ -15,9 +15,10 @@
                            <div class="form-group row ">
                               <label class="col-sm-3 control-label" >Franchise</label>
                               <div class="col-sm-8">
-                                          <select class="form-control" ng-model="editUser.EditUser.franchise">
+                                          <select class="form-control" name="franchise" ng-model="editUser.EditUser.franchise">
                                             <option ng-repeat="franchise in editUser.AllFranchiceName">{{franchise.franchiseName}}</option>
                                          </select>
+                                         <span class="error" ng-show="UserForm.franchise.$error.required">Franchise is required.</span>
                               </div>
                               <div class="col-sm-1"></div>
                           </div>
@@ -66,12 +67,12 @@
                                         <div class="form-group row ">
                                            <label class="col-sm-3 control-label" >Access role</label>
                                            <div class="col-sm-8">
-                                                       <select class="form-control"  ng-model="editUser.EditUser.role" required="">
+                                                       <select class="form-control" name="role" ng-model="editUser.EditUser.role" required="">
                                                          <option  ng-value="administration">Administration</option>
                                                          <option ng-value="member">Member</option>
                                                       </select>
-
-                                           </div>
+                                              <span class="error"ng-show="UserForm.role.$error.required">Access role is required.</span>
+                                          </div>
                                            <div class="col-sm-1"></div>
                                        </div>
                                        <div class="form-group row ">
@@ -93,7 +94,7 @@
                                        </div>
                                        <div class="form-group row ">
                                           <div class="col-sm-3">
-                                                      <button type="button" class="btn btn-primary" ng-disabled="editUser.disable" ng-click="editUser.editUser(editUser.EditUser,editUser.password)" ><i class="glyphicon glyphicon-plus"></i> Edit </button>
+                                                      <button type="button" class="btn btn-primary" ng-disabled="editUser.disable || UserForm.$invalid" ng-click="editUser.editUser(editUser.EditUser,editUser.password)" >Update </button>
                                                       <button type="button" ui-sref="dashboard.user" class="btn btn-default" > Cancel </button>
                                           </div>
                                        </div>

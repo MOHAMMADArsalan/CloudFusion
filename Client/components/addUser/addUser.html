@@ -15,9 +15,11 @@
                            <div class="form-group row ">
                               <label class="col-sm-3 control-label" >Franchise</label>
                               <div class="col-sm-8">
-                                          <select class="form-control" ng-model="adduser.user.franchise">
-                                            <option ng-repeat="franchise in adduser.AllFranchiceName">{{franchise.franchiseName}}</option>
-                                         </select>
+                                    <select class="form-control" name="franchise" ng-model="adduser.user.franchise" required>
+                                        <option ng-repeat="franchise in adduser.AllFranchiceName">{{franchise.franchiseName}}</option>
+                                    </select>
+                                        <span class="error" ng-show="UserForm.franchise.$error.required">Franchise is required.</span>
+
                               </div>
                               <div class="col-sm-1"></div>
                           </div>
@@ -68,10 +70,10 @@
                                         <div class="form-group row ">
                                            <label class="col-sm-3 control-label" >Access role</label>
                                            <div class="col-sm-8">
-                                                       <select class="form-control"  ng-model="adduser.user.role" required="">
-                                                         <option  ng-value="administration">Administration</option>
-                                                         <option ng-value="member">Member</option>
-                                                      </select>
+                                               <select class="form-control" name="role" ng-model="adduser.user.role" required="">
+                                                 <option  ng-repeat="role in adduser.Roles">{{role.name}}</option>
+                                              </select>
+                                          <span class="error" ng-show="UserForm.role.$error.required">Access role is required.</span>
 
                                            </div>
                                            <div class="col-sm-1"></div>
@@ -95,7 +97,7 @@
                                        </div>
                                        <div class="form-group row ">
                                           <div class="col-sm-3">
-                                                      <button type="button" class="btn btn-primary" ng-click="adduser.addUser(adduser.user)" ><i class="glyphicon glyphicon-plus"></i> Add </button>
+                                                      <button type="button" class="btn btn-primary" ng-disabled="UserForm.$invalid" ng-click="adduser.addUser(adduser.user)" ><i class="glyphicon glyphicon-plus"></i> Add </button>
                                                       <button type="button" class="btn btn-default" > Cancel </button>
                                           </div>
                                        </div>

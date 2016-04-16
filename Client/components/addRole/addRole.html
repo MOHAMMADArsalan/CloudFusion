@@ -7,10 +7,13 @@
                  <div class="col-lg-12">
                       <div class="form-group row ">
                              <label class="col-sm-3 control-label" >Name</label>
-                             <div class="col-sm-8">
-                                <input class="form-control" type="text" ng-model="addFranchises.franchise.name" placeholder="Name">
+                             <div class="col-sm-6">
+                                <input class="form-control" type="text" ng-model="addrole.name" placeholder="Name">
                              </div>
-                             <div class="col-sm-1"></div>
+                             <div class="col-sm-3">
+                               <button type="button"  class="btn btn-primary " ng-click="addrole.addRole(addrole.name)"> <i class="fa fa-plus fa-lg"></i> Add </button>
+                               <button type="button"  class="btn btn-default"> Cancel</button>
+                            </div>
                     </div>
                    </div>
                    <div class="col-sm-12">
@@ -21,13 +24,7 @@
                                      <li class="list-group-item" ng-click="addrole.selectedRoleItem(role)" ng-repeat="role in addrole.nonSelectedArray"><a  href>{{role}}</a></li>
                               </ul>
                                  <button type="button"  ng-click="addrole.moveAllRoles()" class="btn btn-default col-sm-12"> <i class="fa fa-arrow-right"></i> <i class="fa fa-arrow-right"></i></button>
-                                 <button type="button"  class="btn btn-primary"> <i class="fa fa-plus fa-lg"></i> Add </button>
-                                 <button type="button"  class="btn btn-default"> Cancel</button>
-
-
-
-
-                       </div>
+                     </div>
                        <div class="col-sm-4">
 
                                   <p><strong>selected</strong></p>
@@ -43,7 +40,8 @@
 
 
                        </div>
-                       <div class="col-sm-4">
+                       <div class="col-sm-4 pull-right">
+
 
                        </div>
 

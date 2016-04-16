@@ -1,9 +1,11 @@
 angular
 
-      .module("app.role", [])
+  .module("app.role", [])
 
-      .controller("AccessRoleController", [AccessRoleController]);
+.controller("AccessRoleController", ["DataService", AccessRoleController]);
 
-      function AccessRoleController() {
-        var _self = this;
-      }
+function AccessRoleController(DataService) {
+  var _self = this;
+  _self.Roles = DataService.getRoles();
+  console.log(_self.Roles);
+}

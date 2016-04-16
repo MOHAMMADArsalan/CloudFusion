@@ -21,7 +21,7 @@
                              <p><strong>Non-selected</strong></p>
                              <button type="button"  ng-click="addrole.moveSingleRole()" class="btn btn-primary col-sm-12 col-md-12"> <i class="fa fa-arrow-right"></i></button>
                              <ul class="list-group col-sm-12" style=" overflow-y: scroll; height:370px;">
-                                     <li class="list-group-item" ng-click="addrole.selectedRoleItem(role)" ng-repeat="role in addrole.nonSelectedArray"><a  href>{{role}}</a></li>
+                                     <li class="list-group-item" ng-click="addrole.selectedRoleItem(role)" ng-repeat="role in addrole.nonSelectedRoles"><a  href>{{role.name}}</a></li>
                               </ul>
                                  <button type="button"  ng-click="addrole.moveAllRoles()" class="btn btn-default col-sm-12"> <i class="fa fa-arrow-right"></i> <i class="fa fa-arrow-right"></i></button>
                      </div>

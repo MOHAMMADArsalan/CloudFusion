@@ -1,14 +1,16 @@
 angular
   .module("app.addRole", [])
 
-.controller("AddRoleController", ["MessageService", "HttpService",
+.controller("AddRoleController", ["DataService", "MessageService",
+  "HttpService",
   AddRoleController
 ]);
 
-function AddRoleController(MessageService, HttpService) {
+function AddRoleController(DataService, MessageService, HttpService) {
   var _self = this;
   _self.role = [];
   _self.roles = {}
+  _self.nonSelectedRoles = DataService.getRoles()
   _self.nonSelectedArray = ["Users", "Roles", "Dashboard", "Franchise",
     "Memberships", "Show All Memberships", "Flight", "Accommodation", "Cars"
   ];

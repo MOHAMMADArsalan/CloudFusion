@@ -71,7 +71,7 @@
                                            <label class="col-sm-3 control-label" >Access role</label>
                                            <div class="col-sm-8">
                                                <select class="form-control" name="role" ng-model="adduser.user.role" required="">
-                                                 <option  ng-repeat="role in adduser.Roles">{{role.name}}</option>
+                                                 <option  ng-repeat="role in adduser.Roles" ng-if="role.isSelected == true" >{{role.name}}</option>
                                               </select>
                                           <span class="error" ng-show="UserForm.role.$error.required">Access role is required.</span>
 

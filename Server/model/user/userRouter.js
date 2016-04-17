@@ -13,6 +13,7 @@ router.post("/signin", usercontroller.Signin);
 router.get("/getuser", usercontroller.getuser);
 router.get("/getRole", usercontroller.getRole);
 router.post("/addRole", usercontroller.addRole);
+router.post("/updateRole", usercontroller.updateRole);
 router.get("/getOneUser/:id", usercontroller.getOneUser);
 router.post("/editUser", usercontroller.editUser);
 router.delete("/deleteUser/:id", usercontroller.deleteUser);

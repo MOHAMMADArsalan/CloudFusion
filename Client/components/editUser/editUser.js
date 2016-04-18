@@ -30,7 +30,6 @@ function EditUserController(DataService, MessageService, HttpService,
   // });
   HttpService.GetApi("/router/getOneUser/" + _self._id)
     .then(function(res) {
-      console.log(res)
       MessageService.progressbar.complete();
       _self.EditUser = res.data;
       _self.EditUser.role = _self.Roles[0].name

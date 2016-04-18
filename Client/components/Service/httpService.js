@@ -7,16 +7,18 @@ angular
 
 function HttpService($http, $q, $cookies, $cookieStore, $window) {
   var _self = this;
+  _self.AllMembers = []
+
   _self.AuthUser = function() {
     return isLoggedIn;
   }
   _self.PostApi = function(url, body) {
-   console.log(body)
     var deffered = $q.defer();
     var token = $cookieStore.get("cloudToken");
     _self.url = url + "?token=" + token;
     $http.post(_self.url, body).then(function(response) {
       deffered.resolve(response);
+      _self.AllMembers.push(body);
     }, function(err) {
       deffered.reject(err);
     });
@@ -46,4 +48,8 @@ function HttpService($http, $q, $cookies, $cookieStore, $window) {
 
     return deffered.promise;
   };
+
+  _self.getMember = function() {
+    return _self.AllMembers;
+  }
 }

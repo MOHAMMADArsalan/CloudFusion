@@ -15,12 +15,12 @@ function AddMembershipsController(DataService, MessageService, HttpService,
   _self.AllFranchiceName = DataService.getFranchiseName();
   _self.memberships.repaymentAmount = 99.00;
   _self.memberships.language = "English";
-  _self.memberships.franchise = "Choose...";
-  _self.memberships.postalCountry = "Choose...";
-  _self.memberships.accountType = "Choose...";
-  _self.memberships.repaymentDay = "Choose...";
-  _self.memberships.repaymentMonth = "Choose...";
-  _self.memberships.title = "Choose...";
+  // _self.memberships.franchise = "Choose...";
+  // _self.memberships.postalCountry = "Choose...";
+  // _self.memberships.accountType = "Choose...";
+  // _self.memberships.repaymentDay = "Choose...";
+  // _self.memberships.repaymentMonth = "Choose...";
+  // _self.memberships.title = "Choose...";
 
   // Add Members to db
   _self.addMember = function(memberships) {

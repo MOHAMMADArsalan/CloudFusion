@@ -25,11 +25,10 @@ function DataService(HttpService) {
 
   HttpService.GetApi("/router/getmember")
     .then(function(res) {
-      console.log(res);
+      console.log(res.data)
       _self.AllMembers = res.data;
     }, function(err) {
       console.log(err);
-
     });
   HttpService.GetApi("/router/getFranchises")
     .then(function(res) {

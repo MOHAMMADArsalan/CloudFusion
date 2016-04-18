@@ -14,13 +14,21 @@
                                 <li role="presentation" class="active"><a href="#">Details</a></li>
                            </ul>
                            <br />
+                              <form role="form" name="MembershipsForm">
                            <div class="form-group row ">
                              <label class="col-sm-3 control-label" >Franchises</label>
                              <div class="col-sm-6">
-                                <select class="form-control input-sm" ng-model="addMemberships.memberships.franchise" >
+                                <select class="form-control input-sm" name="franchise" ng-model="addMemberships.memberships.franchise" required>
                                   <option disabled="true">Choose...</option>
-                                  <option selected ng-repeat="franchise in addMemberships.AllFranchiceName">{{franchise.franchiseName}}</option>
+                                  <option  ng-repeat="franchise in addMemberships.AllFranchiceName">{{franchise.franchiseName}}</option>
                                 </select>
+                                <span class="error" ng-show="MembershipsForm.franchise.$dirty && MembershipsForm.franchise.$invalid">
+                                  <span ng-show="MembershipsForm.franchise.$error.required">Franchise is required</span>
+                               </span>
+                               <!-- <span class="error" ng-show="UserForm.email.$dirty && UserForm.email.$invalid">
+                                           <span ng-show="UserForm.email.$error.required">Email is required.</span>
+                                           <span ng-show="UserForm.email.$error.email">Invalid email address.</span>
+                               </span> -->
                                  <div class="col-sm-3"></div>
                            </div>
                           </div>
@@ -44,7 +52,7 @@
                        </div>
                           <hr />
                             <div class="row">
-                               <form role="form">
+
 
                                 <div class="col-lg-6">
                                  <div class="form-group row ">

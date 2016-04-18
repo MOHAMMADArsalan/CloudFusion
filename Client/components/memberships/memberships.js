@@ -1,10 +1,13 @@
 angular
-      .module("app.memberships", [])
+  .module("app.memberships", [])
 
-      .controller("MembershipsController",["DataService","MessageService","HttpService",MembershipsController]);
+.controller("MembershipsController", ["DataService", "MessageService",
+  "HttpService", MembershipsController
+]);
 
-      function MembershipsController(DataService,MessageService,HttpService) {
-        var _self = this;
-        _self.AllMembers = DataService.getmember();
+function MembershipsController(DataService, MessageService, HttpService) {
+  var _self = this;
+  _self.AllMembers = HttpService.getMember();
+  _self.AllMembers = _self.AllMembers.concat(DataService.getmember());
 
-      }
+}

@@ -16,7 +16,7 @@
                               <label class="col-sm-3 control-label" >Franchise</label>
                               <div class="col-sm-8">
                                           <select class="form-control" name="franchise" ng-model="editUser.EditUser.franchise">
-                                            <option ng-repeat="franchise in editUser.AllFranchiceName">{{franchise.franchiseName}}</option>
+                                            <option ng-repeat="franchises in editUser.AllFranchiceName">{{franchises.franchiseName}}</option>
                                          </select>
                                          <span class="error" ng-show="UserForm.franchise.$error.required">Franchise is required.</span>
                               </div>
@@ -48,9 +48,6 @@
                                            <div class="col-sm-8">
                                                 <input class="form-control" name="firstName" ng-if="editUser.EditUser.firstname" ng-model="editUser.EditUser.firstname" type="text" placeholder="First Name" required>
                                                 <input class="form-control" name="firstName"  ng-if="editUser.EditUser.username" ng-model="editUser.EditUser.username" type="text" placeholder="First Name" required>
-                                                <span class="error" ng-show="UserForm.firstName.$dirty && UserForm.firstName.$invalid">
-                                                    <span ng-show="UserForm.firstName.$error.required">First Name is required.</span>
-                                                </span>
                                            </div>
                                            <div class="col-sm-1"></div>
                                         </div>
@@ -58,9 +55,6 @@
                                            <label class="col-sm-3 control-label" >Last Name</label>
                                            <div class="col-sm-8">
                                                  <input class="form-control" name="lastName" ng-model="editUser.EditUser.lastname" type="text" placeholder="Last Name">
-                                                 <span class="error" ng-show="UserForm.lastName.$dirty && UserForm.lastName.$invalid">
-                                                    <span ng-show="UserForm.lastName.$error.required">last Name is required.</span>
-                                                </span>
                                            </div>
                                            <div class="col-sm-1"></div>
                                         </div>
@@ -68,8 +62,7 @@
                                            <label class="col-sm-3 control-label" >Access role</label>
                                            <div class="col-sm-8">
                                                        <select class="form-control" name="role" ng-model="editUser.EditUser.role" required="">
-                                                         <option  ng-value="administration">Administration</option>
-                                                         <option ng-value="member">Member</option>
+                                                         <option ng-repeat="roles in editUser.Roles" ng-if="roles.isSelected === true ">{{roles.name}}</option>
                                                       </select>
                                               <span class="error"ng-show="UserForm.role.$error.required">Access role is required.</span>
                                           </div>
@@ -78,10 +71,7 @@
                                        <div class="form-group row ">
                                           <label class="col-sm-3 control-label" >Password</label>
                                           <div class="col-sm-8">
-                                                    <input class="form-control" name="password" ng-model="editUser.password" type="password" placeholder="Password" required>
-                                                    <span class="error" ng-show="UserForm.password.$dirty && UserForm.password.$invalid">
-                                                     <span ng-show="UserForm.password.$error.required">Password is required.</span>
-                                                 </span>
+                                                    <input class="form-control" name="password" ng-model="editUser.password" type="password" placeholder="Password">
                                           </div>
                                           <div class="col-sm-1"></div>
                                        </div>

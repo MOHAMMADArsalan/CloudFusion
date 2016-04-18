@@ -39,7 +39,6 @@
                         <label class="col-sm-4 control-label">Email Address</label>
                         <div class="col-sm-8">
                             <input class="form-control" type="email"  disabled ng-model="FranchiseEdit.franchise.email" placeholder="example@example.com">
-                            <input class="form-control" type="email" disabled ng-model="FranchiseEdit.franchise.email" placeholder="example@example.com">
                         </div>
                     </div>
                     <div class="form-group row ">
@@ -339,7 +338,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="form-group row ">
+                    <div ng-if="!addFranchises.franchise.postalAddressSameAs">
+                      <div class="form-group row ">
                         <label class="col-sm-4 control-label">Address</label>
                         <div class="col-sm-8">
                             <input class="form-control" type="text" ng-disabled="FranchiseEdit.SameAsPhysical" ng-model="addFranchises.franchise.address"
@@ -631,7 +631,7 @@
                             <input class="form-control" type="text" ng-model="FranchiseEdit.franchise.postalCode" placeholder="Postal Code">
                         </div>
                     </div>
-
+                  </div>
                 </div>
                 <div class="col-lg-6" ng-hide="FranchiseEdit.franchise.entries === 'SoleProprietor'">
                     <div class="form-group row ">
@@ -780,8 +780,10 @@
                 </div>
                 <div class="input-group col-lg-9">
                     <span class="input-group-btn">
-                                <button class="btn btn-primary" type="button">Browse...</button>
-                              </span>
+                        <button class="btn btn-primary" onclick="this.nextElementSibling.click()" type="button">Browse...</button>
+                        <input type="file" style="display:none" name="image" ng-model="FranchiseEdit.franchise.proofAddress" base-sixty-four-input
+                        accept="image/*" maxsize="500" ng-required="true">
+                    </span>
                     <input type="text" onclick="this.nextElementSibling.click()" class="form-control" ng-model="FranchiseEdit.franchise.proofAddress.filename"
                     />
                     <input type="file" style="display:none" name="image" ng-model="FranchiseEdit.franchise.proofAddress" base-sixty-four-input
@@ -794,8 +796,10 @@
                 </div>
                 <div class="input-group col-lg-9">
                     <span class="input-group-btn">
-                                <button class="btn btn-primary" type="button">Browse...</button>
-                              </span>
+                        <button class="btn btn-primary" onclick="this.nextElementSibling.click()" type="button">Browse...</button>
+                        <input type="file" style="display:none" name="image" ng-model="FranchiseEdit.franchise.companyRegistration" base-sixty-four-input
+                        accept="image/*" maxsize="500" ng-required="true">
+                    </span>
                     <input type="text" onclick="this.nextElementSibling.click()" class="form-control" ng-model="FranchiseEdit.franchise.companyRegistration.filename"
                     />
                     <input type="file" style="display:none" name="image" ng-model="FranchiseEdit.franchise.companyRegistration" base-sixty-four-input
@@ -808,8 +812,10 @@
                 </div>
                 <div class="input-group col-lg-9">
                     <span class="input-group-btn">
-                                <button class="btn btn-primary" type="button">Browse...</button>
-                              </span>
+                        <button class="btn btn-primary" onclick="this.nextElementSibling.click()"  type="button">Browse...</button>
+                        <input type="file" style="display:none;" name="image" class="form-control" ng-model="FranchiseEdit.franchise.identityDocument"
+                        base-sixty-four-input accept="image/*" maxsize="500" ng-required="true">
+                    </span>
                     <input type="text" onclick="this.nextElementSibling.click()" ng-model="FranchiseEdit.franchise.identityDocument.filename"
                     class="form-control" />
                     <input type="file" style="display:none;" name="image" class="form-control" ng-model="FranchiseEdit.franchise.identityDocument"

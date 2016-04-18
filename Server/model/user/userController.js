@@ -96,7 +96,7 @@ exports.getOneUser = getOneUser;
 // Add Role Function
 function addRole(req, res) {
   var role = new usermodel_1.roleModel(req.body);
-  role.save( function(err, success) {
+  role.save(function(err, success) {
     if (err) {
       res.send(err);
     } else {
@@ -108,8 +108,9 @@ exports.addRole = addRole;
 // update Role Function
 function updateRole(req, res) {
   // var role = new usermodel_1.roleModel(req.body);
-  console.log(req.body);
-  usermodel_1.roleModel.update({$set: req.body}, function(err, success) {
+  usermodel_1.roleModel.update({
+    $set: req.body
+  }, function(err, success) {
     if (err) {
       res.send(err);
     } else {
@@ -247,8 +248,7 @@ exports.getFranchises = getFranchises;
 // Get All Franchises Function
 function getFranchiseName(req, res) {
   usermodel_1.FranchiseModel.find({}, {
-    franchiseName: 1,
-    _id: 0
+    franchiseName: 1
   }, function(err, success) {
     console.log(success);
     if (err) {

@@ -44,17 +44,17 @@
                           <div class="col-sm-6">
                                 <div class="checkbox checkbox-primary">
                                        <label>  <!-- ng-model="addMemberships.memberships.memberships" -->
-                                        <input type="checkbox" id="checkbox" ui-sref="dashboard.termMemberships"> Term Based
+                                        <input type="checkbox" ng-model="addMemberships.TermBase" ng-change="addMemberships.isTermBase()"> Term Based
                                        </label>
                                 </div>
                           </div>
                             <div class="col-sm-3"></div>
                        </div>
                           <hr />
-                            <div class="row">
+                            <div class="row" >
 
 
-                                <div class="col-lg-6">
+                                 <div class="col-lg-6" ng-if="!addMemberships.TermBase">
                                  <div class="form-group row ">
                                    <label class="col-sm-4 control-label" >Title</label>
                                    <div class="col-sm-8">
@@ -487,13 +487,13 @@
                           </div>
                      </div>
             </div>
-            <div class="col-lg-6">
+            <div class="col-lg-6" ng-if="!addMemberships.TermBase">
             <div class="form-group row ">
             <label class="col-sm-4 control-label" >Telephone Number</label>
             <div class="col-sm-8">
                <input class="form-control" type="text" ng-model="addMemberships.memberships.telephoneNumber" placeholder="Telephone Number">
             </div>
-       </div>
+           </div>
        <div class="form-group row ">
          <label class="col-sm-4 control-label" >Fax</label>
          <div class="col-sm-8">
@@ -509,7 +509,12 @@
 <div class="form-group row ">
 <label class="col-sm-4 control-label" >Email address</label>
 <div class="col-sm-8">
-   <input class="form-control" type="email" ng-model="addMemberships.memberships.email" placeholder="Email address">
+   <input class="form-control" type="email" name="email" ng-model="addMemberships.memberships.email" placeholder="Email address" required>
+   <span class="error" ng-show="MembershipsForm.email.$dirty && MembershipsForm.email.$invalid">
+               <span ng-show="MembershipsForm.email.$error.required">Email is required.</span>
+               <span ng-show="MembershipsForm.email.$error.email">Invalid email address.</span>
+   </span>
+
 </div>
 </div>
 <br />
@@ -623,7 +628,290 @@
 </div>
 </div>
            <br />
+<!-- Term Base memberships start-->
 
+    <!-- /.row -->
+            <div class="row" ng-if="addMemberships.TermBase">
+
+                <div class="col-lg-12">
+
+                      <h3 class="page-header" style="margin:0px 0 20px;">Term Membership</h3>
+                            <div class="row">
+
+                                <div class="col-lg-6">
+                                  <div class="form-group row ">
+                                     <label class="col-sm-4 control-label" >Memberships Years</label>
+                                       <div class="col-sm-8">
+                                          <select class="form-control input-sm" ng-model="termMemberships.memberships.membershipsYears" >
+                                             <option disabled>Choose...</option>
+                                             <option >3 years</option>
+                                             <option >5 years</option>
+                                             <option >10 years</option>
+                                          </select>
+                                     </div>
+                                  </div>
+                                  <div class="form-group row ">
+                                    <label class="col-sm-4 control-label" >Membership fee (R)</label>
+                                      <div class="col-sm-8">
+                                         <input class="form-control" type="text" ng-model="termMemberships.memberships.membershipsFee" placeholder="Membership fee">
+                                      </div>
+                                  </div>
+                                     <div class="form-group row ">
+                                        <label class="col-sm-4 control-label" >Admin fee (R)</label>
+                                        <div class="col-sm-8">
+                                           <input class="form-control" type="text"  ng-model="termMemberships.memberships.adminfee" placeholder="Admin fee">
+                                        </div>
+                                     </div>
+                                     <div class="form-group row ">
+                                        <label class="col-sm-4 control-label" >Total (R) </label>
+                                        <div class="col-sm-8">
+                                           <input class="form-control" type="text" ng-model="termMemberships.memberships.total" placeholder="Total">
+                                        </div>
+                                     </div>
+                                     <br />
+                                     <div class="form-group row ">
+                                        <label class="col-sm-4 control-label" >Deposit 1</label>
+                                        <div class="col-sm-8"></div>
+                                     </div>
+                                     <div class="divider"></div>
+                                     <div class="form-group row ">
+                                       <label class="col-sm-4 control-label">Amount</label>
+                                       <div class="col-sm-8">
+                                          <input class="form-control" type="text" ng-model="termMemberships.memberships.depositOneAmount" placeholder="Amount">
+                                       </div>
+                                    </div>
+                                    <div class="form-group row ">
+                                      <label class="col-sm-4 control-label" >Day</label>
+                                      <div class="col-sm-8">
+                                       <select class="form-control input-sm" ng-model="termMemberships.memberships.depositOneDay" >
+                                         <option disabled>Choose...</option>
+                                         <option>1st</option>
+                                         <option>2nd</option>
+                                         <option>3th</option>
+                                         <option>4th</option>
+                                         <option>5th</option>
+                                         <option>6th</option>
+                                         <option>7th</option>
+                                         <option>8th</option>
+                                         <option>9th</option>
+                                         <option>10th</option>
+                                         <option>11th</option>
+                                         <option>12th</option>
+                                         <option>13th</option>
+                                         <option>14th</option>
+                                         <option>15th</option>
+                                         <option>16th</option>
+                                         <option>17th</option>
+                                         <option>18th</option>
+                                         <option>19th</option>
+                                         <option>20th</option>
+                                         <option>21th</option>
+                                         <option>22th</option>
+                                         <option>23th</option>
+                                         <option>24th</option>
+                                         <option>25th</option>
+                                         <option>26th</option>
+                                         <option>27th</option>
+                                         <option>28th</option>
+                                         <option>29th</option>
+                                         <option>30th</option>
+                                         <option>31th</option>
+                                       </select>
+                                     </div>
+                                   </div>
+                                   <div class="form-group row ">
+                                      <label class="col-sm-4 control-label" >Memberships Years</label>
+                                        <div class="col-sm-8">
+                                           <select class="form-control input-sm" ng-model="termMemberships.memberships.depositOneMembershipsYears" >
+                                              <option selected>Choose...</option>
+                                              <option >3 years</option>
+                                              <option >5 years</option>
+                                              <option >10 years</option>
+                                           </select>
+                                      </div>
+                                   </div>
+                                    <div class="form-group row ">
+                                      <label class="col-sm-4 control-label" >Year</label>
+                                      <div class="col-sm-8">
+                                         <input class="form-control" type="text" ng-model="termMemberships.memberships.depositOneYear" placeholder="Year">
+                                      </div>
+                                   </div>
+                                   <br />
+                                   <div class="form-group row ">
+                                      <label class="col-sm-4 control-label" >Deposit 2</label>
+                                      <div class="col-sm-8"></div>
+                                   </div>
+                                   <hr  />
+                                   <div class="form-group row ">
+                                     <label class="col-sm-4 control-label">Amount</label>
+                                     <div class="col-sm-8">
+                                        <input class="form-control" type="text" ng-model="termMemberships.memberships.depositTwoAmount" placeholder="Amount">
+                                     </div>
+                                  </div>
+                                  <div class="form-group row ">
+                                    <label class="col-sm-4 control-label" >Day</label>
+                                    <div class="col-sm-8">
+                                     <select class="form-control input-sm" ng-model="termMemberships.memberships.depositTwoDay" >
+                                       <option disabled>Choose...</option>
+                                       <option>1st</option>
+                                       <option>2nd</option>
+                                       <option>3th</option>
+                                       <option>4th</option>
+                                       <option>5th</option>
+                                       <option>6th</option>
+                                       <option>7th</option>
+                                       <option>8th</option>
+                                       <option>9th</option>
+                                       <option>10th</option>
+                                       <option>11th</option>
+                                       <option>12th</option>
+                                       <option>13th</option>
+                                       <option>14th</option>
+                                       <option>15th</option>
+                                       <option>16th</option>
+                                       <option>17th</option>
+                                       <option>18th</option>
+                                       <option>19th</option>
+                                       <option>20th</option>
+                                       <option>21th</option>
+                                       <option>22th</option>
+                                       <option>23th</option>
+                                       <option>24th</option>
+                                       <option>25th</option>
+                                       <option>26th</option>
+                                       <option>27th</option>
+                                       <option>28th</option>
+                                       <option>29th</option>
+                                       <option>30th</option>
+                                       <option>31th</option>
+                                     </select>
+                                   </div>
+                                 </div>
+                                 <div class="form-group row ">
+                                    <label class="col-sm-4 control-label" >Memberships Years</label>
+                                      <div class="col-sm-8">
+                                         <select class="form-control input-sm" ng-model="termMemberships.memberships.depositTwoMembershipsYears" >
+                                            <option selected>Choose...</option>
+                                            <option >3 years</option>
+                                            <option >5 years</option>
+                                            <option >10 years</option>
+                                         </select>
+                                    </div>
+                                 </div>
+                                  <div class="form-group row ">
+                                    <label class="col-sm-4 control-label" >Year</label>
+                                    <div class="col-sm-8">
+                                       <input class="form-control" type="text" ng-model="termMemberships.memberships.depositTwoYear" placeholder="Year">
+                                    </div>
+                                 </div>
+                              </div>
+                    <div class="col-lg-6">
+                    <div class="form-group row ">
+                      <label class="col-sm-4 control-label" >Payment Method</label>
+                      <div class="col-sm-8">
+                        <select class="form-control input-sm" ng-model="termMemberships.memberships.paymentMethod">
+                           <option disabled>Choose...</option>
+                           <option>Cheque</option>
+                           <option>Cash</option>
+                           <option>Eft</option>
+                           <option>Credit Card</option>
+                        </select>
+                      </div>
+                  </div>
+                 <div class="form-group row ">
+                   <label class="col-sm-4 control-label" >Credit card type</label>
+                   <div class="col-sm-8">
+                     <select class="form-control input-sm" ng-model="termMemberships.memberships.creditCardType">
+                        <option disabled>Choose...</option>
+                        <option>Visa</option>
+                        <option>Mastercard</option>
+                        <option>Amex</option>
+                        <option>Diners</option>
+                     </select>
+                   </div>
+               </div>
+               <div class="form-group row ">
+                 <label class="col-sm-4 control-label" >Card number</label>
+                 <div class="col-sm-8">
+                   <input class="form-control" type="text" ng-model="termMemberships.memberships.cardNumber" placeholder="Card Number">
+                 </div>
+              </div>
+              <div class="form-group row ">
+                  <label class="col-sm-4 control-label" >Expiry Month</label>
+                  <div class="col-sm-8">
+                    <select class="form-control input-sm" ng-model="termMemberships.memberships.expiryMonth">
+                      <option disabled>Choose...</option>
+                      <option >January</option>
+                      <option >February</option>
+                      <option >March</option>
+                      <option >April</option>
+                      <option >May</option>
+                      <option >June</option>
+                      <option >July</option>
+                      <option >August</option>
+                      <option >September</option>
+                      <option >October</option>
+                      <option >November</option>
+                      <option >December</option>
+                    </select>
+                  </div>
+              </div>
+              <div class="form-group row ">
+                  <label class="col-sm-4 control-label" >Expiry Year</label>
+                  <div class="col-sm-8">
+                     <input class="form-control" type="text" ng-model="termMemberships.memberships.expiryYear" placeholder="Bank name">
+                  </div>
+              </div>
+              <div class="form-group row ">
+                <label class="col-sm-4 control-label">CCV</label>
+                <div class="col-sm-8">
+                   <input class="form-control" type="text" ng-model="termMemberships.memberships.ccv" placeholder="CCV">
+                </div>
+             </div>
+            <div class="form-group row ">
+                <label class="col-sm-4 control-label" >Limit type</label>
+                <div class="col-sm-8">
+                  <select class="form-control input-sm" ng-model="termMemberships.memberships.limitType">
+                     <option disabled>Choose...</option>
+                     <option>Straight</option>
+                     <option>Budget</option>
+                  </select>
+                </div>
+            </div>
+            <div class="form-group row ">
+            <label class="col-sm-4 control-label" >Limit duration</label>
+            <div class="col-sm-8">
+              <select class="form-control input-sm" ng-model="termMemberships.memberships.duration">
+                 <option disabled>Choose...</option>
+                 <option>6 months</option>
+                 <option>12 months</option>
+                 <option>24 months</option>
+                 <option>36 months</option>
+              </select>
+            </div>
+            </div>
+          <div class="form-group row ">
+            <label class="col-sm-4 control-label">Card holder</label>
+            <div class="col-sm-8">
+               <input class="form-control" type="text" ng-model="termMemberships.memberships.cardHolder" placeholder="Card holder">
+            </div>
+          </div>
+          <div class="form-group row ">
+              <label class="col-sm-4 control-label" >Auth code</label>
+              <div class="col-sm-8">
+                 <input class="form-control" type="text" ng-model="termMemberships.memberships.authCode" placeholder="Auth code">
+              </div>
+          </div>
+   </div>     <!-- Right Side Form portion End -->  <!-- /.col-lg-6 (nested) -->
+
+
+                                <!-- /.col-lg-6 (nested) -->
+    </div>
+                </div>  <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+
+<!-- Term Base memberships end-->
 </form>
                                 <!-- /.col-lg-6 (nested) -->
 
@@ -653,7 +941,7 @@
                         <br /><br />
                          <div class="col-lg-11"></div>
 
-                         <button class="btn btn-primary col-lg-1" ng-disabled="addMemberships.disable" ng-click="addMemberships.addMember(addMemberships.memberships)" type="button">Submit</button>
+                         <button class="btn btn-primary col-lg-1" ng-disabled="MembershipsForm.$invalid" ng-click="addMemberships.addMember(addMemberships.memberships)" type="button">Submit</button>
 
                             <!-- /.row (nested) -->
                 </div>

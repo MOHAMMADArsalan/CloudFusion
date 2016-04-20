@@ -8,6 +8,7 @@ angular
 function AddMembershipsController(DataService, MessageService, HttpService,
   $state) {
   var _self = this;
+  _self.TermBase = false;
   var Year = new Date();
   _self.memberships = {};
   _self.SameAsPhysical = false;
@@ -21,7 +22,9 @@ function AddMembershipsController(DataService, MessageService, HttpService,
   // _self.memberships.repaymentDay = "Choose...";
   // _self.memberships.repaymentMonth = "Choose...";
   // _self.memberships.title = "Choose...";
-
+  // _self.isTermBase = function() {
+  //   _self.TermBase = !_self.TermBase;
+  // }
   // Add Members to db
   _self.addMember = function(memberships) {
     MessageService.progressbar.start();

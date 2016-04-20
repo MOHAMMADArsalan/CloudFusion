@@ -6,7 +6,7 @@
                        <h3 class="panel-title">Please Sign up</h3>
                    </div>
                    <div class="panel-body">
-                       <form role="form" name="signupForm">
+                       <form role="form" name="signupForm" autocomplete="off">
                            <fieldset>
                               <div class="form-group">
                                    <input class="form-control" name="username" ng-model="signup.user.username" placeholder="User Name"  type="text" required autofocus>
@@ -33,7 +33,7 @@
                        </form>
                    </div>
                </div>
-               <bold class="error">{{signup.emailExistError}}</bold>
+               <!-- <bold class="error">{{signup.emailExistError}}</bold> -->
            </div>
       </div>
    </div>

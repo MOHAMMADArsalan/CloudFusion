@@ -10,21 +10,22 @@
                            <fieldset>
                               <div class="form-group">
                                    <input class="form-control" name="username" ng-model="signup.user.username" placeholder="User Name"  type="text" required autofocus>
-                                   <span class="error" ng-show="UserForm.username.$dirty && UserForm.username.$invalid">
-                                          <span ng-show="UserForm.username.$error.required">User Name is required.</span>
+                                   <span class="error" ng-show="signupForm.username.$dirty && signupForm.username.$invalid">
+                                          <span ng-show="signupForm.username.$error.required">User Name is required.</span>
                                     </span>
                               </div>
                               <div class="form-group">
-                                   <input class="form-control" name="email" ng-model="signup.user.email" placeholder="E-mail" type="email" required/>
-                                   <span class="error" ng-show="UserForm.email.$dirty && UserForm.email.$invalid">
-                                         <span ng-show="UserForm.email.$error.required">Email is required.</span>
-                                         <span ng-show="UserForm.email.$error.email">Invalid email address.</span>
+                                   <input class="form-control" name="email" ng-model="signup.user.email" placeholder="E-mail" type="email" required  autocomplete="off"/>
+                                   <span class="error" ng-show="signupForm.email.$dirty && signupForm.email.$invalid">
+                                         <span ng-show="signupForm.email.$error.required">Email is required.</span>
+                                         <span ng-show="signupForm.email.$error.email">Invalid email address.</span>
                                   </span>
                               </div>
                               <div class="form-group">
-                                   <input class="form-control" name="password" ng-model="signup.user.password" placeholder="Password" type="password" required>
-                                   <span class="error" ng-show="UserForm.password.$dirty && UserForm.password.$invalid">
-                                         <span ng-show="UserForm.password.$error.required">Password is required.</span>
+                                   <input class="form-control" name="password" ng-model="signup.user.password" placeholder="Password" type="password" ng-pattern="/^(?=.{6,})(?=(.*\d){1,})(?=(.*\W){1,})/" required  autocomplete="off">
+                                   <span class="error" ng-show="signupForm.password.$dirty && signupForm.password.$invalid">
+                                      <span ng-show="signupForm.password.$error.pattern">Password should be greater than seven characters. Contains at least one digit. <br />Contains at least one special (non-alphanumeric) character.</span>
+                                     <span ng-show="signupForm.password.$error.required">Password is required.</span>
                                    </span>
                               </div>
                               <!-- Change this to a button or input when using this as a form -->

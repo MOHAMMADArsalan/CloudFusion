@@ -81,8 +81,9 @@
                                        <div class="form-group row ">
                                           <label class="col-sm-3 control-label" >Password</label>
                                           <div class="col-sm-8">
-                                                    <input class="form-control" name="password" ng-model="adduser.user.password" type="password" placeholder="Password" required>
+                                                    <input class="form-control" name="password" ng-model="adduser.user.password" type="password" ng-pattern="/^(?=.{6,})(?=(.*\d){1,})(?=(.*\W){1,})/" placeholder="Password" required>
                                                     <span class="error" ng-show="UserForm.password.$dirty && UserForm.password.$invalid">
+                                                     <span ng-show="UserForm.password.$error.pattern">Password should be greater than seven characters. Contains at least one digit. <br />Contains at least one special (non-alphanumeric) character.</span>
                                                      <span ng-show="UserForm.password.$error.required">Password is required.</span>
                                                  </span>
                                           </div>

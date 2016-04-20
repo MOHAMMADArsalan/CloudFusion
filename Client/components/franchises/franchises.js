@@ -6,7 +6,7 @@ angular
       function FranchisesController(DataService,MessageService,HttpService) {
         var _self =this;
 
-        _self.AllFranchiseName = DataService.getFranchiseName();
+        _self.AllFranchiseName = DataService.getAllFranchise();
         console.log(_self.AllFranchice)
       //   HttpService.GetApi("/router/getFranchises")
       //                .then(function(res){

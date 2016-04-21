@@ -642,7 +642,7 @@
                                   <div class="form-group row ">
                                      <label class="col-sm-4 control-label" >Memberships Years</label>
                                        <div class="col-sm-8">
-                                          <select class="form-control input-sm" ng-model="termMemberships.memberships.membershipsYears" >
+                                          <select class="form-control input-sm" ng-model="addMemberships.memberships.membershipsYears" >
                                              <option disabled>Choose...</option>
                                              <option >3 years</option>
                                              <option >5 years</option>
@@ -653,19 +653,19 @@
                                   <div class="form-group row ">
                                     <label class="col-sm-4 control-label" >Membership fee (R)</label>
                                       <div class="col-sm-8">
-                                         <input class="form-control" type="text" ng-model="termMemberships.memberships.membershipsFee" placeholder="Membership fee">
+                                         <input class="form-control" type="text" ng-model="addMemberships.memberships.membershipsFee" placeholder="Membership fee">
                                       </div>
                                   </div>
                                      <div class="form-group row ">
                                         <label class="col-sm-4 control-label" >Admin fee (R)</label>
                                         <div class="col-sm-8">
-                                           <input class="form-control" type="text"  ng-model="termMemberships.memberships.adminfee" placeholder="Admin fee">
+                                           <input class="form-control" type="text"  ng-model="addMemberships.memberships.adminfee" placeholder="Admin fee">
                                         </div>
                                      </div>
                                      <div class="form-group row ">
                                         <label class="col-sm-4 control-label" >Total (R) </label>
                                         <div class="col-sm-8">
-                                           <input class="form-control" type="text" ng-model="termMemberships.memberships.total" placeholder="Total">
+                                           <input class="form-control" type="text" ng-model="addMemberships.memberships.total" placeholder="Total">
                                         </div>
                                      </div>
                                      <br />
@@ -677,13 +677,13 @@
                                      <div class="form-group row ">
                                        <label class="col-sm-4 control-label">Amount</label>
                                        <div class="col-sm-8">
-                                          <input class="form-control" type="text" ng-model="termMemberships.memberships.depositOneAmount" placeholder="Amount">
+                                          <input class="form-control" type="text" ng-model="addMemberships.memberships.depositOneAmount" placeholder="Amount">
                                        </div>
                                     </div>
                                     <div class="form-group row ">
                                       <label class="col-sm-4 control-label" >Day</label>
                                       <div class="col-sm-8">
-                                       <select class="form-control input-sm" ng-model="termMemberships.memberships.depositOneDay" >
+                                       <select class="form-control input-sm" ng-model="addMemberships.memberships.depositOneDay" >
                                          <option disabled>Choose...</option>
                                          <option>1st</option>
                                          <option>2nd</option>
@@ -722,7 +722,7 @@
                                    <div class="form-group row ">
                                       <label class="col-sm-4 control-label" >Memberships Years</label>
                                         <div class="col-sm-8">
-                                           <select class="form-control input-sm" ng-model="termMemberships.memberships.depositOneMembershipsYears" >
+                                           <select class="form-control input-sm" ng-model="addMemberships.memberships.depositOneMembershipsYears" >
                                               <option selected>Choose...</option>
                                               <option >3 years</option>
                                               <option >5 years</option>
@@ -733,7 +733,7 @@
                                     <div class="form-group row ">
                                       <label class="col-sm-4 control-label" >Year</label>
                                       <div class="col-sm-8">
-                                         <input class="form-control" type="text" ng-model="termMemberships.memberships.depositOneYear" placeholder="Year">
+                                         <input class="form-control" type="text" ng-model="addMemberships.memberships.depositOneYear" placeholder="Year">
                                       </div>
                                    </div>
                                    <br />
@@ -745,13 +745,13 @@
                                    <div class="form-group row ">
                                      <label class="col-sm-4 control-label">Amount</label>
                                      <div class="col-sm-8">
-                                        <input class="form-control" type="text" ng-model="termMemberships.memberships.depositTwoAmount" placeholder="Amount">
+                                        <input class="form-control" type="text" ng-model="addMemberships.memberships.depositTwoAmount" placeholder="Amount">
                                      </div>
                                   </div>
                                   <div class="form-group row ">
                                     <label class="col-sm-4 control-label" >Day</label>
                                     <div class="col-sm-8">
-                                     <select class="form-control input-sm" ng-model="termMemberships.memberships.depositTwoDay" >
+                                     <select class="form-control input-sm" ng-model="addMemberships.memberships.depositTwoDay" >
                                        <option disabled>Choose...</option>
                                        <option>1st</option>
                                        <option>2nd</option>
@@ -790,7 +790,7 @@
                                  <div class="form-group row ">
                                     <label class="col-sm-4 control-label" >Memberships Years</label>
                                       <div class="col-sm-8">
-                                         <select class="form-control input-sm" ng-model="termMemberships.memberships.depositTwoMembershipsYears" >
+                                         <select class="form-control input-sm" ng-model="addMemberships.memberships.depositTwoMembershipsYears" >
                                             <option selected>Choose...</option>
                                             <option >3 years</option>
                                             <option >5 years</option>
@@ -801,7 +801,7 @@
                                   <div class="form-group row ">
                                     <label class="col-sm-4 control-label" >Year</label>
                                     <div class="col-sm-8">
-                                       <input class="form-control" type="text" ng-model="termMemberships.memberships.depositTwoYear" placeholder="Year">
+                                       <input class="form-control" type="text" ng-model="addMemberships.memberships.depositTwoYear" placeholder="Year">
                                     </div>
                                  </div>
                               </div>
@@ -809,7 +809,7 @@
                     <div class="form-group row ">
                       <label class="col-sm-4 control-label" >Payment Method</label>
                       <div class="col-sm-8">
-                        <select class="form-control input-sm" ng-model="termMemberships.memberships.paymentMethod">
+                        <select class="form-control input-sm" ng-model="addMemberships.memberships.paymentMethod">
                            <option disabled>Choose...</option>
                            <option>Cheque</option>
                            <option>Cash</option>
@@ -821,7 +821,7 @@
                  <div class="form-group row ">
                    <label class="col-sm-4 control-label" >Credit card type</label>
                    <div class="col-sm-8">
-                     <select class="form-control input-sm" ng-model="termMemberships.memberships.creditCardType">
+                     <select class="form-control input-sm" ng-model="addMemberships.memberships.creditCardType">
                         <option disabled>Choose...</option>
                         <option>Visa</option>
                         <option>Mastercard</option>
@@ -833,13 +833,13 @@
                <div class="form-group row ">
                  <label class="col-sm-4 control-label" >Card number</label>
                  <div class="col-sm-8">
-                   <input class="form-control" type="text" ng-model="termMemberships.memberships.cardNumber" placeholder="Card Number">
+                   <input class="form-control" type="text" ng-model="addMemberships.memberships.cardNumber" placeholder="Card Number">
                  </div>
               </div>
               <div class="form-group row ">
                   <label class="col-sm-4 control-label" >Expiry Month</label>
                   <div class="col-sm-8">
-                    <select class="form-control input-sm" ng-model="termMemberships.memberships.expiryMonth">
+                    <select class="form-control input-sm" ng-model="addMemberships.memberships.expiryMonth">
                       <option disabled>Choose...</option>
                       <option >January</option>
                       <option >February</option>
@@ -859,19 +859,19 @@
               <div class="form-group row ">
                   <label class="col-sm-4 control-label" >Expiry Year</label>
                   <div class="col-sm-8">
-                     <input class="form-control" type="text" ng-model="termMemberships.memberships.expiryYear" placeholder="Bank name">
+                     <input class="form-control" type="text" ng-model="addMemberships.memberships.expiryYear" placeholder="Bank name">
                   </div>
               </div>
               <div class="form-group row ">
                 <label class="col-sm-4 control-label">CCV</label>
                 <div class="col-sm-8">
-                   <input class="form-control" type="text" ng-model="termMemberships.memberships.ccv" placeholder="CCV">
+                   <input class="form-control" type="text" ng-model="addMemberships.memberships.ccv" placeholder="CCV">
                 </div>
              </div>
             <div class="form-group row ">
                 <label class="col-sm-4 control-label" >Limit type</label>
                 <div class="col-sm-8">
-                  <select class="form-control input-sm" ng-model="termMemberships.memberships.limitType">
+                  <select class="form-control input-sm" ng-model="addMemberships.memberships.limitType">
                      <option disabled>Choose...</option>
                      <option>Straight</option>
                      <option>Budget</option>
@@ -881,7 +881,7 @@
             <div class="form-group row ">
             <label class="col-sm-4 control-label" >Limit duration</label>
             <div class="col-sm-8">
-              <select class="form-control input-sm" ng-model="termMemberships.memberships.duration">
+              <select class="form-control input-sm" ng-model="addMemberships.memberships.duration">
                  <option disabled>Choose...</option>
                  <option>6 months</option>
                  <option>12 months</option>
@@ -893,13 +893,13 @@
           <div class="form-group row ">
             <label class="col-sm-4 control-label">Card holder</label>
             <div class="col-sm-8">
-               <input class="form-control" type="text" ng-model="termMemberships.memberships.cardHolder" placeholder="Card holder">
+               <input class="form-control" type="text" ng-model="addMemberships.memberships.cardHolder" placeholder="Card holder">
             </div>
           </div>
           <div class="form-group row ">
               <label class="col-sm-4 control-label" >Auth code</label>
               <div class="col-sm-8">
-                 <input class="form-control" type="text" ng-model="termMemberships.memberships.authCode" placeholder="Auth code">
+                 <input class="form-control" type="text" ng-model="addMemberships.memberships.authCode" placeholder="Auth code">
               </div>
           </div>
    </div>     <!-- Right Side Form portion End -->  <!-- /.col-lg-6 (nested) -->
@@ -929,11 +929,11 @@
                             <div class="input-group col-lg-19">
                               <span class="input-group-btn">
                                 <button class="btn btn-primary" onclick="this.nextElementSibling.click()"  type="button">Browse...</button>
-                                <input type="file" style="display:none;" name="image" ng-model="addFranchises.franchise.originalDocument" base-sixty-four-input accept="image/*" maxsize="500"  ng-required="true">
+                                <input type="file" style="display:none;" name="image" ng-model="addMemberships.memberships.originalDocument" base-sixty-four-input accept="image/*" maxsize="500"  ng-required="true">
 
                               </span>
                                  <input type="text" onclick="this.nextElementSibling.click()" class="form-control" ng-model="addFranchises.franchise.originalDocument.filename"/>
-                                <input type="file" style="display:none;" name="image" ng-model="addFranchises.franchise.originalDocument" base-sixty-four-input accept="image/*" maxsize="500"  ng-required="true">
+                                <input type="file" style="display:none;" name="image" ng-model="addMemberships.memberships.originalDocument" base-sixty-four-input accept="image/*" maxsize="500"  ng-required="true">
                             </div>
                           </div>
                           <br /><br />

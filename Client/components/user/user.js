@@ -10,15 +10,16 @@ function UserController(MessageService, HttpService, $state, DataService,
   var _self = this;
   _self.user = {};
   _self.AllUser = [];
-  // MessageService.progressbar.start();
-  _self.AllUser = DataService.allUser();
 
+  _self.AllUser = DataService.Users();
   _self.deleteUser = function(id) {
-    console.log(id);
+    MessageService.progressbar.start();
     AuthService.deleteUser(id).then(function(res) {
-        console.log(res)
+        toastr.success(res);
+        MessageService.progressbar.complete();
       }, function(err) {
-        console.log(err);
+        toastr.error(err);
+        MessageService.progressbar.complete();
       })
       // var item = _self.AllUser[index];
       // _self.AllUser.$remove(item)

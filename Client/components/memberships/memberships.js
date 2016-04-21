@@ -7,7 +7,6 @@ angular
 
 function MembershipsController(DataService, MessageService, HttpService) {
   var _self = this;
-  _self.AllMembers = HttpService.getMember();
-  _self.AllMembers = _self.AllMembers.concat(DataService.getmember());
+  _self.AllMembers = DataService.Memberships();
 
 }

@@ -98,7 +98,6 @@ function AuthService(mainRef, $q, $cookieStore, $firebaseObject) {
     // Not using now
   _self.deleteUser = function(id) {
     var deffered = $q.defer();
-    console.log(id)
     _self.mainRef.child("users").child(id).update({
       isActive: false
     }, function(err, res) {

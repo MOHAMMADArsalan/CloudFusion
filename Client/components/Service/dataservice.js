@@ -126,8 +126,25 @@ function DataService(mainRef, HttpService, $firebaseArray, $firebaseObject, $q) 
   _self.Memberships = function() {
     return _self.AllMemberships;
   }
+  _self.addRole = function(role) {
+    var deffered = $q.defer();
+    _self.mainRef.child("Roles").push(role, function(err, res) {
+      if (err) {
+        deffered.reject(err);
+      } else {
+        deffered.resolve(res)
+      }
+    })
+    return deffered.promise;
+  }
+  _self.allRoles = function() {
+    _self.roles = $firebaseArray(_self.mainRef.child("Roles"));
+    return _self.roles;
+  }
 
+  _self.updateRole = function(id) {
 
+  }
 
   // HttpService.GetApi("/router/franchiseName")
   //   .then(function(res) {

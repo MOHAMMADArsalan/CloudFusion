@@ -10,9 +10,9 @@ function AddRoleController(DataService, MessageService, HttpService) {
   var _self = this;
   _self.role = [];
   _self.roles = {}
-  _self.nonSelectedRoles = DataService.getRoles();
-  console.log(_self.nonSelectedRoles);
-  _self.selectedArray = _self.nonSelectedRoles;
+  _self.nonSelectedRoles = DataService.allRoles();
+  // console.log(_self.nonSelectedRoles);
+  // _self.selectedArray = _self.nonSelectedRoles;
   // Add One item  from non selected
   _self.addRole = function(name) {
     MessageService.progressbar.start();
@@ -20,14 +20,22 @@ function AddRoleController(DataService, MessageService, HttpService) {
       "name": name,
       isSelected: false
     };
-    HttpService.PostApi("/router/addRole", _self.roles).then(function(
-      res) {
-      MessageService.progressbar.complete();
-      toastr.success("Role added successfully");
-    }, function(err) {
-      MessageService.progressbar.complete();
-      toastr.error("Error to added Role");
-    });
+    DataService.addRole(_self.roles).then(function(
+        res) {
+        MessageService.progressbar.complete();
+        toastr.success("Role added successfully");
+      }, function(err) {
+        MessageService.progressbar.complete();
+        toastr.error("Error to added Role");
+      })
+      // HttpService.PostApi("/router/addRole", _self.roles).then(function(
+      //   res) {
+      //   MessageService.progressbar.complete();
+      //   toastr.success("Role added successfully");
+      // }, function(err) {
+      //   MessageService.progressbar.complete();
+      //   toastr.error("Error to added Role");
+      // });
   };
   _self.selectedRoleItem = function(role) {
     _self.selectedRole = role;
@@ -39,21 +47,21 @@ function AddRoleController(DataService, MessageService, HttpService) {
   };
 
   // move One item  from non selected to selected Array
-  _self.moveSingleRole = function() {
+  _self.moveSingleRole = function(id) {
     MessageService.progressbar.start();
     _self.selectedRole.isSelected = true;
-    HttpService.PostApi("/router/updateRole", _self.selectedRole).then(
-      function(res) {
-        toastr.success("Role selected Successfully");
-        _self.selectedArray.push(_self.selectedRole);
-        _self.nonSelectedRoles.splice(_self.nonSelectedRoles.indexOf(_self.selectedRole),
-          1);
-        MessageService.progressbar.complete();
-      },
-      function(err) {
-        toastr.error("Error to selected Role");
-        MessageService.progressbar.complete();
-      });
+
+    // HttpService.PostApi("/router/updateRole", _self.selectedRole).then(
+    //   function(res) {
+    //     toastr.success("Role selected Successfully");
+    //     _self.selectedArray.push(_self.selectedRole);
+    //     // _self.nonSelectedRoles.splice(_self.nonSelectedRoles.indexOf(_self.selectedRole),
+    //     // 1); MessageService.progressbar.complete();
+    //   },
+    //   function(err) {
+    //     toastr.error("Error to selected Role");
+    //     MessageService.progressbar.complete();
+    //   });
 
   };
 
@@ -64,7 +72,7 @@ function AddRoleController(DataService, MessageService, HttpService) {
     HttpService.PostApi("/router/updateRole", _self.selectedRole).then(
       function(res) {
         toastr.success("Role Unselected Successfully");
-        _self.nonSelectedRoles.push(_self.nonselectedRole);
+        // _self.nonSelectedRoles.push(_self.nonselectedRole);
         _self.selectedArray.splice(_self.selectedArray.indexOf(_self.nonselectedRole),
           1);
         MessageService.progressbar.complete();
@@ -90,9 +98,9 @@ function AddRoleController(DataService, MessageService, HttpService) {
     });
     HttpService.PostApi("/router/updateRole", tempArray)
       .then(function(res) {
-        console.log(_self.nonSelectedRoles);
-        _self.nonSelectedRoles = _self.nonSelectedRoles.concat(
-          tempArray);
+        // console.log(_self.nonSelectedRoles);
+        // _self.nonSelectedRoles = _self.nonSelectedRoles.concat(
+        //   tempArray);
         _self.selectedArray = [];
         MessageService.progressbar.complete();
         toastr.success("All Roles un selected Successfully")
@@ -107,22 +115,22 @@ function AddRoleController(DataService, MessageService, HttpService) {
   _self.moveAllRoles = function() {
     MessageService.progressbar.start();
     var tempArray = [];
-    console.log(_self.nonSelectedRoles);
-    _self.nonSelectedRoles.forEach(function(v, i) {
-      if (v.isSelected == true) {
-        console.log(v);
-        delete v;
-      } else {
-        v.isSelected = true;
-        tempArray.push(v);
-      }
-      console.log(tempArray);
-    });
+    // console.log(_self.nonSelectedRoles);
+    // _self.nonSelectedRoles.forEach(function(v, i) {
+    //   if (v.isSelected == true) {
+    //     console.log(v);
+    //     delete v;
+    //   } else {
+    //     v.isSelected = true;
+    //     tempArray.push(v);
+    //   }
+    //   console.log(tempArray);
+    // });
     HttpService.PostApi("/router/updateRole", tempArray)
       .then(function(res) {
         console.log(_self.selectedArray);
         _self.selectedArray // = _self.selectedArray.concat(tempArray);
-        _self.nonSelectedRoles = [];
+          // _self.nonSelectedRoles = [];
         MessageService.progressbar.complete();
         toastr.success("All Roles selected Successfully")
       }, function(err) {

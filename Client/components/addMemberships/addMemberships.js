@@ -13,7 +13,14 @@ function AddMembershipsController(DataService, MessageService, HttpService,
   _self.memberships = {};
   _self.SameAsPhysical = false;
   _self.memberships.repaymentYear = Year.getFullYear();
-  _self.AllFranchiceName = DataService.Franchises();
+  MessageService.progressbar.start();
+  DataService.getAllFranchiseName().then(function(res) {
+    _self.AllFranchiceName = res;
+    MessageService.progressbar.complete();
+  }, function(err) {
+    toastr.error("Error to load franchiseName")
+    MessageService.progressbar.complete();
+  });
   _self.memberships.repaymentAmount = 99.00;
   _self.memberships.language = "English";
   // _self.memberships.franchise = "Choose...";

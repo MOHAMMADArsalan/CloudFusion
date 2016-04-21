@@ -42,7 +42,14 @@ function DataService(mainRef, HttpService, $firebaseArray, $firebaseObject, $q) 
 
   _self.addFranchise = function(franchise) {
       var deffered = $q.defer();
-      _self.mainRef.child("Franchises").push(franchise, function(err, res) {
+      var franchiseRef = _self.mainRef.child("Franchises").push();
+      var franchiseKey = franchiseRef.key();
+      var Franchises = {};
+      Franchises["Franchises/" + franchiseKey] = franchise;
+      Franchises["FranchiseNames/" + franchiseKey] = {
+        franchiseName: franchise.franchiseName
+      };
+      _self.mainRef.update(Franchises, function(err, res) {
         if (err) {
           deffered.reject(err);
         } else {
@@ -50,6 +57,7 @@ function DataService(mainRef, HttpService, $firebaseArray, $firebaseObject, $q) 
         }
       })
       return deffered.promise;
+
     }
     // Get All Franchises from Firebase
   _self.getAllFranchise = function() {
@@ -57,11 +65,25 @@ function DataService(mainRef, HttpService, $firebaseArray, $firebaseObject, $q) 
   }
   _self.getAllFranchise();
   // return All Franchises
-
   _self.Franchises = function() {
-      return _self.AllFranchise;
+    return _self.AllFranchise;
+  }
+
+  // Get All Franchises Name from Firebase
+  _self.getAllFranchiseName = function() {
+      var deffered = $q.defer();
+      $firebaseArray(_self.mainRef.child(
+        "FranchiseNames")).$loaded().then(function(res) {
+        deffered.resolve(res)
+        console.log(res)
+      }, function(err) {
+        deffered.reject(res)
+      });
+      return deffered.promise;
     }
-    // Get One Franchises from Firebase
+    // return All FranchisesName;
+
+  // Get One Franchises from Firebase
   _self.getOneFranchise = function(id) {
     _self.Franchise = $firebaseObject(_self.mainRef.child("Franchises").child(
       id));

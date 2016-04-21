@@ -12,7 +12,14 @@ function AddUserController(mainRef, DataService, MessageService, AuthService,
   _self.error = "";
   var mainRef = new Firebase(mainRef);
   // _self.AllFranchiseName = DataService.Onefranchise();
-  _self.AllFranchiceName = DataService.Onefranchise();
+  MessageService.progressbar.start();
+  DataService.getAllFranchiseName().then(function(res) {
+    _self.AllFranchiceName = res;
+    MessageService.progressbar.complete();
+  }, function(err) {
+    toastr.error("Error to load franchiseName")
+    MessageService.progressbar.complete();
+  });
   // _self.emailExistError = "";
   // _self.Roles  = DataService.getRoles();
   _self.addUser = function(user) {

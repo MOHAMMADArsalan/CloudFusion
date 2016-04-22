@@ -6,6 +6,5 @@ angular
 
 function AccessRoleController(DataService) {
   var _self = this;
-  // _self.Roles = DataService.getRoles();
-  console.log(_self.Roles);
+  _self.Roles = DataService.allRole();
 }

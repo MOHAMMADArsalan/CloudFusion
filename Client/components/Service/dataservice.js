@@ -139,11 +139,21 @@ function DataService(mainRef, HttpService, $firebaseArray, $firebaseObject, $q) 
   }
   _self.allRoles = function() {
     _self.roles = $firebaseArray(_self.mainRef.child("Roles"));
-    return _self.roles;
   }
-
-  _self.updateRole = function(id) {
-
+  _self.allRoles();
+_self.allRole = function() {
+    return _self.roles;
+}
+  _self.updateRole = function(id, role) {
+    var deffered = $q.defer();
+    _self.mainRef.child("Roles").child(id).update(role, function(err, res) {
+      if (err) {
+        deffered.reject(err);
+      } else {
+        deffered.resolve(res)
+      }
+    })
+    return deffered.promise;
   }
 
   // HttpService.GetApi("/router/franchiseName")

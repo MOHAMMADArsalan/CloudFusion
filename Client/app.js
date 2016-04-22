@@ -25,7 +25,7 @@ angular
     "ngProgress",
     "firebase"
   ])
-  .constant("mainRef", "https://cloudfusion.firebaseio.com/")
+  .constant("mainRef", "https://cloudfusionv2.firebaseapp.com/")
   .controller("CloudFusionController", [CloudFusionController]);
 
 function CloudFusionController() {

@@ -1,0 +1,9 @@
+{
+  "firebase": "cloudfusionv2",
+  "public": "Client",
+  "ignore": [
+    "firebase.json",
+    "**/.*",
+    "**/node_modules/**"
+  ]
+}

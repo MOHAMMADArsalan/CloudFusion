@@ -29,7 +29,7 @@
                                    </span>
                               </div>
                               <!-- Change this to a button or input when using this as a form -->
-                              <a ng-click="signup.signup(signup.user)" ng-disabled="signup.disable" class="btn btn-lg btn-success btn-block">Sign up</a>
+                              <button ng-click="signup.signup(signup.user)" ng-disabled="signupForm.$invalid" type="submit" class="btn btn-lg btn-success btn-block">Sign up</button>
                            </fieldset>
                        </form>
                    </div>

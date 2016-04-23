@@ -9,18 +9,19 @@ angular
 function SignupController(AuthService, mainRef, MessageService, HttpService,
   $state) {
   var _self = this;
-  var mainRef = new Firebase(mainRef);
+  var mainRef = new Firebase("https://cloudfusionv2.firebaseio.com/");
   _self.user = {};
   _self.disable = false;
   _self.signup = function(user) {
     _self.disable = true;
+    user.isActive = false;
     MessageService.progressbar.start();
     AuthService.signup(user).then(function(res) {
         MessageService.progressbar.complete();
-        toastr.info('Sign up successfully');
+        toastr.info('Please Varify your Email!');
         _self.disable = false;
-        _self.user = {};
         $state.go("login");
+        _self.user = {};
       }, function(err) {
         console.log(err)
         toastr.error("Email is ALready exist")

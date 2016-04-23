@@ -8,7 +8,7 @@ angular
       _self.id = $stateParams.id;
       _self.SameAsPhysical = false;
       _self.disable = false;
-      _self.mainRef = new Firebase(mainRef);
+      _self.mainRef = new Firebase("https://cloudfusionv2.firebaseio.com/");
       _self.checkSameAsPhysical = function() {
           _self.SameAsPhysical = !_self.SameAsPhysical;
       };

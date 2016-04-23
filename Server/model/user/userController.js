@@ -331,21 +331,41 @@ exports.varification = varification;
 function Signup(req, res) {
   //token generate..
   var varifyToken = md5(req.body.email + Date.now());
-  req.body.varifyToken = varifyToken;
-  req.body.status = 0;
-  var user = new usermodel_1.UserModel(req.body);
-  user.save(function(err, _user) {
+  // req.body.varifyToken = varifyToken;
+  // emailVerification(req.body.email, req.body.varifyToken);
+
+  var template = {
+    "To": req.body.email,
+    "From": "test@holidaycorp.co.za",
+    "Subject": 'Please Verify your Email',
+    "HtmlBody": "<h1>Verify Email</h1>, please link on this link for email verification: https://cloudfusionv2.firebaseapp.com/#/verify/" +
+      req.body.varifyToken + "?=token" + varifyToken
+  };
+  postmarkEmail.sendEmail(template, function(err, json) {
     if (err) {
-      res.send("Email is ALready exist");
-    } else {
-      //email verification
-      emailVerification(_user.email, _user.varifyToken);
-      res.send({
-        message: "Inserted Successfully",
-        token: _user._id
-      });
+      console.log('email sent error: ' + req.body.email);
+      res.send("Error");
+      return console.error(err.message);
     }
+    res.send("email sent success");
+    console.log('email sent success: ' + req.body.email);
+    console.log(json);
   });
+
+
+  // var user = new usermodel_1.UserModel(req.body);
+  // user.save(function(err, _user) {
+  //   if (err) {
+  //     res.send("Email is ALready exist");
+  //   } else {
+  //     //email verification
+  //
+  //     res.send({
+  //       message: "Inserted Successfully",
+  //       token: _user._id
+  //     });
+  //   }
+  // });
 }
 exports.Signup = Signup;
 // Main Sign up Function
@@ -445,26 +465,6 @@ function sendPasswordRecoveryEmail(user) {
     }
 
     console.log('email sent success: ' + user.email);
-    console.log(json);
-  });
-}
-
-function emailVerification(email, token) {
-  console.log(email, token)
-  var template = {
-    "To": email,
-    "From": "test@holidaycorp.co.za",
-    "Subject": 'Please Verify your Email',
-    "HtmlBody": "<h1>Verify Email</h1>, please link on this link for email verification: https://cloudfussion.herokuapp.com/verify/" +
-      email + "/" + token
-  };
-  postmarkEmail.sendEmail(template, function(err, json) {
-    if (err) {
-      console.log('email sent error: ' + email);
-      return console.error(err.message);
-    }
-
-    console.log('email sent success: ' + email);
     console.log(json);
   });
 }

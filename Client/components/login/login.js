@@ -20,7 +20,6 @@ function LoginController(MessageService, HttpService, AuthService, $state,
     MessageService.progressbar.start();
     if (user !== "") {
       AuthService.login(user).then(function(res) {
-          console.log(res)
           if (res === "User Does not exist") {
             toastr.error("User Does not exist");
             MessageService.progressbar.complete();
@@ -28,7 +27,6 @@ function LoginController(MessageService, HttpService, AuthService, $state,
 
           } else {
             if (user.rememberMe) {
-              console.log(res.auth.uid)
               $cookieStore.put("cloudToken", res.auth.uid);
               AuthService.isLoggedIn(res.auth.uid);
               localStorage.setItem("token", res.auth.uid);
@@ -39,7 +37,6 @@ function LoginController(MessageService, HttpService, AuthService, $state,
 
               $state.go("dashboard.home");
             } else {
-              console.log(res.auth.uid)
               $cookieStore.put("cloudToken", res.auth.uid);
               AuthService.isLoggedIn(res.auth.uid);
               _self.fromVerified = false;

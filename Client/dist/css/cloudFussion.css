@@ -121,8 +121,13 @@ body {
 .sidebar .fa.arrow:before {
     content: "\f104";
 }
-
+.fa.arrow:before {
+  content: "\f104";
+}
 .sidebar .active>a>.fa.arrow:before {
+    content: "\f107";
+}
+.active>a>.fa.arrow:before {
     content: "\f107";
 }
 

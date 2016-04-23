@@ -15,8 +15,8 @@ function HttpService($http, $q, $cookies, $cookieStore, $window) {
   _self.PostApi = function(url, body) {
     var deffered = $q.defer();
     var token = $cookieStore.get("cloudToken");
-    _self.url = url + "?token=" + token;
-    $http.post(_self.url, body).then(function(response) {
+    // _self.url = url + "?token=" + token;
+    $http.post(url, body).then(function(response) {
       deffered.resolve(response);
       _self.AllMembers.push(body);
     }, function(err) {

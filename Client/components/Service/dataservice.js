@@ -12,7 +12,7 @@ function DataService(mainRef, HttpService, $firebaseArray, $firebaseObject, $q) 
   _self.AllFranchise
   _self.AllFranchiceName;
   _self.AllMembers;
-  _self.mainRef = new Firebase(mainRef);
+  _self.mainRef = new Firebase("https://cloudfusionv2.firebaseio.com/");
   // Get All Users
   _self.allUser = function() {
     _self.allUsers = $firebaseArray(_self.mainRef.child("users"));

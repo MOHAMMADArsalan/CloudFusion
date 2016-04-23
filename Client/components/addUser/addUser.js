@@ -10,7 +10,7 @@ function AddUserController(mainRef, DataService, MessageService, AuthService,
   HttpService, $state) {
   var _self = this;
   _self.error = "";
-  var mainRef = new Firebase(mainRef);
+  var mainRef = new Firebase("https://cloudfusionv2.firebaseio.com/");
   // _self.AllFranchiseName = DataService.Onefranchise();
   MessageService.progressbar.start();
   DataService.getAllFranchiseName().then(function(res) {
@@ -24,7 +24,7 @@ function AddUserController(mainRef, DataService, MessageService, AuthService,
   // _self.Roles  = DataService.getRoles();
   _self.addUser = function(user) {
     delete user.confirmpassword;
-    user.role = "Admin";
+    user.isActive = true;
     MessageService.progressbar.start();
     // _self.emailExistError = "";
     // _self.error = "";

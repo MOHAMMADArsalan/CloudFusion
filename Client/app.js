@@ -18,6 +18,7 @@ angular
     "app.FranchiseEdit",
     "app.memberships",
     "app.term",
+    "app.verify",
     "app.addMemberships",
     "app.Accommodation",
     'naif.base64',

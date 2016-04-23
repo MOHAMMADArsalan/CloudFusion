@@ -57,6 +57,8 @@
 <script src="./bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="./bower_components/toastr/toastr.js"></script>
 
+
+
 <script src="./app.js"></script>
 <script src="./config/config.js"></script>
 <script src="./components/home/home.js"></script>
@@ -84,8 +86,12 @@
 <script src="./components/termmemberships/termmemberships.js"></script>
 <script src="./components/addMemberships/addMemberships.js"></script>
 <script src="./components/resetPassword/resetPassword.js"></script>
+<script src="./components/verify/verify.js"></script>
 
-
+<!-- CryptoJS -->
+<script src="./bower_components/cryptoJS/components/core-min.js"></script>
+<script src="./bower_components/cryptoJS/components/aes.js"></script>
+<script src="./bower_components/cryptoJS/components/enc-base64-min.js"></script>
 <!-- Metis Menu Plugin JavaScript -->
 <script src="./bower_components/metisMenu/dist/metisMenu.min.js"></script>
 
@@ -95,11 +101,23 @@
 <!-- <script src="./js/morris-data.js"></script> -->
 
 <script src="./bower_components/datatables/media/js/jquery.dataTables.min.js"></script>
-  <script src="./bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js"></script>
-  <script src="./bower_components/datatables-responsive/js/dataTables.responsive.js"></script>
+<script src="./bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js"></script>
+<script src="./bower_components/datatables-responsive/js/dataTables.responsive.js"></script>
+
 <!-- Custom Theme JavaScript -->
 <script src="./dist/js/sb-admin-2.js"></script>
+<!-- <script src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/aes.js"></script> -->
 
+<!-- <script>
+  var textString = 'Hello world'; // Utf8-encoded string
+  var words = CryptoJS.enc.Utf8.parse(textString); // WordArray object
+  var base64 = CryptoJS.enc.Base64.stringify(words);
+  console.log(base64)
+
+  var words = CryptoJS.enc.Base64.parse(base64);
+  var textString = CryptoJS.enc.Utf8.stringify(words);
+  console.log(textString)
+</script> -->
 </head>
 <body ng-controller="CloudFusionController as app">
 

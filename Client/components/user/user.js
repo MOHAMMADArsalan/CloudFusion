@@ -14,7 +14,8 @@ function UserController(MessageService, HttpService, $state, DataService,
   _self.AllUser = DataService.Users();
   _self.deleteUser = function(id) {
     MessageService.progressbar.start();
-    AuthService.deleteUser(id).then(function(res) {
+    AuthService.deleteUser(id)
+      .then(function(res) {
         toastr.success(res);
         MessageService.progressbar.complete();
       }, function(err) {

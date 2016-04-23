@@ -4,7 +4,7 @@ angular
 .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
     .state("login", {
-      url: "/login",
+      url: "/login?verified",
       templateUrl: "./components/login/login.html",
       controller: "LoginController",
       controllerAs: "login"

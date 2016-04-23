@@ -1,11 +1,12 @@
 angular.module("app.login", [])
   .controller("LoginController", ["MessageService", "HttpService",
     "AuthService", "$state", '$cookies', '$cookieStore', '$window',
+    "$stateParams",
     LoginController
   ]);
 
 function LoginController(MessageService, HttpService, AuthService, $state,
-  $cookies, $cookieStore, $window) {
+  $cookies, $cookieStore, $window, $stateParams) {
   var _self = this;
   var queryString = window.location.toString().split('?');
   // var x = abc.toString().split('?');

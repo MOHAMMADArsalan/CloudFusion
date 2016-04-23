@@ -2,11 +2,11 @@ angular
 
   .module("app.verify", [])
 
-.controller("VerifyController", ["$stateParams", "$firebaseObject", "$state",
+.controller("VerifyController", ["$stateParams", "$firebaseObject",
   VerifyController
 ]);
 
-function VerifyController($stateParams, $firebaseObject, $state) {
+function VerifyController($stateParams, $firebaseObject) {
   var _self = this;
   _self.mainRef = new Firebase("https://cloudfusionv2.firebaseio.com/");
   _self.token = $stateParams.token;
@@ -17,7 +17,7 @@ function VerifyController($stateParams, $firebaseObject, $state) {
         _self.mainRef.child("users").child(_self.token).update({
           isActive: true
         })
-        $state.go("login")
+        location.assign("/#/login?verified=true");
       },
       function(err) {
         $state.go("login")

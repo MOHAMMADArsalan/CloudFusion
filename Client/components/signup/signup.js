@@ -2,11 +2,12 @@ angular
   .module("app.signup", [])
 
 .controller("SignupController", ["AuthService", "mainRef", "MessageService",
-  "HttpService",
+  "HttpService", "$timeout",
   "$state", SignupController
 ]);
 
 function SignupController(AuthService, mainRef, MessageService, HttpService,
+  $timeout,
   $state) {
   var _self = this;
   var mainRef = new Firebase("https://cloudfusionv2.firebaseio.com/");
@@ -21,7 +22,6 @@ function SignupController(AuthService, mainRef, MessageService, HttpService,
         toastr.info('Please Varify your Email!');
         _self.disable = false;
         $state.go("login");
-        _self.user = {};
       }, function(err) {
         console.log(err)
         toastr.error("Email is ALready exist")

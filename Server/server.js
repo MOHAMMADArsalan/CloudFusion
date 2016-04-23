@@ -6,6 +6,7 @@ var express = require("express"),
   session = require("express-session"),
   postmark = require("postmark"),
   usermodel_1 = require("./model/user/usermodel"),
+  cors = require('cors'),
   connection = mongoose.connect(
     "mongodb://cloudUser:KingOfFighterz@ds023560.mlab.com:23560/cloudfusion");
 //connection = mongoose.connect("mongodb://localhost/cloudfusion");
@@ -28,6 +29,7 @@ app.use(bodyParser.urlencoded({
 //     expire:8.64e+7
 // }));
 app.use(express.static(file));
+app.use(cors());
 app.get("/verify/:id", function(req, res) {
   res.redirect("/#/login?verified=true");
   success.varifyToken = null;

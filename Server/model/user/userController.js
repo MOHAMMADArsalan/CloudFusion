@@ -339,7 +339,7 @@ function Signup(req, res) {
     "From": "test@holidaycorp.co.za",
     "Subject": 'Please Verify your Email',
     "HtmlBody": "<h1>Verify Email</h1>, please link on this link for email verification: https://cloudfusionv2.firebaseapp.com/#/verify/" +
-      req.body.varifyToken + "?=token" + varifyToken
+      req.body.verifyToken + "?=token" + varifyToken
   };
   postmarkEmail.sendEmail(template, function(err, json) {
     if (err) {

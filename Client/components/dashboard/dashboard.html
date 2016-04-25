@@ -13,7 +13,7 @@
         </div>
 
         <!-- /.navbar-header -->
-
+        <div style="display: initial;  position: absolute;right: 5%;top: 25%;" class="hidden-sm hidden-md"><strong>Welcome , {{dashboard.username}}</strong></div>
         <ul class="nav navbar-top-links navbar-right">
             <!-- /.dropdown -->
             <li class="dropdown">
@@ -31,8 +31,6 @@
             </li>
 
             </ul>
-            <!-- /.dropdown-user -->
-            </li>
             <!-- /.dropdown -->
         </ul>
         <!-- /.navbar-top-links -->
@@ -69,7 +67,7 @@
                                     <a ui-sref="dashboard.Accommodation"  class="foo" data-toggle="collapse" data-target=".navbar-collapse">Accommodation</a>
                                 </li>
                                 <li>
-                                    <a class="foo" data-toggle="collapse" data-target=".navbar-collapse">Car Rental</a>
+                                    <a class="foo" data-toggle="collapse" ui-sref="dashboard.car" data-target=".navbar-collapse">Car Rental</a>
                                 </li>
                             </ul>
                         </div>

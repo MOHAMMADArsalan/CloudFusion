@@ -19,6 +19,7 @@ angular
     "app.memberships",
     "app.term",
     "app.verify",
+    "app.car",
     "app.addMemberships",
     "app.Accommodation",
     'naif.base64',

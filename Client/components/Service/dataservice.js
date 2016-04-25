@@ -1,11 +1,12 @@
 angular.module("CloudFusionControllerApp")
 
 .service("DataService", ["mainRef", "HttpService", "$firebaseArray",
-  "$firebaseObject",
+  "$firebaseObject", "$cookieStore",
   "$q", DataService
 ]);
 
-function DataService(mainRef, HttpService, $firebaseArray, $firebaseObject, $q) {
+function DataService(mainRef, HttpService, $firebaseArray, $firebaseObject,
+  $cookieStore, $q) {
 
   var _self = this;
   _self.AllFranchice;
@@ -19,8 +20,15 @@ function DataService(mainRef, HttpService, $firebaseArray, $firebaseObject, $q) 
 
   }
   _self.allUser();
-
-  // return All Users
+  _self.getUser = function() {
+      var deffered = $q.defer();
+      var uid = $cookieStore.get("cloudToken");
+      _self.mainRef.child("users").child(uid).once("value", function(user) {
+        deffered.resolve(user.val().username);
+      })
+      return deffered.promise;
+    }
+    // return All Users
   _self.Users = function() {
       return _self.allUsers;
     }
@@ -141,9 +149,9 @@ function DataService(mainRef, HttpService, $firebaseArray, $firebaseObject, $q) 
     _self.roles = $firebaseArray(_self.mainRef.child("Roles"));
   }
   _self.allRoles();
-_self.allRole = function() {
+  _self.allRole = function() {
     return _self.roles;
-}
+  }
   _self.updateRole = function(id, role) {
     var deffered = $q.defer();
     _self.mainRef.child("Roles").child(id).update(role, function(err, res) {

@@ -4,7 +4,7 @@ angular
 .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
     .state("login", {
-      url: "/login?verified",
+      url: "/login?veri",
       templateUrl: "./components/login/login.html",
       controller: "LoginController",
       controllerAs: "login"
@@ -70,6 +70,17 @@ angular
           templateUrl: "./components/flight/flight.html",
           controller: "FlightController",
           controllerAs: "flight"
+        }
+      }
+    })
+    .state("dashboard.car", {
+      url: "/car",
+      loginCompulsory: true,
+      views: {
+        "main": {
+          templateUrl: "./components/car/car.html",
+          controller: "CarController",
+          controllerAs: "car"
         }
       }
     })

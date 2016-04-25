@@ -37,7 +37,7 @@ function AuthService(mainRef, $q, $cookieStore, $firebaseObject, HttpService) {
             } else {
               user.verifyToken = authData.uid
               HttpService.PostApi(
-                "https://cloudfussion.herokuapp.com/router/signup",
+                "http://cloudfussion.herokuapp.com/router/signup",
                 user).then(function(
                 res) {
                 deffered.resolve(authData);

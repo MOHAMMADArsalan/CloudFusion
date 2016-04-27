@@ -13,6 +13,24 @@ function DataService(mainRef, HttpService, $firebaseArray, $firebaseObject,
   _self.AllFranchise
   _self.AllFranchiceName;
   _self.AllMembers;
+  _self.role = []
+    // _self.role = {
+    //   Users: "Users"
+    // }, {
+    //   Flights: "Flights"
+    // }, {
+    //   Dashboard: "Dashboard"
+    // }, {
+    //   Franchises: "Franchises"
+    // }, {
+    //   Memberships: "Memberships"
+    // }, {
+    //   Accommodation: "Accommodation"
+    // }, {
+    //   Cars: "Cars"
+    // }, {
+    //   Administrator: "Administrator"
+    // }
   _self.mainRef = new Firebase("https://cloudfusionv2.firebaseio.com/");
   // Get All Users
   _self.allUser = function() {
@@ -21,12 +39,42 @@ function DataService(mainRef, HttpService, $firebaseArray, $firebaseObject,
   }
   _self.allUser();
   _self.getUser = function() {
-      var deffered = $q.defer();
-      var uid = $cookieStore.get("cloudToken");
-      _self.mainRef.child("users").child(uid).once("value", function(user) {
+    var deffered = $q.defer();
+    var uid = $cookieStore.get("cloudToken");
+    _self.mainRef.child("users").child(uid).once("value", function(user) {
+      if (user.val().username) {
         deffered.resolve(user.val().username);
+      } else {
+        deffered.resolve(user.val().firstname);
+      }
+    })
+    return deffered.promise;
+  }
+  _self.getUserAccess = function() {
+    var deffered = $q.defer();
+    var uid = $cookieStore.get("cloudToken");
+    _self.mainRef.child("users").child(uid).once("value", function(user) {
+      //angular.forEach(user.val().roles, function(val, i) {
+      deffered.resolve(user.val().roles);
+      //});
+    })
+    return deffered.promise;
+  }
+  _self.getOneAccess = function() {
+    // var deffered = $q.defer();
+    var uid = $cookieStore.get("cloudToken");
+    _self.mainRef.child("users").child(uid).once("value", function(user) {
+        angular.forEach(user.val().roles, function(val, i) {
+          _self.role.push(val);
+        });
+        // deffered.resolve(role);
       })
-      return deffered.promise;
+      // return deffered.promise;
+  }
+  _self.getOneAccess();
+
+  _self.Role = function() {
+      return _self.role;
     }
     // return All Users
   _self.Users = function() {

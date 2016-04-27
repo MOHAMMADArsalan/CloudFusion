@@ -16,8 +16,7 @@ function EditUserController(DataService, MessageService, HttpService,
     delete user.$$conf;
     delete user.$priority;
     delete user.$id;
-    console.log(user)
-    DataService.updateUser(_self._id,user).then(function(res){
+    DataService.updateUser(_self._id, user).then(function(res){
       toastr.success(res);
       MessageService.progressbar.complete();
     },function(err) {

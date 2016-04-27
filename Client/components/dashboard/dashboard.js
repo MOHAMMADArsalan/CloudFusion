@@ -11,9 +11,31 @@ function DashboardController($state, AuthService, $cookies, DataService,
   $window) {
 
   var _self = this;
+  _self.Access = "";
   DataService.getUser().then(function(res) {
     _self.username = res;
   });
+  DataService.getUserAccess().then(function(res) {
+    console.log(res, "sshkshjkshs")
+    angular.forEach(res, function(val) {
+      console.log(val)
+      if (val.role == "Users") {
+        _self.AccessUser = val.noAccess;
+      } else if (val.role === "Dashboard") {
+        _self.AccessDashboard = val.noAccess;
+      } else if (val.role === "Franchises") {
+        _self.AccessFranchises = val.noAccess;
+      } else if (val.role === "Memberships") {
+        _self.AccessMemberships = val.noAccess;
+      } else if (val.role === "Flights") {
+        _self.AccessFlights = val.noAccess;
+      } else if (val.role === "Cars") {
+        _self.AccessCars = val.noAccess;
+      } else if (val.role === "Accommodation") {
+        _self.AccessAccommodation = val.noAccess;
+      }
+    })
+  })
   var width = window.innerWidth;
   // var height = window.innerHeight;
   // console.log(typeof width + ":" + height);

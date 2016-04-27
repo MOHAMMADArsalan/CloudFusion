@@ -1,4 +1,4 @@
-<div id="wrapper">
+<div id="wrapper" >
 
     <!-- Navigation -->
     <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
@@ -57,28 +57,28 @@
                         </a>
                         <div id="dashboard" class="collapse">
                             <ul class="nav nav-second-level">
-                                <li>
+                                <li ng-if="dashboard.AccessDashboard">
                                     <a ui-sref="dashboard.home" class="foo" data-toggle="collapse" data-target=".navbar-collapse">Home</a>
                                 </li>
-                                <li>
+                                <li ng-if="dashboard.AccessFlights">
                                     <a ui-sref="dashboard.flight" class="foo" data-toggle="collapse" data-target=".navbar-collapse">Flights</a>
                                 </li>
-                                <li>
+                                <li ng-if="dashboard.AccessAccommodation">
                                     <a ui-sref="dashboard.Accommodation"  class="foo" data-toggle="collapse" data-target=".navbar-collapse">Accommodation</a>
                                 </li>
-                                <li>
+                                <li ng-if="dashboard.AccessCars">
                                     <a class="foo" data-toggle="collapse" ui-sref="dashboard.car" data-target=".navbar-collapse">Car Rental</a>
                                 </li>
                             </ul>
                         </div>
                     </li>
 
-                    <li class="panel panel-default">
+                    <li class="panel panel-default" ng-if="dashboard.AccessUser">
                         <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="/dashboard/#administration">
                             <i class="fa fa-cog"></i> Administration<span class="fa arrow"></span>
                         </a>
                         <div id="administration" class="collapse">
-                            <ul class="nav nav-second-level">
+                            <ul class="nav nav-second-level" >
                                 <li>
                                     <a ui-sref="dashboard.user" class="foo" data-toggle="collapse" data-target=".navbar-collapse">Users</a>
                                 </li>
@@ -90,7 +90,7 @@
                         </div>
                     </li>
 
-                    <li class="panel panel-default">
+                    <li class="panel panel-default" ng-if="dashboard.AccessFranchises">
                         <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="/dashboard/#franchises">
                             <i class="fa fa-home"></i> Franchises<span class="fa arrow"></span>
                         </a>
@@ -107,7 +107,7 @@
                         </div>
                     </li>
 
-                    <li class="panel panel-default">
+                    <li class="panel panel-default" ng-if="dashboard.AccessMemberships">
                         <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="/dashboard/home/#memberships">
                             <i class="fa fa-tag"></i> Memberships<span class="fa arrow"></span>
                         </a>

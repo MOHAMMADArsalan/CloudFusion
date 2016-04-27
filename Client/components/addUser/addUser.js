@@ -17,14 +17,22 @@ function AddUserController(mainRef, DataService, MessageService, AuthService,
   _self.Roles = DataService.allRole();
 
   _self.addSelectedRole = function(role) {
-      console.log(role)
-      _self.selectedRoles.push({
-        role: role,
-        noAccess: false,
-        readOnly: true,
-        write: false
+      if (role === "dashboard") {
+        _self.selectedRoles.push({
+          role: role,
+          show: false,
+          hide: false
+        })
+      } else {
+        _self.selectedRoles.push({
+          role: role,
+          noAccess: false,
+          readOnly: true,
+          write: false
 
-      })
+        })
+      }
+
     }
     // Get All Franchise Name
 

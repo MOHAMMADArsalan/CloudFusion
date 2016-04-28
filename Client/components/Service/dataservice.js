@@ -14,23 +14,24 @@ function DataService(mainRef, HttpService, $firebaseArray, $firebaseObject,
   _self.AllFranchiceName;
   _self.AllMembers;
   _self.role = []
-    // _self.role = {
-    //   Users: "Users"
-    // }, {
-    //   Flights: "Flights"
-    // }, {
-    //   Dashboard: "Dashboard"
-    // }, {
-    //   Franchises: "Franchises"
-    // }, {
-    //   Memberships: "Memberships"
-    // }, {
-    //   Accommodation: "Accommodation"
-    // }, {
-    //   Cars: "Cars"
-    // }, {
-    //   Administrator: "Administrator"
-    // }
+  _self.roles = [];
+  // _self.role = {
+  //   Users: "Users"
+  // }, {
+  //   Flights: "Flights"
+  // }, {
+  //   Dashboard: "Dashboard"
+  // }, {
+  //   Franchises: "Franchises"
+  // }, {
+  //   Memberships: "Memberships"
+  // }, {
+  //   Accommodation: "Accommodation"
+  // }, {
+  //   Cars: "Cars"
+  // }, {
+  //   Administrator: "Administrator"
+  // }
   _self.mainRef = new Firebase("https://cloudfusionv2.firebaseio.com/");
   // Get All Users
   _self.allUser = function() {
@@ -82,7 +83,7 @@ function DataService(mainRef, HttpService, $firebaseArray, $firebaseObject,
     }
     // Get One User against $id
   _self.getOneUser = function(id) {
-    _self.user = $firebaseObject(_self.mainRef.child("users").child(id));
+    return _self.user = $firebaseObject(_self.mainRef.child("users").child(id));
   }
   _self.updateUser = function(id, user) {
     var deffered = $q.defer();

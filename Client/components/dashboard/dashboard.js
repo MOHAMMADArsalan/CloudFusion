@@ -16,11 +16,11 @@ function DashboardController($state, AuthService, $cookies, DataService,
     _self.username = res;
   });
   DataService.getUserAccess().then(function(res) {
-    console.log(res, "sshkshjkshs")
     angular.forEach(res, function(val) {
-      console.log(val)
+      //console.log(val)
       if (val.role == "Users") {
-        _self.AccessUser = val.noAccess;
+
+        //_self.AccessUser = val.noAccess;
       } else if (val.role === "Dashboard") {
         _self.AccessDashboard = val.noAccess;
       } else if (val.role === "Franchises") {
@@ -33,6 +33,8 @@ function DashboardController($state, AuthService, $cookies, DataService,
         _self.AccessCars = val.noAccess;
       } else if (val.role === "Accommodation") {
         _self.AccessAccommodation = val.noAccess;
+      } else if (val.role === "Administrator") {
+        _self.AccessAdministrator = true;
       }
     })
   })

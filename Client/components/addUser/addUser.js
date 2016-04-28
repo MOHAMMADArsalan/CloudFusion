@@ -17,7 +17,7 @@ function AddUserController(mainRef, DataService, MessageService, AuthService,
   _self.Roles = DataService.allRole();
 
   _self.addSelectedRole = function(role) {
-      if (role === "dashboard") {
+      if (role === "Dashboard") {
         _self.selectedRoles.push({
           role: role,
           show: false,
@@ -32,7 +32,6 @@ function AddUserController(mainRef, DataService, MessageService, AuthService,
 
         })
       }
-
     }
     // Get All Franchise Name
 
@@ -58,6 +57,7 @@ function AddUserController(mainRef, DataService, MessageService, AuthService,
       delete user.role;
       user.roles = _self.selectedRoles;
       delete user.confirmpassword;
+      user.isActive = true;
       AuthService.signup(user).then(function(res) {
           toastr.success("User created successfully");
           MessageService.progressbar.complete();

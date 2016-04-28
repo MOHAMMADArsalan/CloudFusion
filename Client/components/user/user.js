@@ -12,9 +12,9 @@ function UserController(MessageService, HttpService, $state, DataService,
   _self.AllUser = [];
   var roles = DataService.Role();
   angular.forEach(roles, function(val) {
-    if (val.role == "Users") {
-      _self.readOnly = val.readOnly;
-      _self.write = val.write;
+    if (val.role === "Administrator") {
+      _self.readOnly = true;
+      _self.write = true;
       MessageService.progressbar.complete();
     }
   })

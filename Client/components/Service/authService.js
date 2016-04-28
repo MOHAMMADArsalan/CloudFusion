@@ -63,7 +63,6 @@ function AuthService(mainRef, $q, $cookieStore, $firebaseObject, HttpService) {
       } else {
         $firebaseObject(_self.mainRef.child("users").child(
             authData.uid)).$loaded().then(function(resp) {
-            console.log(resp)
             if (resp.isActive === true) {
               deffered.resolve(authData);
             } else {

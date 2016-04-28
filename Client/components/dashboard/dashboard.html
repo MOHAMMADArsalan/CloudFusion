@@ -1,4 +1,4 @@
-<div id="wrapper" >
+<div id="wrapper">
 
     <!-- Navigation -->
     <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
@@ -35,7 +35,7 @@
         </ul>
         <!-- /.navbar-top-links -->
 
-        <div class="navbar-default sidebar" role="navigation" id="sidebar-wrapper" ng-show="dashboard.isOpen">
+        <div class="navbar-default sidebar" role="navigation" id="sidebar-wrapper" ng-show="dashboard.isOpen" >
             <div class="sidebar-nav navbar-collapse">
                 <ul class="nav" id="accordion">
 
@@ -51,29 +51,29 @@
                         <!-- /input-group -->
                     </li>
 
-                    <li class="panel panel-default">
+                    <li class="panel panel-default" >
                         <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="/dashboard/#dashboard">
                             <i class="fa fa-dashboard fa-fw"></i> <span class="fa arrow"></span>Dashboard
                         </a>
                         <div id="dashboard" class="collapse">
                             <ul class="nav nav-second-level">
-                                <li ng-if="dashboard.AccessDashboard">
+                                <li ng-if="dashboard.AccessAdministrator || dashboard.AccessDashboard">
                                     <a ui-sref="dashboard.home" class="foo" data-toggle="collapse" data-target=".navbar-collapse">Home</a>
                                 </li>
-                                <li ng-if="dashboard.AccessFlights">
+                                <li ng-if="dashboard.AccessAdministrator || dashboard.AccessFlights">
                                     <a ui-sref="dashboard.flight" class="foo" data-toggle="collapse" data-target=".navbar-collapse">Flights</a>
                                 </li>
-                                <li ng-if="dashboard.AccessAccommodation">
+                                <li ng-if="dashboard.AccessAdministrator || dashboard.AccessAccommodation">
                                     <a ui-sref="dashboard.Accommodation"  class="foo" data-toggle="collapse" data-target=".navbar-collapse">Accommodation</a>
                                 </li>
-                                <li ng-if="dashboard.AccessCars">
+                                <li ng-if="dashboard.AccessAdministrator || dashboard.AccessCars">
                                     <a class="foo" data-toggle="collapse" ui-sref="dashboard.car" data-target=".navbar-collapse">Car Rental</a>
                                 </li>
                             </ul>
                         </div>
                     </li>
 
-                    <li class="panel panel-default" ng-if="dashboard.AccessUser">
+                    <li class="panel panel-default" ng-if="dashboard.AccessAdministrator">
                         <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="/dashboard/#administration">
                             <i class="fa fa-cog"></i> Administration<span class="fa arrow"></span>
                         </a>
@@ -90,7 +90,7 @@
                         </div>
                     </li>
 
-                    <li class="panel panel-default" ng-if="dashboard.AccessFranchises">
+                    <li class="panel panel-default" ng-if="dashboard.AccessAdministrator || dashboard.AccessFranchises">
                         <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="/dashboard/#franchises">
                             <i class="fa fa-home"></i> Franchises<span class="fa arrow"></span>
                         </a>
@@ -107,7 +107,7 @@
                         </div>
                     </li>
 
-                    <li class="panel panel-default" ng-if="dashboard.AccessMemberships">
+                    <li class="panel panel-default" ng-if="dashboard.AccessAdministrator || dashboard.AccessMemberships">
                         <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="/dashboard/home/#memberships">
                             <i class="fa fa-tag"></i> Memberships<span class="fa arrow"></span>
                         </a>

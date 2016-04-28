@@ -15,6 +15,10 @@ function FlightController(DataService, MessageService) {
         _self.readOnly = val.readOnly;
         _self.write = val.write;
         MessageService.progressbar.complete();
+      } else if (val.role === "Administrator") {
+        _self.readOnly = true;
+        _self.write = true;
+        MessageService.progressbar.complete();
       }
     })
   }

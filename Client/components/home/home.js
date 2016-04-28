@@ -7,8 +7,10 @@ function HomeController(DataService) {
   var _self = this;
   DataService.getUserAccess().then(function(res) {
     angular.forEach(res, function(val) {
-      if (res.role === "Dashboard") {
-          _self.Access = val.show;
+      if (val.role === "Dashboard") {
+        _self.Access = val.show;
+      } else if (val.role === "Administrator") {
+        _self.AccessAdministrator = true
       }
     })
   })

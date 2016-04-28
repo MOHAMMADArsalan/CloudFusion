@@ -74,7 +74,10 @@
                                                  <option  ng-repeat="role in adduser.Roles" ng-if="role.isSelected == true" >{{role.name}}</option>
                                               </select>
                                               <span class="error" ng-show="UserForm.role.$error.required">Access role is required.</span>
-                                              <div ng-repeat="selectrole in adduser.selectedRoles">{{selectrole.role}} &nbsp; <input type = "checkbox" ng-change="adduser.selectrole()" ng-model = "selectrole.noAccess"/> No Access <input type = "checkbox" ng-model = "selectrole.readOnly"/> Read Only <input type = "checkbox" ng-model = "selectrole.write"/> Write </div>
+                                              <div ng-repeat="selectrole in adduser.selectedRoles">
+                                                  <span ng-if="adduser.user.role == 'Dashboard'">{{selectrole.role}} &nbsp; <input type = "checkbox" ng-change="adduser.selectrole()" ng-model = "selectrole.show"/> Show &nbsp; <input type = "checkbox" ng-model = "selectrole.hide"/> Hide</span>
+                                                  <span ng-if="adduser.user.role != 'Dashboard'">{{selectrole.role}} &nbsp; <input type = "checkbox" ng-change="adduser.selectrole()" ng-model = "selectrole.noAccess"/>Access <input type = "checkbox" ng-model = "selectrole.readOnly"/> Read Only <input type = "checkbox" ng-model = "selectrole.write"/> Write</span>
+                                              </div>
                                            </div>
                                            <div class="col-sm-1"><a href=""><i class="glyphicon glyphicon-plus fa-lg" aria-hidden="true" ng-click="adduser.addSelectedRole(adduser.user.role)"></i></a></div>
                                        </div>

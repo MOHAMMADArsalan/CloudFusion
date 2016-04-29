@@ -36,7 +36,7 @@
         </div>
         <hr />
         <div class="row">
-            <form role="form">
+            <form role="form" name="FranchiseForm">
 
                 <div class="col-lg-6">
                     <div class="form-group row ">
@@ -789,12 +789,13 @@
                     <span class="input-group-btn">
                                 <button class="btn btn-primary" onclick="this.nextElementSibling.click()" type="button">Browse...</button>
                                 <input type="file" style="display:none" name="image" ng-model="addFranchises.franchise.proofAddress" base-sixty-four-input
-                                accept="image/*" maxsize="500" ng-required="true">
+                                accept="image/*" maxsize="500" >
                     </span>
                     <input type="text" onclick="this.nextElementSibling.click()" class="form-control" ng-model="addFranchises.franchise.proofAddress.filename"
                     />
-                    <input type="file" style="display:none" name="image" ng-model="addFranchises.franchise.proofAddress" base-sixty-four-input
-                    accept="image/*" maxsize="500" ng-required="true">
+                    <input type="file" style="display:none" name="imageProof" ng-model="addFranchises.franchise.proofAddress" base-sixty-four-input
+                    accept="image/*" maxsize="500" >
+                    <span ng-show="FranchiseForm.imageProof.$error.maxsize" >Image size must not exceed 500 KB...</span>
                 </div>
             </div>
             <div class="col-lg-12">
@@ -805,12 +806,14 @@
                     <span class="input-group-btn">
                                 <button class="btn btn-primary" onclick="this.nextElementSibling.click()" type="button">Browse...</button>
                                 <input type="file" style="display:none" name="image" ng-model="addFranchises.franchise.companyRegistration" base-sixty-four-input
-                                accept="image/*" maxsize="500" ng-required="true">
+                                accept="image/*" maxsize="500" >
                               </span>
                     <input type="text" onclick="this.nextElementSibling.click()" class="form-control" ng-model="addFranchises.franchise.companyRegistration.filename"
                     />
-                    <input type="file" style="display:none" name="image" ng-model="addFranchises.franchise.companyRegistration" base-sixty-four-input
-                    accept="image/*" maxsize="500" ng-required="true">
+                    <input type="file" style="display:none" name="imageCompany" ng-model="addFranchises.franchise.companyRegistration" base-sixty-four-input
+                    accept="image/*" maxsize="500">
+                    <span ng-show="FranchiseForm.imageCompany.$error.maxsize" >Image size must not exceed 500 KB...</span>
+
                 </div>
             </div>
             <div class="col-lg-12">
@@ -821,12 +824,13 @@
                     <span class="input-group-btn">
                                 <button class="btn btn-primary" onclick="this.nextElementSibling.click()" type="button">Browse...</button>
                                 <input type="file" style="display:none;" name="image" class="form-control" ng-model="addFranchises.franchise.identityDocument"
-                                base-sixty-four-input accept="image/*" maxsize="500" ng-required="true">
+                                base-sixty-four-input accept="image/*" maxsize="500" >
                               </span>
                     <input type="text" onclick="this.nextElementSibling.click()" ng-model="addFranchises.franchise.identityDocument.filename"
                     class="form-control" />
-                    <input type="file" style="display:none;" name="image" class="form-control" ng-model="addFranchises.franchise.identityDocument"
-                    base-sixty-four-input accept="image/*" maxsize="500" ng-required="true">
+                    <input type="file" style="display:none;" name="imageIdentity" class="form-control" ng-model="addFranchises.franchise.identityDocument"
+                    base-sixty-four-input accept="image/*" maxsize="500" >
+                    <span ng-show="FranchiseForm.imageIdentity.$error.maxsize" >Image size must not exceed 500 KB...</span>
 
                 </div>
             </div>

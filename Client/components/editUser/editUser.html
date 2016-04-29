@@ -66,11 +66,11 @@
                                                 </select>
                                                 <div ng-repeat="roles in editUser.EditUser.roles" ng-model="editUser.EditUser.roles">
                                                   <div>
-                                                    <div ng-if="roles.role == 'Dashboard'">
-                                                      {{roles.role}}  <input type = "checkbox" ng-model = "roles.show"/> Show <input type = "checkbox" ng-model = "roles.hide"/> hide
+                                                    <div ng-if="editUser.EditUser.roles == 'Dashboard'">
+                                                      {{roles.role}}  <input type = "checkbox" ng-model = "roles.show"/> Show <input type = "checkbox" ng-model = "roles.hide"/> hide <a ng-click="editUser.deleteRole($index)" href=""><i class="fa fa-times" aria-hidden="true"></i></a>
                                                     </div>
                                                     <div ng-if="roles.role != 'Dashboard'">
-                                                        {{roles.role}}  <input type = "checkbox" ng-change="adduser.selectrole()" ng-model = "roles.noAccess"/> Access <input type = "checkbox" ng-model = "roles.readOnly"/> Read Only <input type = "checkbox" ng-model = "roles.write"/> Write
+                                                        {{roles.role}}  <input type = "checkbox" ng-change="adduser.selectrole()" ng-model = "roles.noAccess"/> Access <input type = "checkbox" ng-model = "roles.readOnly"/> Read Only <input type = "checkbox" ng-model = "roles.write"/> Write <a ng-click="editUser.deleteRole($index)" href=""><i class="fa fa-times" aria-hidden="true"></i></a>
                                                     </div>
                                                   </div>
                                                 </div>

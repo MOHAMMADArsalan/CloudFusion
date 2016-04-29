@@ -933,7 +933,11 @@
 
                               </span>
                                  <input type="text" onclick="this.nextElementSibling.click()" class="form-control" ng-model="addFranchises.franchise.originalDocument.filename"/>
-                                <input type="file" style="display:none;" name="image" ng-model="addMemberships.memberships.originalDocument" base-sixty-four-input accept="image/*" maxsize="500"  ng-required="true">
+                                <input type="file" style="display:none;" name="imageOriginal" ng-model="addMemberships.memberships.originalDocument" base-sixty-four-input accept="image/*" maxsize="500"  ng-required="true">
+                                <span ng-show="MembershipsForm.imageOriginal.$error.maxsize" >Image size must not exceed 500 KB...</span>
+
+                            </div>
+
                             </div>
                           </div>
                           <br /><br />

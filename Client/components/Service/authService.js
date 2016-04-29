@@ -30,22 +30,35 @@ function AuthService(mainRef, $q, $cookieStore, $firebaseObject, HttpService) {
         var words = CryptoJS.enc.Utf8.parse(user.password);
         var base64 = CryptoJS.enc.Base64.stringify(words);
         user.password = base64;
-        _self.mainRef.child("users").child(authData.uid).set(user,
-          function(err, res) {
-            if (err) {
-              deffered.reject(err);
-            } else {
-              user.verifyToken = authData.uid
-              HttpService.PostApi(
-                "http://cloudfussion.herokuapp.com/router/signup",
-                user).then(function(
-                res) {
-                deffered.resolve(authData);
-              }, function(err) {
+        delete user.confirmpassword;
+        if (user.isActive == true) {
+          _self.mainRef.child("users").child(authData.uid).set(user,
+            function(err, res) {
+              if (err) {
                 deffered.reject(err);
-              })
-            }
-          })
+
+              } else {
+                deffered.resolve(authData);
+              }
+            })
+        } else {
+          _self.mainRef.child("users").child(authData.uid).set(user,
+            function(err, res) {
+              if (err) {
+                deffered.reject(err);
+              } else {
+                user.verifyToken = authData.uid
+                HttpService.PostApi(
+                  "https://cloudfussion.herokuapp.com/router/signup",
+                  user).then(function(
+                  res) {
+                  deffered.resolve(authData);
+                }, function(err) {
+                  deffered.reject(err);
+                })
+              }
+            })
+        }
       }
     })
     return deffered.promise;

@@ -1,7 +1,7 @@
-<div class="row" ng-if="user.readOnly">
+<div class="row" >
     <div class="col-lg-12">
         <h1 class="page-header">Users</h1>
-        <button type="button" class="btn btn-primary" ui-sref="dashboard.addUser" ng-if="user.write">
+        <button type="button" class="btn btn-primary" ui-sref="dashboard.addUser" >
             <i class="fa fa-plus fa-lg"></i>Add User</button>
     </div>
     <br/>
@@ -44,8 +44,8 @@
                                         <i class="fa fa-arrows-v"></i>
                                     </span>
                                 </th>
-                                <th ng-if="user.write">Delete</th>
-                                <th ng-if="user.write">Edit</th>
+                                <th >Delete</th>
+                                <th >Edit</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -55,12 +55,12 @@
                                 <td>{{User.lastname}}</td>
                                 <td>{{User.email}}</td>
                                 <td class="center">{{User.timestamp}}</td>
-                                <td class="center" ng-if="user.write">
+                                <td class="center" >
                                     <a  ng-click="user.deleteUser(User.$id)">
                                         <i class="fa fa-trash fa-lg"></i>
                                     </a>
                                 </td>
-                                <td class="center" ng-if="user.write">
+                                <td class="center" >
                                     <a  href="" ui-sref="dashboard.editUser({id: User.$id})">
                                         <i class="fa fa-pencil fa-lg"></i>
                                     </a>

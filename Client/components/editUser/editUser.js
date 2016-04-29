@@ -10,7 +10,10 @@ function EditUserController(DataService, MessageService, HttpService,
   _self.EditUser = {};
   _self._id = $stateParams.id;
   _self.Roles = DataService.allRole();
-  _self.EditUser = DataService.getOneUser(_self._id);
+  DataService.getOneUser(_self._id).then(function(res) {
+    _self.EditUser = res;
+  });
+
   _self.selectedRoles = [];
   DataService.getAllFranchiseName().then(function(res) {
     _self.AllFranchiceName = res;
@@ -19,35 +22,48 @@ function EditUserController(DataService, MessageService, HttpService,
     toastr.error("Error to load franchiseName")
     MessageService.progressbar.complete();
   });
-
+  _self.deleteRole = function(index) {
+    _self.EditUser.roles.splice(index, 1);
+  }
   _self.addSelectedRole = function(role) {
-    if (role === "Dashboard") {
-      _self.selectedRoles.push({
-        role: role,
-        show: false,
-        hide: false
-      })
-    } else {
-      _self.selectedRoles.push({
-        role: role,
-        noAccess: false,
-        readOnly: false,
-        write: false
+    console.log(role)
+    angular.forEach(_self.EditUser.roles, function(val) {
+      if (val.role === role) {} else {
 
-      })
-    }
+        if (role === "Dashboard") {
+          _self.selectedRoles.push({
+            role: role,
+            show: false,
+            hide: false
+          })
+        } else {
+          _self.selectedRoles.push({
+            role: role,
+            noAccess: false,
+            readOnly: false,
+            write: false
+
+          })
+        }
+      }
+    })
+
   }
   _self.update = function(user) {
       delete user.$$conf;
       delete user.$priority;
       delete user.$id;
-      delete user.role;
-      user.roles = user.roles.concat(_self.selectedRoles);
+      if (user.roles) {
+        user.roles = user.roles.concat(_self.selectedRoles);
+      } else {
+        user.roles = _self.selectedRoles;
+      }
       angular.forEach(user.roles, function(val) {
         delete val.$$hashKey;
         _self.selectedRoles = [];
       })
       DataService.updateUser(_self._id, user).then(function(res) {
+        $state.go("dashboard.user")
         toastr.success(res);
         MessageService.progressbar.complete();
       }, function(err) {

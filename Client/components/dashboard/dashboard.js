@@ -20,9 +20,9 @@ function DashboardController($state, AuthService, $cookies, DataService,
       //console.log(val)
       if (val.role == "Users") {
 
-        //_self.AccessUser = val.noAccess;
+        // _self.AccessUser = val.noAccess;
       } else if (val.role === "Dashboard") {
-        _self.AccessDashboard = val.noAccess;
+        _self.AccessDashboard = val.show;
       } else if (val.role === "Franchises") {
         _self.AccessFranchises = val.noAccess;
       } else if (val.role === "Memberships") {

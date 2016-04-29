@@ -17,21 +17,24 @@ function AddUserController(mainRef, DataService, MessageService, AuthService,
   _self.Roles = DataService.allRole();
 
   _self.addSelectedRole = function(role) {
-      if (role === "Dashboard") {
-        _self.selectedRoles.push({
-          role: role,
-          show: false,
-          hide: false
-        })
-      } else {
-        _self.selectedRoles.push({
-          role: role,
-          noAccess: false,
-          readOnly: true,
-          write: false
+    if (role === "Dashboard") {
+      _self.selectedRoles.push({
+        role: role,
+        show: false,
+        hide: false
+      })
+    } else {
+      _self.selectedRoles.push({
+        role: role,
+        noAccess: false,
+        readOnly: false,
+        write: false
 
-        })
-      }
+      })
+    }
+  }
+  _self.deleteRole = function(index) {
+      _self.selectedRoles.splice(index, 1);
     }
     // Get All Franchise Name
 
@@ -54,15 +57,14 @@ function AddUserController(mainRef, DataService, MessageService, AuthService,
       angular.forEach(_self.selectedRoles, function(val) {
         delete val.$$hashKey
       })
-      delete user.role;
+      // delete user.role;
       user.roles = _self.selectedRoles;
-      delete user.confirmpassword;
-      user.isActive = true;
+      //delete user.confirmpassword;
+      // user.isActive = true;
       AuthService.signup(user).then(function(res) {
+          $state.go("dashboard.user");
           toastr.success("User created successfully");
           MessageService.progressbar.complete();
-          $state.go("dashboard.user");
-          _self.user = {}
         }, function(err) {
           toastr.error("Error to add User");
           MessageService.progressbar.complete();

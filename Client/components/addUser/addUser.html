@@ -28,7 +28,7 @@
                               <div class="col-sm-6">
                               <div class="checkbox checkbox-slider--default checkbox-slider--a checkbox-slider-md">
                                      <label>
-                                            <input ng-model="adduser.user.active"  type="checkbox"/>
+                                            <input ng-model="adduser.user.isActive"  type="checkbox"/>
                                             <span></span>
                                     </label>
                               </div>
@@ -75,8 +75,8 @@
                                               </select>
                                               <span class="error" ng-show="UserForm.role.$error.required">Access role is required.</span>
                                               <div ng-repeat="selectrole in adduser.selectedRoles">
-                                                  <span ng-if="adduser.user.role == 'Dashboard'">{{selectrole.role}} &nbsp; <input type = "checkbox" ng-change="adduser.selectrole()" ng-model = "selectrole.show"/> Show &nbsp; <input type = "checkbox" ng-model = "selectrole.hide"/> Hide</span>
-                                                  <span ng-if="adduser.user.role != 'Dashboard'">{{selectrole.role}} &nbsp; <input type = "checkbox" ng-change="adduser.selectrole()" ng-model = "selectrole.noAccess"/>Access <input type = "checkbox" ng-model = "selectrole.readOnly"/> Read Only <input type = "checkbox" ng-model = "selectrole.write"/> Write</span>
+                                                  <span ng-if="selectrole.role == 'Dashboard'">{{selectrole.role}} &nbsp; <input type = "checkbox" ng-change="adduser.selectrole()" ng-model = "selectrole.show"/> Show &nbsp; <input type = "checkbox" ng-model = "selectrole.hide"/> Hide <a href="" ng-click="adduser.deleteRole($index)"><i class="fa fa-times" aria-hidden="true"></i></a></span>
+                                                  <span ng-if="selectrole.role != 'Dashboard'">{{selectrole.role}} &nbsp; <input type = "checkbox" ng-change="adduser.selectrole()" ng-model = "selectrole.noAccess"/>Access <input type = "checkbox" ng-model = "selectrole.readOnly"/> Read Only <input type = "checkbox" ng-model = "selectrole.write"/> Write  <a href="" ng-click="adduser.deleteRole($index)"><i class="fa fa-times" aria-hidden="true"></i></a></span>
                                               </div>
                                            </div>
                                            <div class="col-sm-1"><a href=""><i class="glyphicon glyphicon-plus fa-lg" aria-hidden="true" ng-click="adduser.addSelectedRole(adduser.user.role)"></i></a></div>
@@ -101,7 +101,7 @@
                                        </div>
                                        <div class="form-group row ">
                                           <div class="col-sm-3">
-                                                      <button type="button" class="btn btn-primary"  ng-click="adduser.addUser(adduser.user)" ><i class="glyphicon glyphicon-plus"></i> Add </button>
+                                                      <button type="button" class="btn btn-primary" ng-disabled="UserForm.$invalid" ng-click="adduser.addUser(adduser.user)" ><i class="glyphicon glyphicon-plus"></i> Add </button>
                                                       <button type="button" class="btn btn-default" > Cancel </button>
                                           </div>
                                        </div>

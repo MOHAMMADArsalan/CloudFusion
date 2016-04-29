@@ -83,7 +83,11 @@ function DataService(mainRef, HttpService, $firebaseArray, $firebaseObject,
     }
     // Get One User against $id
   _self.getOneUser = function(id) {
-    return _self.user = $firebaseObject(_self.mainRef.child("users").child(id));
+    var deffered = $q.defer();
+    _self.mainRef.child("users").child(id).once("value", function(snapshot) {
+      deffered.resolve(snapshot.val())
+    });
+    return deffered.promise;
   }
   _self.updateUser = function(id, user) {
     var deffered = $q.defer();
@@ -132,7 +136,6 @@ function DataService(mainRef, HttpService, $firebaseArray, $firebaseObject,
       $firebaseArray(_self.mainRef.child(
         "FranchiseNames")).$loaded().then(function(res) {
         deffered.resolve(res)
-        console.log(res)
       }, function(err) {
         deffered.reject(res)
       });

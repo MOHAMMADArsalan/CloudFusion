@@ -9,6 +9,8 @@ function EditUserController(DataService, MessageService, HttpService,
   var _self = this;
   _self.EditUser = {};
   _self._id = $stateParams.id;
+  MessageService.progressbar.start();
+
   _self.Roles = DataService.allRole();
   DataService.getOneUser(_self._id).then(function(res) {
     _self.EditUser = res;
@@ -22,11 +24,14 @@ function EditUserController(DataService, MessageService, HttpService,
     toastr.error("Error to load franchiseName")
     MessageService.progressbar.complete();
   });
-  _self.deleteRole = function(index) {
-    _self.EditUser.roles.splice(index, 1);
+  _self.deleteRole = function(item) {
+    if (!isNaN(item)) {
+      _self.EditUser.roles.splice(item, 1);
+    } else {
+      _self.selectedRoles.splice(_self.selectedRoles.indexOf(item), 1);
+    }
   }
   _self.addSelectedRole = function(role) {
-    console.log(role)
     angular.forEach(_self.EditUser.roles, function(val) {
       if (val.role === role) {} else {
 

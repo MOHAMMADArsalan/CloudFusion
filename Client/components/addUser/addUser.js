@@ -55,9 +55,9 @@ function AddUserController(mainRef, DataService, MessageService, AuthService,
       MessageService.progressbar.complete();
     } else {
       angular.forEach(_self.selectedRoles, function(val) {
-        delete val.$$hashKey
-      })
-      // delete user.role;
+          delete val.$$hashKey
+        })
+        // delete user.role;
       user.roles = _self.selectedRoles;
       //delete user.confirmpassword;
       // user.isActive = true;

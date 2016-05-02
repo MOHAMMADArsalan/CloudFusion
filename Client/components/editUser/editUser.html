@@ -62,9 +62,9 @@
                                            <label class="col-sm-3 control-label" >Access role</label>
                                            <div class="col-sm-8">
                                                 <select class="form-control" name="role" ng-model="editUser.EditUser.role" required="">
-                                                    <option ng-repeat="Role in editUser.Roles" ng-if="Role.isSelected == true" >{{Role.name}}</option>
+                                                    <option ng-value="$index" ng-repeat="Role in editUser.Roles" >{{Role.name}}</option>
                                                 </select>
-                                                <div ng-repeat="roles in editUser.EditUser.roles" ng-model="editUser.EditUser.roles">
+                                                <!-- <div ng-repeat="roles in editUser.EditUser.roles" ng-model="editUser.EditUser.roles">
                                                   <div>
                                                     <div ng-if="roles.role == 'Dashboard'">
                                                       {{roles.role}}  <input type = "checkbox" ng-model = "roles.show"/> Show <input type = "checkbox" ng-model = "roles.hide"/> hide <a ng-click="editUser.deleteRole($index)" href=""><i class="fa fa-times" aria-hidden="true"></i></a>
@@ -77,13 +77,15 @@
                                                 <div ng-repeat="selectrole in editUser.selectedRoles">
                                                     <span ng-if="selectrole.role == 'Dashboard'">{{selectrole.role}} &nbsp; <span> <input type = "checkbox" ng-change="editUser.selectrole()" ng-model = "selectrole.show"/> Show &nbsp; <input type = "checkbox" ng-model = "selectrole.hide"/> Hide</span> <a ng-click="editUser.deleteRole(selectrole.role)" href=""><i class="fa fa-times" aria-hidden="true"></i></a></span>
                                                     <span ng-if="selectrole.role != 'Dashboard'">{{selectrole.role}} &nbsp; <input type = "checkbox" ng-change="editUser.selectrole()" ng-model = "selectrole.noAccess"/>Access <input type = "checkbox" ng-model = "selectrole.readOnly"/> Read Only <input type = "checkbox" ng-model = "selectrole.write"/> Write<a ng-click="editUser.deleteRole(selectrole.role)" href=""><i class="fa fa-times" aria-hidden="true"></i></a></span>
-                                                </div>
+                                                </div> -->
                                                 <!-- <div ng-if="editUser.EditUser.role && editUser.EditUser.role != 'Dashboard'">
                                                   <div >{{editUser.EditUser.role}} <input type = "checkbox" ng-change="adduser.selectrole()" ng-model = "roles.noAccess"/> No Access <input type = "checkbox" ng-model = "roles.readOnly"/> Read Only <input type = "checkbox" ng-model = "roles.write"/> Write</div>
                                                 </div> -->
                                               <!-- <span class="error"ng-show="UserForm.role.$error.required">Access role is required.</span> -->
                                           </div>
-                                           <div class="col-sm-1"><a href=""><i class="glyphicon glyphicon-plus fa-lg" aria-hidden="true" ng-click="editUser.addSelectedRole(editUser.EditUser.role)"></i></a></div>
+                                           <div class="col-sm-1">
+                                             <!-- <a href=""><i class="glyphicon glyphicon-plus fa-lg" aria-hidden="true" ng-click="editUser.addSelectedRole(editUser.EditUser.role)"></i></a> -->
+                                           </div>
                                        </div>
                                        <div class="form-group row ">
                                           <label class="col-sm-3 control-label" >Password</label>

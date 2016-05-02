@@ -16,7 +16,6 @@ function ResetPasswordController(HttpService, AuthService, MessageService,
         MessageService.progressbar.complete();
         toastr.success(res);
         $cookieStore.get("cloudToken");
-        console.log($cookieStore.get("cloudToken"));
       }, function(err) {
         toastr.success(err);
         MessageService.progressbar.complete();

@@ -14,8 +14,12 @@ function AddUserController(mainRef, DataService, MessageService, AuthService,
   _self.selectedRoles = [];
   //Get all Roles
   _self.user = {}
-  _self.Roles = DataService.allRole();
-
+  DataService.getGroupRole().then(function(res) {
+    _self.Roles = res;
+  });
+  _self.cancelUser = function() {
+    $state.go("dashboard.user");
+  }
   _self.addSelectedRole = function(role) {
     if (role === "Dashboard") {
       _self.selectedRoles.push({
@@ -54,11 +58,15 @@ function AddUserController(mainRef, DataService, MessageService, AuthService,
       toastr.error("password does not match");
       MessageService.progressbar.complete();
     } else {
-      angular.forEach(_self.selectedRoles, function(val) {
+      angular.forEach(_self.Roles, function(val) {
           delete val.$$hashKey
+          delete val.$id
+          delete val.$priority
+
         })
         // delete user.role;
-      user.roles = _self.selectedRoles;
+      user.roles = _self.Roles[user.role]
+      delete user.role;
       //delete user.confirmpassword;
       // user.isActive = true;
       AuthService.signup(user).then(function(res) {

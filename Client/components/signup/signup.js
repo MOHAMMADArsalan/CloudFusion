@@ -23,7 +23,6 @@ function SignupController(AuthService, mainRef, MessageService, HttpService,
         _self.disable = false;
         $state.go("login");
       }, function(err) {
-        console.log(err)
         toastr.error("Email is ALready exist")
         MessageService.progressbar.complete();
         _self.disable = false;

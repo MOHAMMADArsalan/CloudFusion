@@ -11,7 +11,9 @@ function EditUserController(DataService, MessageService, HttpService,
   _self._id = $stateParams.id;
   MessageService.progressbar.start();
 
-  _self.Roles = DataService.allRole();
+  DataService.getGroupRole().then(function(res) {
+    _self.Roles = res;
+  });
   DataService.getOneUser(_self._id).then(function(res) {
     _self.EditUser = res;
   });
@@ -58,15 +60,17 @@ function EditUserController(DataService, MessageService, HttpService,
       delete user.$$conf;
       delete user.$priority;
       delete user.$id;
-      if (user.roles) {
-        user.roles = user.roles.concat(_self.selectedRoles);
-      } else {
-        user.roles = _self.selectedRoles;
-      }
-      angular.forEach(user.roles, function(val) {
+      // if (user.roles) {
+      //   user.roles = user.roles.concat(_self.selectedRoles);
+      // } else {
+      //   user.roles = _self.selectedRoles;
+      // }
+      angular.forEach(_self.Roles, function(val) {
         delete val.$$hashKey;
-        _self.selectedRoles = [];
+        delete val.$id
+        delete val.$priority
       })
+      user.roles = _self.Roles[user.role]
       DataService.updateUser(_self._id, user).then(function(res) {
         $state.go("dashboard.user")
         toastr.success(res);

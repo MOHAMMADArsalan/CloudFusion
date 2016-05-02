@@ -11,8 +11,8 @@
                                 <input class="form-control" type="text" ng-model="addrole.name" placeholder="Name">
                              </div>
                              <div class="col-sm-3">
-                               <button type="button"  class="btn btn-primary " ng-click="addrole.addRole(addrole.name)"> <i class="fa fa-plus fa-lg"></i> Add </button>
-                               <button type="button"  class="btn btn-default"> Cancel</button>
+                               <button type="button"  class="btn btn-primary " ng-click="addrole.addRole()"> <i class="fa fa-plus fa-lg"></i> Add </button>
+                               <button type="button"  class="btn btn-default" ng-click="addrole.CancelRole()"> Cancel</button>
                             </div>
                     </div>
                    </div>
@@ -21,7 +21,7 @@
                              <p><strong>Non-selected</strong></p>
                              <button type="button"  ng-click="addrole.moveSingleRole()" class="btn btn-primary col-sm-12 col-md-12"> <i class="fa fa-arrow-right"></i></button>
                              <ul class="list-group col-sm-12" style=" overflow-y: scroll; height:370px;">
-                                     <li class="list-group-item" ng-click="addrole.selectedRoleItem(role)" ng-repeat="role in addrole.nonSelectedRoles track by $index" ng-if="role.isSelected == false"><a  href>{{role.name}}</a></li>
+                                     <li class="list-group-item" ng-click="addrole.selectedRoleItem(role)" ng-repeat="role in addrole.nonSelectedRoles track by $index" ng-if="role.isSelected == false"><a  href>{{role.name}}</a><a ng-click="addrole.deleteRole(role.$id)" href="" class="pull-right"><i class="fa fa-times" aria-hidden="true"></i></a></li>
                               </ul>
                                  <button type="button"  ng-click="addrole.moveAllRoles()" class="btn btn-default col-sm-12"> <i class="fa fa-arrow-right"></i> <i class="fa fa-arrow-right"></i></button>
                      </div>
@@ -31,7 +31,7 @@
                                   <button type="button" ng-click="addrole.moveNonSelectedSingleRole()" class="btn btn-primary col-sm-12"> <i class="fa fa-arrow-left"></i></button>
                                   <ul class="list-group col-sm-12" style=" overflow-y: scroll; height:370px">
 
-                                       <li class="list-group-item" ng-repeat="selectedrole in addrole.nonSelectedRoles track by $index" ng-if="selectedrole.isSelected == true"><a href ng-click="addrole.nonselectedRoleItem(selectedrole)">{{selectedrole.name}}</a></li>
+                                       <li class="list-group-item" ng-repeat="selectedrole in addrole.nonSelectedRoles track by $index" ng-if="selectedrole.isSelected == true"><a href ng-click="addrole.nonselectedRoleItem(selectedrole)">{{selectedrole.name}}</a><a ng-click="addrole.deleteRole(selectedrole.$id)" href="" class="pull-right"><i class="fa fa-times" aria-hidden="true"></i></a></li>
 
                                </ul>
 

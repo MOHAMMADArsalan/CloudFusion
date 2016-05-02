@@ -153,7 +153,6 @@ function AuthService(mainRef, $q, $cookieStore, $firebaseObject, HttpService) {
           deffered.resolve("User removed successfully")
           _self.mainRef.child("users").child(id).set(null);
         } else {
-          console.log(err);
           deffered.reject("Error removing user:", err)
         }
       })

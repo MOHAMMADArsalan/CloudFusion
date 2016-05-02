@@ -150,6 +150,28 @@ angular
         }
       }
     })
+    .state("dashboard.addGroupRole", {
+      url: "/addGroupRole",
+      loginCompulsory: true,
+      views: {
+        "main": {
+          templateUrl: "./components/addGroupRole/addGroupRole.html",
+          controller: "AddGroupRoleController",
+          controllerAs: "addGroupRole"
+        }
+      }
+    })
+    .state("dashboard.accessGroupRole", {
+      url: "/accessGroupRole",
+      loginCompulsory: true,
+      views: {
+        "main": {
+          templateUrl: "./components/accessGroupRole/accessGroupRole.html",
+          controller: "AccessGroupRoleController",
+          controllerAs: "accessGroupRole"
+        }
+      }
+    })
     .state("dashboard.franchises", {
       url: "/franchises",
       loginCompulsory: true,

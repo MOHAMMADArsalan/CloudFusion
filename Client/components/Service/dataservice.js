@@ -56,7 +56,11 @@ function DataService(mainRef, HttpService, $firebaseArray, $firebaseObject,
     var uid = $cookieStore.get("cloudToken");
     _self.mainRef.child("users").child(uid).once("value", function(user) {
       //angular.forEach(user.val().roles, function(val, i) {
-      deffered.resolve(user.val().roles);
+      if(user.val().roles.GroupRoles) {
+        deffered.resolve(user.val().roles.GroupRoles);
+      }else {
+        deffered.resolve(user.val().roles);
+      }
       //});
     })
     return deffered.promise;
@@ -184,23 +188,63 @@ function DataService(mainRef, HttpService, $firebaseArray, $firebaseObject,
   // return All Franchises
 
   _self.Memberships = function() {
-    return _self.AllMemberships;
-  }
+      return _self.AllMemberships;
+    }
+    // Add Role
   _self.addRole = function(role) {
-    var deffered = $q.defer();
-    _self.mainRef.child("Roles").push(role, function(err, res) {
-      if (err) {
-        deffered.reject(err);
-      } else {
-        deffered.resolve(res)
-      }
-    })
-    return deffered.promise;
-  }
+      var deffered = $q.defer();
+      _self.mainRef.child("Roles").push(role, function(err, res) {
+        if (err) {
+          deffered.reject(err);
+        } else {
+          deffered.resolve(res)
+        }
+      })
+      return deffered.promise;
+    }
+    // Add group Roles
+  _self.addGroupRole = function(role) {
+      var deffered = $q.defer();
+      _self.mainRef.child("GroupRoles").push(role, function(err, res) {
+        if (err) {
+          deffered.reject(err);
+        } else {
+          deffered.resolve(res)
+        }
+      })
+      return deffered.promise;
+    }
+    // get All group Roles
+  _self.getGroupRole = function(role) {
+      var deffered = $q.defer();
+      $firebaseArray(_self.mainRef.child("GroupRoles")).$loaded()
+        .then(function(res) {
+          deffered.resolve(res)
+        });
+      return deffered.promise;
+
+    }
+    // delete group Roles
+  _self.deleteGroupRole = function(id) {
+      var deffered = $q.defer();
+      _self.mainRef.child("GroupRoles").child(id).set(null, function(err) {
+        if (err == null) {
+          deffered.resolve("Group Role Deleted");
+        } else {
+          deffered.reject("Error To Deleted Group Role");
+
+        }
+      })
+      return deffered.promise;
+
+    }
+    // Get All Roles
   _self.allRoles = function() {
     _self.roles = $firebaseArray(_self.mainRef.child("Roles"));
   }
   _self.allRoles();
+
+  //return All  Role
   _self.allRole = function() {
     return _self.roles;
   }

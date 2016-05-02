@@ -17,9 +17,7 @@ function DashboardController($state, AuthService, $cookies, DataService,
   });
   DataService.getUserAccess().then(function(res) {
     angular.forEach(res, function(val) {
-      //console.log(val)
       if (val.role == "Users") {
-
         // _self.AccessUser = val.noAccess;
       } else if (val.role === "Dashboard") {
         _self.AccessDashboard = val.show;
@@ -63,7 +61,6 @@ function DashboardController($state, AuthService, $cookies, DataService,
   _self.isOpen = true;
 
   _self.hideSideBar = function() {
-    console.log('abc')
     if (_self.isOpen) {
       _self.isOpen = false;
       _self.applyClass = true

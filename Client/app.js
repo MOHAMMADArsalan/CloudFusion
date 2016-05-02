@@ -20,6 +20,8 @@ angular
     "app.term",
     "app.verify",
     "app.car",
+    "app.addGroupRole",
+    "app.accessGroupRole",
     "app.addMemberships",
     "app.Accommodation",
     'naif.base64',

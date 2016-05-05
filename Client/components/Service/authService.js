@@ -31,6 +31,9 @@ function AuthService(mainRef, $q, $cookieStore, $firebaseObject, HttpService) {
         var base64 = CryptoJS.enc.Base64.stringify(words);
         user.password = base64;
         delete user.confirmpassword;
+        if (user.role) {
+          delete user.role
+        }
         if (user.isActive == true) {
           _self.mainRef.child("users").child(authData.uid).set(user,
             function(err, res) {
@@ -99,6 +102,9 @@ function AuthService(mainRef, $q, $cookieStore, $firebaseObject, HttpService) {
       newPassword: user.newPassword
     }, function(err) {
       if (err === null) {
+        var words = CryptoJS.enc.Utf8.parse(user.password);
+        var base64 = CryptoJS.enc.Base64.stringify(words);
+        user.newPassword = base64;
         var uid = $cookieStore.get("cloudToken");
         _self.mainRef.child("users").child(uid).update({
           password: user.newPassword

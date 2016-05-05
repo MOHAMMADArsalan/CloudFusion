@@ -21,10 +21,5 @@ function ResetPasswordController(HttpService, AuthService, MessageService,
         MessageService.progressbar.complete();
 
       })
-      // HttpService.PostApi("/router/passwordReset", pass).then(function(res) {
-      //   console.log(res);
-      // }, function(err) {
-      //   console.log(err)
-      // })
   }
 }

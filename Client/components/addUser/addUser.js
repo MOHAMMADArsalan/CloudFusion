@@ -66,9 +66,8 @@ function AddUserController(mainRef, DataService, MessageService, AuthService,
         })
         // delete user.role;
       user.roles = _self.Roles[user.role]
-      delete user.role;
-      //delete user.confirmpassword;
-      // user.isActive = true;
+        //delete user.confirmpassword;
+        // user.isActive = true;
       AuthService.signup(user).then(function(res) {
           $state.go("dashboard.user");
           toastr.success("User created successfully");

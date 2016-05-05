@@ -8,14 +8,30 @@ function EditUserController(DataService, MessageService, HttpService,
   $stateParams, $state) {
   var _self = this;
   _self.EditUser = {};
+  _self.oldPassword = "";
   _self._id = $stateParams.id;
+  _self.password = "";
   MessageService.progressbar.start();
 
   DataService.getGroupRole().then(function(res) {
     _self.Roles = res;
+    angular.forEach(_self.Roles, function(val) {
+      if (val.name == _self.selectedOption) {
+        _self.EditUser.role = val.name;
+      }
+    })
   });
   DataService.getOneUser(_self._id).then(function(res) {
     _self.EditUser = res;
+    angular.forEach(_self.EditUser.roles.GroupRole, function(val) {
+      if (val.role === "Administrator") {
+        _self.currentRole = "Administrator";
+      } else {
+        _self.currentRole = _self.EditUser.roles.name
+      }
+    })
+    _self.selectedOption = _self.EditUser.roles.name
+
   });
 
   _self.selectedRoles = [];
@@ -57,29 +73,68 @@ function EditUserController(DataService, MessageService, HttpService,
 
   }
   _self.update = function(user) {
-      delete user.$$conf;
-      delete user.$priority;
-      delete user.$id;
-      // if (user.roles) {
-      //   user.roles = user.roles.concat(_self.selectedRoles);
-      // } else {
-      //   user.roles = _self.selectedRoles;
-      // }
-      angular.forEach(_self.Roles, function(val) {
-        delete val.$$hashKey;
-        delete val.$id
-        delete val.$priority
-      })
-      user.roles = _self.Roles[user.role]
-      DataService.updateUser(_self._id, user).then(function(res) {
-        $state.go("dashboard.user")
-        toastr.success(res);
-        MessageService.progressbar.complete();
-      }, function(err) {
-        toastr.error(err);
-        MessageService.progressbar.complete();
+      if (_self.oldPassword) {
+        if (_self.confirmpassword != _self.password) {
+          _self.message = "Password Does not Match"
+        } else {
+          delete user.$$conf;
+          delete user.$priority;
+          delete user.$id;
+          angular.forEach(_self.Roles, function(val) {
+            delete val.$$hashKey;
+            delete val.$id
+            delete val.$priority
+          })
+          angular.forEach(_self.Roles, function(val, i) {
+            if (val.name == user.role) {
+              user.roles = {
+                GroupRole: val.GroupRole,
+                name: val.name
+              }
+            }
+          })
+          DataService.updateUser(_self._id, user, _self.oldPassword, _self.password)
+            .then(function(
+              res) {
+              $state.go("dashboard.user")
+              toastr.success(res);
+              MessageService.progressbar.complete();
+            }, function(err) {
+              toastr.error(err);
+              MessageService.progressbar.complete();
 
-      })
+            })
+        }
+      } else {
+        delete user.$$conf;
+        delete user.$priority;
+        delete user.$id;
+        angular.forEach(_self.Roles, function(val) {
+          delete val.$$hashKey;
+          delete val.$id
+          delete val.$priority
+        })
+        angular.forEach(_self.Roles, function(val, i) {
+          if (val.name == user.role) {
+            user.roles = {
+              GroupRole: val.GroupRole,
+              name: val.name
+            }
+          }
+        })
+        DataService.updateUser(_self._id, user, _self.oldPassword, _self.password)
+          .then(function(
+            res) {
+            $state.go("dashboard.user")
+            toastr.success(res);
+            MessageService.progressbar.complete();
+          }, function(err) {
+            toastr.error(err);
+            MessageService.progressbar.complete();
+
+          })
+      }
+
     }
     // _self.Roles = DataService.getRoles();
     // // _self.AllFranchiceName = DataService.getFranchiseName();

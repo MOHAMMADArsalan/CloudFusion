@@ -55,13 +55,12 @@ function DataService(mainRef, HttpService, $firebaseArray, $firebaseObject,
     var deffered = $q.defer();
     var uid = $cookieStore.get("cloudToken");
     _self.mainRef.child("users").child(uid).once("value", function(user) {
-      //angular.forEach(user.val().roles, function(val, i) {
-      if(user.val().roles.GroupRoles) {
-        deffered.resolve(user.val().roles.GroupRoles);
-      }else {
+      if (user.val().roles.GroupRole) {
+        deffered.resolve(user.val().roles.GroupRole);
+      } else {
         deffered.resolve(user.val().roles);
       }
-      //});
+
     })
     return deffered.promise;
   }
@@ -93,15 +92,43 @@ function DataService(mainRef, HttpService, $firebaseArray, $firebaseObject,
     });
     return deffered.promise;
   }
-  _self.updateUser = function(id, user) {
+  _self.updateUser = function(id, user, oldPassword, newPassword) {
     var deffered = $q.defer();
-    _self.mainRef.child("users").child(id).update(user, function(err, res) {
-      if (err) {
-        deffered.reject("Error to update User");
-      } else {
-        deffered.resolve("User Update successfully");
-      }
-    });
+    if (oldPassword) {
+      _self.mainRef.changePassword({
+        email: user.email,
+        oldPassword: oldPassword,
+        newPassword: newPassword
+      }, function(error) {
+        if (error === null) {
+          var words = CryptoJS.enc.Utf8.parse(newPassword);
+          var base64 = CryptoJS.enc.Base64.stringify(words);
+          user.password = base64;
+          _self.mainRef.child("users").child(id).update(user, function(
+            err, res) {
+            if (err) {
+              deffered.reject("Error to update User");
+            } else {
+              deffered.resolve("User Update successfully");
+            }
+          });
+        } else {
+          deffered.reject("Wrong Old Password");
+        }
+      });
+    } else {
+      var words = CryptoJS.enc.Utf8.parse(newPassword);
+      var base64 = CryptoJS.enc.Base64.stringify(words);
+      user.password = base64;
+      _self.mainRef.child("users").child(id).update(user, function(err, res) {
+        if (err) {
+          deffered.reject("Error to update User");
+        } else {
+          deffered.resolve("User Update successfully");
+        }
+      });
+    }
+
     return deffered.promise;
   }
 

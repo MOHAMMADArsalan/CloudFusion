@@ -1,7 +1,7 @@
-<div class="row" ng-if="memberships.readOnly">
+<div class="row" ng-if="memberships.AccessAdministrator || memberships.readOnly">
       <div class="col-lg-12">
           <h1 class="page-header">Memberships</h1>
-<button type="button" class="btn btn-primary" ui-sref="dashboard.addMemberships" ng-if="memberships.readOnly"> <i class="fa fa-plus fa-lg"></i> Add Memberships</button>
+<button type="button" class="btn btn-primary" ui-sref="dashboard.addMemberships" ng-if="memberships.AccessAdministrator || memberships.readOnly"> <i class="fa fa-plus fa-lg"></i> Add Memberships</button>
       </div>
 <br />
       <div class="row">

@@ -1,11 +1,13 @@
 angular
   .module("app.FranchiseEdit", [])
 
-.controller("FranchiseEditController", ["mainRef", "DataService", "HttpService",
+.controller("FranchiseEditController", ["mainRef", "MessageService",
+  "DataService", "HttpService",
   "$stateParams", "$state", FranchiseEditController
 ]);
 
-function FranchiseEditController(mainRef, DataService, HttpService,
+function FranchiseEditController(mainRef, MessageService, DataService,
+  HttpService,
   $stateParams, $state) {
   var _self = this;
   _self.id = $stateParams.id;
@@ -18,14 +20,19 @@ function FranchiseEditController(mainRef, DataService, HttpService,
 
   _self.franchise = DataService.getOneFranchise(_self.id);
 
-  //Get All Franchises
-  //   HttpService.GetApi("/router/getOneFranchises/" + _self.id)
-  //                   .then(function(res){
-  //                   _self.franchise = res.data;
-  //                   },function(err){
-  //                        console.log(err);
-  // });
-
+  DataService.getUserAccess().then(function(res) {
+    angular.forEach(res, function(val) {
+      if (val.role == "Franchises") {
+        _self.readOnly = val.readOnly;
+        _self.write = val.write;
+        MessageService.progressbar.complete();
+        // _self.AccessUser = val.noAccess;
+      } else if (val.role === "Administrator") {
+        _self.AccessAdministrator = true;
+        MessageService.progressbar.complete();
+      }
+    })
+  })
 
   _self.EditFranchise = function(franchise) {
     delete franchise.$$conf;

@@ -11,14 +11,32 @@ function AddGroupRoleController(mainRef, DataService, MessageService,
   HttpService, $state) {
   var _self = this;
   _self.Roles = DataService.allRole();
+  DataService.getUserAccess().then(function(res) {
+    angular.forEach(res, function(val) {
+      if (val.role === "Administrator") {
+        _self.AccessAdministrator = true;
+        MessageService.progressbar.complete();
+      }
+    })
+  })
   _self.selectedRoles = [];
   _self.isRole = true;
   _self.addSelectedRole = function(role) {
+    var readOnlyRole = {
+      "Flights": "Flights",
+      "Accommodation": "Accommodation",
+      "Cars": "Cars"
+    }
     if (role === "Dashboard") {
       _self.selectedRoles.push({
         role: role,
         show: false,
         hide: false
+      })
+    } else if (role === readOnlyRole[role]) {
+      _self.selectedRoles.push({
+        role: role,
+        readOnly: false
       })
     } else {
       _self.selectedRoles.push({

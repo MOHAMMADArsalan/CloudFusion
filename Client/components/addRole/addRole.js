@@ -18,6 +18,14 @@ function AddRoleController(mainRef, DataService, MessageService, HttpService) {
   // _self.selectedArray = _self.nonSelectedRoles;
   // Add One item  from non selected
   _self.mainRef = new Firebase("https://cloudfusionv2.firebaseio.com/");
+  DataService.getUserAccess().then(function(res) {
+    angular.forEach(res, function(val) {
+      if (val.role === "Administrator") {
+        _self.AccessAdministrator = true;
+        MessageService.progressbar.complete();
+      }
+    })
+  })
   _self.deleteRole = function(id) {
     _self.mainRef.child("Roles").child(id).set(null);
     toastr.success("Role delete successfully");

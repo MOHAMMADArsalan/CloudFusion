@@ -11,12 +11,13 @@ function UserController(MessageService, HttpService, $state, DataService,
   _self.user = {};
   _self.AllUser = [];
   var roles = DataService.Role();
-  angular.forEach(roles, function(val) {
-    if (val.role === "Administrator") {
-      _self.readOnly = true;
-      _self.write = true;
-      MessageService.progressbar.complete();
-    }
+  DataService.getUserAccess().then(function(res) {
+    angular.forEach(res, function(val) {
+      if (val.role === "Administrator") {
+        _self.AccessAdministrator = true;
+        MessageService.progressbar.complete();
+      }
+    })
   })
   _self.AllUser = DataService.Users();
   _self.deleteUser = function(id) {

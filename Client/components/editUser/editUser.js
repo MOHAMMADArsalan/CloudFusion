@@ -12,7 +12,14 @@ function EditUserController(DataService, MessageService, HttpService,
   _self._id = $stateParams.id;
   _self.password = "";
   MessageService.progressbar.start();
-
+  DataService.getUserAccess().then(function(res) {
+    angular.forEach(res, function(val) {
+      if (val.role === "Administrator") {
+        _self.AccessAdministrator = true;
+        MessageService.progressbar.complete();
+      }
+    })
+  })
   DataService.getGroupRole().then(function(res) {
     _self.Roles = res;
     angular.forEach(_self.Roles, function(val) {

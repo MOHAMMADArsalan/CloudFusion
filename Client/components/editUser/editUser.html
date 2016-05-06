@@ -1,5 +1,5 @@
 
-            <div class="row">
+            <div class="row" ng-if="editUser.AccessAdministrator">
                 <div class="col-lg-12">
                     <h1 class="page-header">Edit User</h1>
                 </div>
@@ -7,7 +7,7 @@
                 <!-- /.col-lg-12 -->
             </div>
             <!-- /.row -->
-            <div class="row">
+            <div class="row" ng-if="editUser.AccessAdministrator">
 
                 <div class="col-lg-12">
                            <form role="form" name="UserForm">
@@ -123,5 +123,4 @@
                             </div>
                 <!-- /.col-lg-12 -->
             </div>
-</div>
             <!-- /.row -->

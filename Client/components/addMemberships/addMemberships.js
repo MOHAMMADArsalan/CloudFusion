@@ -13,8 +13,9 @@ function AddMembershipsController(DataService, MessageService, HttpService,
   _self.memberships = {};
   _self.SameAsPhysical = false;
   _self.memberships.repaymentYear = Year.getFullYear();
+
   MessageService.progressbar.start();
-  var roles = DataService.Role();
+
   DataService.getAllFranchiseName().then(function(res) {
     _self.AllFranchiceName = res;
     MessageService.progressbar.complete();
@@ -22,28 +23,26 @@ function AddMembershipsController(DataService, MessageService, HttpService,
     toastr.error("Error to load franchiseName")
     MessageService.progressbar.complete();
   });
+
   _self.memberships.repaymentAmount = 99.00;
   _self.memberships.language = "English";
-  angular.forEach(roles, function(val) {
-      if (val.role == "Administrator") {
-        _self.readOnly = true;
-        _self.write = true;
-        MessageService.progressbar.complete();
-      } else if (val.role === "Memberships") {
+
+  DataService.getUserAccess().then(function(res) {
+    angular.forEach(res, function(val) {
+      if (val.role == "Memberships") {
+        _self.readOnly = val.readOnly;
         _self.write = val.write;
+        MessageService.progressbar.complete();
+        // _self.AccessUser = val.noAccess;
+      } else if (val.role === "Administrator") {
+        _self.AccessAdministrator = true;
         MessageService.progressbar.complete();
       }
     })
-    // _self.memberships.franchise = "Choose...";
-    // _self.memberships.postalCountry = "Choose...";
-    // _self.memberships.accountType = "Choose...";
-    // _self.memberships.repaymentDay = "Choose...";
-    // _self.memberships.repaymentMonth = "Choose...";
-    // _self.memberships.title = "Choose...";
-    // _self.isTermBase = function() {
-    //   _self.TermBase = !_self.TermBase;
-    // }
-    // Add Members to db
+  })
+
+
+  // Add Members to db
   _self.addMember = function(memberships) {
     MessageService.progressbar.start();
     _self.disable = true;

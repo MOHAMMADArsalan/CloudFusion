@@ -14,6 +14,14 @@ function AddUserController(mainRef, DataService, MessageService, AuthService,
   _self.selectedRoles = [];
   //Get all Roles
   _self.user = {}
+  DataService.getUserAccess().then(function(res) {
+    angular.forEach(res, function(val) {
+      if (val.role === "Administrator") {
+        _self.AccessAdministrator = true;
+        MessageService.progressbar.complete();
+      }
+    })
+  })
   DataService.getGroupRole().then(function(res) {
     _self.Roles = res;
   });

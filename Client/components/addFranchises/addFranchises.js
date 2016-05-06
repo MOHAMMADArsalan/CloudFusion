@@ -12,17 +12,18 @@ function AddFranchisesController(mainRef, DataService, MessageService,
   _self.disable = false;
 
   _self.mainRef = new Firebase("https://cloudfusionv2.firebaseio.com/");
-  var roles = DataService.Role();
-  angular.forEach(roles, function(val) {
-    if (val.role == "Administrator") {
-      _self.readOnly = true;
-      _self.write = true;
-      MessageService.progressbar.complete();
-    } else if (val.role === "Franchises") {
-      _self.readOnly = val.readOnly;
-      _self.write = val.write;
-      MessageService.progressbar.complete();
-    }
+  DataService.getUserAccess().then(function(res) {
+    angular.forEach(res, function(val) {
+      if (val.role == "Franchises") {
+        _self.readOnly = val.readOnly;
+        _self.write = val.write;
+        MessageService.progressbar.complete();
+        // _self.AccessUser = val.noAccess;
+      } else if (val.role === "Administrator") {
+        _self.AccessAdministrator = true;
+        MessageService.progressbar.complete();
+      }
+    })
   })
   _self.checkSameAsPhysical = function() {
     _self.SameAsPhysical = !_self.SameAsPhysical;
